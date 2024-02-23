@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import ActivityDetailedHeader from "./ActivityDetailedHeader";
 import ActivityDetailedInfo from "./ActivityDetailedInfo";
 import ActivityDetailedChat from "./ActivityDetailedChat";
-import ActivityDetailedSidebar from "./ActivityDetailedInfo copy";
+import ActivityDetailedSidebar from "./ActivityDetailedSidebar";
 
 
 export default observer(function ActivityDetails() {
@@ -26,8 +26,8 @@ export default observer(function ActivityDetails() {
     return(
         <Grid>
             <Grid.Column width={10}>
-                <ActivityDetailedHeader activity={activi}/>
-                <ActivityDetailedInfo/>
+                <ActivityDetailedHeader activity={activity}/>
+                <ActivityDetailedInfo activity={activity}/>
                 <ActivityDetailedChat/>
             </Grid.Column>
             <Grid.Column width={6}>
