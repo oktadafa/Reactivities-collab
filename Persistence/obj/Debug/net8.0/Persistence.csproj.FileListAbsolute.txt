@@ -34,3 +34,21 @@ C:\Users\UT School\Documents\Okta Daffa Ramadani\React JS And ASP\Reactivities-c
 C:\Users\UT School\Documents\Okta Daffa Ramadani\React JS And ASP\Reactivities-collab\Persistence\obj\Debug\net8.0\Persistence.pdb
 C:\Users\UT School\Documents\Okta Daffa Ramadani\React JS And ASP\Reactivities-collab\Persistence\obj\Debug\net8.0\Persistence.genruntimeconfig.cache
 C:\Users\UT School\Documents\Okta Daffa Ramadani\React JS And ASP\Reactivities-collab\Persistence\obj\Debug\net8.0\ref\Persistence.dll
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Persistence\bin\Debug\net8.0\Persistence.deps.json
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Persistence\bin\Debug\net8.0\Persistence.runtimeconfig.json
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Persistence\bin\Debug\net8.0\Persistence.dll
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Persistence\bin\Debug\net8.0\Persistence.pdb
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Persistence\bin\Debug\net8.0\Domain.dll
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Persistence\bin\Debug\net8.0\Domain.pdb
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Persistence\obj\Debug\net8.0\Persistence.csproj.AssemblyReference.cache
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Persistence\obj\Debug\net8.0\Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Persistence\obj\Debug\net8.0\Persistence.AssemblyInfoInputs.cache
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Persistence\obj\Debug\net8.0\Persistence.AssemblyInfo.cs
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Persistence\obj\Debug\net8.0\Persistence.csproj.CoreCompileInputs.cache
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Persistence\obj\Debug\net8.0\Persistence.sourcelink.json
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Persistence\obj\Debug\net8.0\Persistence.csproj.CopyComplete
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Persistence\obj\Debug\net8.0\Persistence.dll
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Persistence\obj\Debug\net8.0\refint\Persistence.dll
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Persistence\obj\Debug\net8.0\Persistence.pdb
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Persistence\obj\Debug\net8.0\Persistence.genruntimeconfig.cache
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Persistence\obj\Debug\net8.0\ref\Persistence.dll
