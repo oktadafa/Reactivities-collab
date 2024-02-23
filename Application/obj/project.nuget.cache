@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "g8i6KXANXUZOmVSnVNzZ8wEm+ESvMIVjpHHsRUiZqOmAY3EfKhplfgpoowSbnt8dciYdHohjPblDGpZx85k4kQ==",
+  "dgSpecHash": "ypYg4vzqLDo6LnZBKt/u2+KLSvy7VkgkqHJrWJW2P435cbfMzjUnYhl775VMfHUqASih3QAH0R6yhOBlin+2yQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities\\Application\\Application.csproj",
+  "projectFilePath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\UT School\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\UT School\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

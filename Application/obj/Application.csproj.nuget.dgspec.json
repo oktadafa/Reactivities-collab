@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities\\Application\\Application.csproj": {}
+    "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Application\\Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities\\Application\\Application.csproj": {
+    "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities\\Application\\Application.csproj",
+        "projectPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\UT School\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities\\Application\\obj\\",
+        "outputPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\UT School\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,11 +28,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities\\Domain\\Domain.csproj"
+              "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities\\Persistence\\Persistence.csproj": {
-                "projectPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities\\Persistence\\Persistence.csproj"
+              "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Persistence\\Persistence.csproj": {
+                "projectPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Persistence\\Persistence.csproj"
               }
             }
           }
@@ -80,14 +80,14 @@
         }
       }
     },
-    "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities\\Domain\\Domain.csproj": {
+    "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\UT School\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\UT School\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -141,14 +141,14 @@
         }
       }
     },
-    "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities\\Persistence\\Persistence.csproj": {
+    "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Persistence\\Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities\\Persistence\\Persistence.csproj",
+        "projectPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Persistence\\Persistence.csproj",
         "packagesPath": "C:\\Users\\UT School\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities\\Persistence\\obj\\",
+        "outputPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\UT School\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -165,8 +165,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities\\Domain\\Domain.csproj"
+              "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Domain\\Domain.csproj"
               }
             }
           }

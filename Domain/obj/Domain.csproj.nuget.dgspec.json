@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities\\Domain\\Domain.csproj": {}
+    "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities\\Domain\\Domain.csproj": {
+    "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\UT School\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\UT School\\AppData\\Roaming\\NuGet\\NuGet.Config",
