@@ -24,3 +24,16 @@ C:\Users\UT School\Documents\Okta Daffa Ramadani\React JS And ASP\Reactivities-c
 C:\Users\UT School\Documents\Okta Daffa Ramadani\React JS And ASP\Reactivities-collab\Domain\obj\Debug\net8.0\refint\Domain.dll
 C:\Users\UT School\Documents\Okta Daffa Ramadani\React JS And ASP\Reactivities-collab\Domain\obj\Debug\net8.0\Domain.pdb
 C:\Users\UT School\Documents\Okta Daffa Ramadani\React JS And ASP\Reactivities-collab\Domain\obj\Debug\net8.0\ref\Domain.dll
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Domain\bin\Debug\net8.0\Domain.deps.json
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Domain\bin\Debug\net8.0\Domain.dll
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Domain\bin\Debug\net8.0\Domain.pdb
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Domain\obj\Debug\net8.0\Domain.csproj.AssemblyReference.cache
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Domain\obj\Debug\net8.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Domain\obj\Debug\net8.0\Domain.sourcelink.json
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Domain\obj\Debug\net8.0\Domain.dll
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Domain\obj\Debug\net8.0\refint\Domain.dll
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Domain\obj\Debug\net8.0\Domain.pdb
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\Domain\obj\Debug\net8.0\ref\Domain.dll

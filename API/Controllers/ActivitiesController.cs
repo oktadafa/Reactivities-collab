@@ -18,7 +18,11 @@ namespace API.Controllers
             return handleResult(await Mediator.Send(new List.Query()));
         }
 
+<<<<<<< HEAD
         
+=======
+        [AllowAnonymous]
+>>>>>>> dd90cf38a42c1e8ca2afa1a4fd69c4b7e7d53818
         [HttpGet("{id}")]
         public async Task<IActionResult> GetActivity(Guid id)
         {

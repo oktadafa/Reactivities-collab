@@ -5,5 +5,6 @@ export interface Activity {
     description: string
     category: string
     city: string
+    venue: string
   }
   
