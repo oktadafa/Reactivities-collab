@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Application.Profiles;
+using Domain;
+using Microsoft.AspNetCore.Mvc.ActionConstraints;
 
 namespace Application.DTO
 {
@@ -18,6 +21,8 @@ namespace Application.DTO
         public string City { get; set; }
 
         public string Venue { get; set; }
-        
-    }
+
+        public string HostUsername { get; set; }  
+        public ICollection<Profile> Profiles {get;set;}
+     }
 }
