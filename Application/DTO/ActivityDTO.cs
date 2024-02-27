@@ -10,6 +10,7 @@ namespace Application.DTO
 {
     public class ActivityDTO
     {
+        public Guid id { get; set; }
         public string Title { get; set; }
         
         public DateTime Date { get; set; }
@@ -22,7 +23,9 @@ namespace Application.DTO
 
         public string Venue { get; set; }
 
-        public string HostUsername { get; set; }  
-        public ICollection<Profile> Profiles {get;set;}
+        public string HostUsername { get; set; }
+    public bool isCanceled { get; set; }
+
+    public ICollection<Profile> Attendees {get;set;}
      }
 }

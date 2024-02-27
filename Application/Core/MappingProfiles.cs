@@ -12,7 +12,11 @@ namespace Application.Core
         {
             CreateMap<Activity,Activity>();
             CreateMap<ActivityDTO, Activity>();
-            CreateMap<Activity, ActivityDTO>();
+            CreateMap<Activity, ActivityDTO>().ForMember(d => d.HostUsername, o=>o.MapFrom(s=> s.Attendees.FirstOrDefault(e=> e.isHost).AppUser.UserName));
+            CreateMap<ActivityAttendee, Profiles.Profile>()
+            .ForMember(d => d.DisplayName, o => o.MapFrom(s => s.AppUser.DisplayName))
+            .ForMember(d => d.Username, o => o.MapFrom(s => s.AppUser.UserName))
+            .ForMember(d => d.Bio, o=> o.MapFrom(s=> s.AppUser.Bio));
         }
     }
 }
