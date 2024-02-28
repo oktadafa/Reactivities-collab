@@ -23,9 +23,9 @@ namespace API.Controllers
         public async Task<IActionResult> GetActivity(Guid id)
         {
             // return await _context.Activities.FindAsync(id);
-            return handleResult(await Mediator.Send(new Detail.Query { Id = id }));
+            return handleResult(await Mediator.Send(new Details.Query { Id = id }));
         }
-        [AllowAnonymous]
+        [Authorize]
         [HttpPost("tambah")]
         public async Task<IActionResult> CreateActivity([FromBody]ActivityDTO activity)
         {
@@ -33,7 +33,7 @@ namespace API.Controllers
             return Ok();
         }
 
-        [AllowAnonymous]
+        [Authorize(Policy = "IsActivyHost")]
         [HttpPut("edit/{id}")]
         public async Task<IActionResult> UpdateActivity(Guid id, [FromBody] ActivityDTO activity)
         {
@@ -46,6 +46,12 @@ namespace API.Controllers
         {
             return handleResult(await Mediator.Send(new Delete.Command { id = id }));
             
+        }
+
+        [HttpPost("{id}/attend")]
+        public async Task<IActionResult> Attend(Guid id)
+        {
+            return handleResult(await Mediator.Send(new UpdateAttendance.Command{id = id}));
         }
     }
 }

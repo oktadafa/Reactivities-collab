@@ -1,12 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
+
 using API.DTOs;
 using API.Services;
 using Domain;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -24,14 +22,15 @@ namespace API.Controllers
             _userManager = userManager;
             _tokenService = tokenService;
         }
+        
         [AllowAnonymous]
         [HttpPost("login")]
         public async Task<ActionResult<UserDTO>> Login(LoginDTO loginDTO)
         {
-            var user = await _userManager.FindByEmailAsync(loginDTO.Email);
+            var user = await _userManager.Users.Include(p => p.Photos).FirstOrDefaultAsync(x => x.Email == loginDTO.Email);
             if (user == null)
             {
-                return Unauthorized();
+                return NotFound("Username or Password Wrong");
             }
 
             var result = await _userManager.CheckPasswordAsync(user, loginDTO.Password);
@@ -78,24 +77,24 @@ namespace API.Controllers
 
         }
 
-        
+        [AllowAnonymous]
         private UserDTO CreateObject(AppUser user)
         {
 
             return new UserDTO
             {
                 DisplayName = user.DisplayName,
-                Image = null,
+                Image = user?.Photos.FirstOrDefault(x => x.IsMain)?.Url,
                 Token = _tokenService.CreateToken(user),
                 Username = user.UserName
             };
         }
 
-        [Authorize]
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<UserDTO>> GetCurrentUser()
         {
-            var user = await _userManager.FindByEmailAsync(User.FindFirstValue(ClaimTypes.Email));
+            var user = await _userManager.Users.Include(p => p.Photos).FirstOrDefaultAsync(x=>x.Email == User.FindFirstValue(ClaimTypes.Email));
             return CreateObject(user);
         }
     }
