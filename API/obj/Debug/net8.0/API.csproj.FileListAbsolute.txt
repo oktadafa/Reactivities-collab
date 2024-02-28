@@ -384,3 +384,5 @@ C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\API\obj\Debu
 C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\API\obj\Debug\net8.0\API.genruntimeconfig.cache
 C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\API\obj\Debug\net8.0\ref\API.dll
 >>>>>>> dd90cf38a42c1e8ca2afa1a4fd69c4b7e7d53818
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\API\bin\Debug\net8.0\Infrastructure.dll
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\API\bin\Debug\net8.0\Infrastructure.pdb

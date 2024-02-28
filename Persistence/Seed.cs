@@ -13,6 +13,8 @@ namespace Persistence
                 {
                     new AppUser{Email = "oktadafasampang@gmail.com", Bio = "okta daffa ramadani", DisplayName="dafa", UserName="dafasdfa"},
                     new AppUser{Email = "oktadafa@gmail.com", Bio = "okta daffa ramadani", DisplayName="okta",UserName="daffasdaa"},
+                    new AppUser{Email = "rakai@gmail.com", Bio = "Rakai Wikrama Wardhana", DisplayName="rakai",UserName="rakai"},
+
                 };
 
                 foreach (var user in users)
