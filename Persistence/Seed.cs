@@ -12,12 +12,6 @@ namespace Persistence
             {
                 var users = new List<AppUser>
                 {
-<<<<<<< HEAD
-                    new AppUser{Email = "oktadafasampang@gmail.com", Bio = "okta daffa ramadani", DisplayName="dafa", UserName="dafasdfa"},
-                    new AppUser{Email = "oktadafa@gmail.com", Bio = "okta daffa ramadani", DisplayName="okta",UserName="daffasdaa"},
-                    new AppUser{Email = "rakai@gmail.com", Bio = "Rakai Wikrama Wardhana", DisplayName="rakai",UserName="rakai"},
-
-=======
                     new AppUser
                     {
                         DisplayName = "Bob",
@@ -36,7 +30,6 @@ namespace Persistence
                         UserName = "tom",
                         Email = "tom@test.com"
                     },
->>>>>>> d55ccad311ea71b3f5831e047aba6d4aa964adce
                 };
 
                 foreach (var user in users)
