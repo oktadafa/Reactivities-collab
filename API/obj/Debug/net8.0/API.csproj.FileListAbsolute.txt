@@ -389,3 +389,5 @@ C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\API\bin\Debu
 C:\Users\UT School\Documents\Okta Daffa Ramadani\React JS And ASP\Reactivities-collab\API\bin\Debug\net8.0\CloudinaryDotNet.dll
 C:\Users\UT School\Documents\Okta Daffa Ramadani\React JS And ASP\Reactivities-collab\API\bin\Debug\net8.0\Newtonsoft.Json.dll
 >>>>>>> d55ccad311ea71b3f5831e047aba6d4aa964adce
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\API\bin\Debug\net8.0\CloudinaryDotNet.dll
+C:\AABelajar\dotnet-ke-react\Reactivies2\Collab\Reactivities-collab\API\bin\Debug\net8.0\Newtonsoft.Json.dll
