@@ -11,13 +11,7 @@ namespace Persistence
             if (!userManager.Users.Any() && !context.Activities.Any())
             {
                 var users = new List<AppUser>
-                {
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 1572b1f6a1e6beeb7f24f380c9d87f0894a84158
-                    new AppUser
+                {    new AppUser
                     {
                         DisplayName = "Bob",
                         UserName = "bob",
@@ -34,12 +28,7 @@ namespace Persistence
                         DisplayName = "Tom",
                         UserName = "tom",
                         Email = "tom@test.com"
-                    },
-<<<<<<< HEAD
-
-=======
->>>>>>> 1572b1f6a1e6beeb7f24f380c9d87f0894a84158
-                };
+                    }, };
 
                 foreach (var user in users)
                 {

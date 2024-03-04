@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\API\\API.csproj": {}
+    "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\API\\API.csproj": {
+    "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\API\\API.csproj",
+        "projectUniqueName": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\API\\API.csproj",
-        "packagesPath": "C:\\Users\\UT School\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\API\\obj\\",
+        "projectPath": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\API.csproj",
+        "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
+        "outputPath": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\UT School\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,17 +26,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Application\\Application.csproj"
+              "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\Application\\Application.csproj": {
+                "projectPath": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\Application\\Application.csproj"
               },
-              "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Infrastructure\\Infrastructure.csproj"
+              "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -93,17 +98,21 @@
         }
       }
     },
-    "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Application\\Application.csproj": {
+    "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\UT School\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Application\\obj\\",
+        "projectPath": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
+        "outputPath": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\Application\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\UT School\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -111,17 +120,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Domain\\Domain.csproj"
+              "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Persistence\\Persistence.csproj": {
-                "projectPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Persistence\\Persistence.csproj"
+              "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\Persistence\\Persistence.csproj": {
+                "projectPath": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\Persistence\\Persistence.csproj"
               }
             }
           }
@@ -169,17 +179,21 @@
         }
       }
     },
-    "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Domain\\Domain.csproj": {
+    "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\UT School\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Domain\\obj\\",
+        "projectPath": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
+        "outputPath": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\UT School\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -187,6 +201,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -230,17 +245,21 @@
         }
       }
     },
-    "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\UT School\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Infrastructure\\obj\\",
+        "projectPath": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
+        "outputPath": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\UT School\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -248,14 +267,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Application\\Application.csproj"
+              "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\Application\\Application.csproj": {
+                "projectPath": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\Application\\Application.csproj"
               }
             }
           }
@@ -295,17 +315,21 @@
         }
       }
     },
-    "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Persistence\\Persistence.csproj": {
+    "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\Persistence\\Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Persistence\\Persistence.csproj",
-        "packagesPath": "C:\\Users\\UT School\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Persistence\\obj\\",
+        "projectPath": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\Persistence\\Persistence.csproj",
+        "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
+        "outputPath": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\UT School\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -313,14 +337,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\Domain\\Domain.csproj"
+              "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\Domain\\Domain.csproj"
               }
             }
           }

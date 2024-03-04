@@ -5,10 +5,11 @@ export interface IProfile {
     displayName: string;
     image?: string;
     bio?: string;
+    photo?: Photo[];
 }
 
 export class Profile implements IProfile {
-    static image: string;
+    // static image: string;
     constructor(user : User) {
         this.username = user.username;
         this.displayName = user.displayName;
@@ -19,4 +20,12 @@ export class Profile implements IProfile {
     displayName: string;
     image?: string;
     bio?: string;
+    photos?: Photo[];
+
+}
+
+export interface Photo {
+    id: string;
+    url: string;
+    isMain: boolean;
 }
