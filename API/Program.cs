@@ -1,8 +1,6 @@
 using API.Extensions;
 using API.Middleware;
 using API.SignalR;
-using Application.Activities;
-using Application.Core;
 using Domain;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
