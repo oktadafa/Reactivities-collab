@@ -12,13 +12,23 @@ namespace Application.Core
         public MappingProfiles()
         {
             CreateMap<Activity,Activity>();
+            
             CreateMap<ActivityDTO, Activity>();
-            CreateMap<Activity, ActivityDTO>().ForMember(d => d.HostUsername, o=>o.MapFrom(s=> s.Attendees.FirstOrDefault(e=> e.isHost).AppUser.UserName));
+            
+            CreateMap<Activity, ActivityDTO>()
+            .ForMember(d => d.HostUsername, o=>o.MapFrom(s=> s.Attendees.FirstOrDefault(e=> e.isHost).AppUser.UserName));
+            
             CreateMap<ActivityAttendee,AttendeeDto>()
             .ForMember(d => d.DisplayName, o => o.MapFrom(s => s.AppUser.DisplayName))
             .ForMember(d => d.Username, o => o.MapFrom(s => s.AppUser.UserName))
-            .ForMember(d => d.Bio, o=> o.MapFrom(s=> s.AppUser.Bio)).ForMember(d => d.Image, o => o.MapFrom(s => s.AppUser.Photos.FirstOrDefault(x => x.IsMain).Url)); ;
-            CreateMap<AppUser, Profiles.Profile>().ForMember(d => d.Image, o => o.MapFrom(s => s.Photos.FirstOrDefault(x => x.IsMain).Url));
+            .ForMember(d => d.Bio, o=> o.MapFrom(s=> s.AppUser.Bio))
+            .ForMember(d => d.Image, o => o.MapFrom(s => s.AppUser.Photos.FirstOrDefault(x => x.IsMain).Url));
+            
+            CreateMap<AppUser, Profiles.Profile>()
+            .ForMember(d => d.Image, o => o.MapFrom(s => s.Photos.FirstOrDefault(x => x.IsMain).Url))
+            .ForMember(d => d.FollowersCount, o => o.MapFrom(s => s.Followers.Count))
+            .ForMember(d => d.FollowingCount, o => o.MapFrom(s => s.Followings.Count));
+            
             CreateMap<Comment,CommentDto>()
             .ForMember(d => d.DisplayName, o => o.MapFrom(s => s.Author.DisplayName))
             .ForMember(d => d.Username, o => o.MapFrom(s => s.Author.UserName))

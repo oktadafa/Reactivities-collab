@@ -68,7 +68,6 @@ namespace API.Controllers
             };
 
             var result = await _userManager.CreateAsync(user, register.Password);
-
             if (result.Succeeded)
             {
                 return CreateObject(user);
@@ -76,15 +75,13 @@ namespace API.Controllers
             return BadRequest(result.Errors);
 
         }
-
-        [AllowAnonymous]
         private UserDTO CreateObject(AppUser user)
         {
 
             return new UserDTO
             {
                 DisplayName = user.DisplayName,
-                Image = user?.Photos.FirstOrDefault(x => x.IsMain)?.Url,
+                Image = user.Photos?.FirstOrDefault(x => x.IsMain)?.Url,
                 Token = _tokenService.CreateToken(user),
                 Username = user.UserName
             };
