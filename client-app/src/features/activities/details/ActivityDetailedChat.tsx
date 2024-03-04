@@ -32,12 +32,12 @@ export default observer(function ActivityDetailedChat({activityId}: Props) {
             </Segment>
             <Segment attached>
                 <Comment.Group>
-                    {commentStore.Comments.map(comment =>(
+                    {commentStore.comments.map(comment =>(
                         <Comment key={comment.id}>
                         <Comment.Avatar src={comment.image ||'/assets/user.png'}/>
                         <Comment.Content>
                             <Comment.Author as={ Link } to={`/profile/${comment.username}`}>
-                                {comment.username}/
+                                {comment.username}
                             </Comment.Author>
                             <Comment.Metadata>
                                 <div>{comment.createAt}</div>

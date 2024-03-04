@@ -5,7 +5,6 @@ import { v4 as uuid } from "uuid";
 import { format } from "date-fns";
 import { store } from "./store";
 import { Profile } from "../models/profile";
-import { UPDATE } from "mobx/dist/internal";
 
 export default class ActivityStore {
     // activities: Activity[] = []

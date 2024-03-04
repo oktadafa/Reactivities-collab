@@ -255,5 +255,9 @@ namespace Persistence
                 await context.SaveChangesAsync();
             }
         }
+
+        public class UserManager<T>
+        {
+        }
     }
 }
