@@ -256,8 +256,5 @@ namespace Persistence
             }
         }
 
-        public class UserManager<T>
-        {
-        }
     }
 }

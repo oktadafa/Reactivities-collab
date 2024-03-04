@@ -14,7 +14,7 @@ export default class CommentStore{
     createHubConnection = (activityId: string) => {
             if (store.activityStore.selectedActivity) {
                 this.hubConnection = new HubConnectionBuilder()
-                .withUrl('http://localhost:5000/chat?activityId=>' + activityId, {
+                .withUrl('http://localhost:5000/chat?activityId=' + activityId, {
                     accessTokenFactory: () => store.userStore.user?.token as string
                 })
             
@@ -25,28 +25,37 @@ export default class CommentStore{
             this.hubConnection.start().catch(error => console.log('Error establishing the connection: ', error));
 
             this.hubConnection.on('LoadComments', (comments: ChatComment[]) => {
-                runInAction(() =>  this.comments = comments);    
+                runInAction(() =>  {
+                    comments.forEach(comment => {
+                        comment.CreatedAt = new Date(comment.CreatedAt);
+                    })
+                    this.comments = comments
+                });    
             })
             this.hubConnection.on('ReceiveComment', (comment: ChatComment) => {
-                runInAction(() => this.comments.push(comment));
+                runInAction(() => {
+                    comment.CreatedAt = new Date(comment.CreatedAt)
+                    this.comments.push(comment)
+                });
             })
         }
     }
 
     stopHubConnection = () => {
         this.hubConnection?.stop().catch(error => console.log('Error stopping the connection: ', error));
-    }
+    } 
 
     clearComments = () => {
         this.comments = [];
         this.stopHubConnection();
     }
 
-    addComments = async (values: any) => {/*{body: string, activityId?: string} */ 
+    addComment = async (values: any) => { 
         values.activityId = store.activityStore.selectedActivity?.id;
         try {
             await this.hubConnection?.invoke('SendComment', values);
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
-    }}
+    }
+}  

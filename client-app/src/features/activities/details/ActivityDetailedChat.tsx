@@ -1,8 +1,13 @@
 import { observer } from 'mobx-react-lite'
 import React, { useEffect } from 'react'
-import {Segment, Header, Comment, Form, Button} from 'semantic-ui-react'
+import {Segment, Header, Comment, Button, Loader} from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store';
 import { Link } from 'react-router-dom';
+import { Formik, Form, Field, FieldProps } from 'formik';
+import { values } from 'mobx';
+import MyTextArea from '../../../app/common/form/MyTestArea';
+import * as Yup from 'yup';
+import {  formatDistanceToNow } from 'date-fns';
 
 interface Props {
     activityId: string;
@@ -30,32 +35,56 @@ export default observer(function ActivityDetailedChat({activityId}: Props) {
             >
                 <Header>Chat about this event</Header>
             </Segment>
-            <Segment attached>
+            <Segment attached clearing>
                 <Comment.Group>
                     {commentStore.comments.map(comment =>(
                         <Comment key={comment.id}>
                         <Comment.Avatar src={comment.image ||'/assets/user.png'}/>
                         <Comment.Content>
                             <Comment.Author as={ Link } to={`/profile/${comment.username}`}>
-                                {comment.username}
+                                {comment.displayName}
                             </Comment.Author>
                             <Comment.Metadata>
-                                <div>{comment.createAt}</div>
+                            {formatDistanceToNow(new Date(comment.CreatedAt))}
                             </Comment.Metadata>
-                            <Comment.Text>{comment.body}</Comment.Text>
+                            <Comment.Text style={{whiteSpace: 'pre-wrap'}}>{comment.body}</Comment.Text>
                         </Comment.Content>
                     </Comment>
                     ))}
 
-                    <Form reply>
-                        <Form.TextArea/>
-                        <Button
-                            content='Add Reply'
-                            labelPosition='left'
-                            icon='edit'
-                            primary
-                        />
-                    </Form>
+                    <Formik
+                        onSubmit={(values, { resetForm }) => 
+                            commentStore.addComment(values).then(() => resetForm())}
+                        initialValues={Yup.object({
+                            body: Yup.string().required()
+                        })}
+                        >
+                        {({isSubmitting, isValid, handleSubmit}) => (
+                            <Form className='ui form'>
+                            <Field name='body' >
+                                {(props: FieldProps) => (
+                                    <div style={{position: 'relative'}}>
+                                        <Loader active={isSubmitting}/>
+                                        <textarea
+                                            placeholder='Enter your comment to submit, SHIFT + enter for new line'
+                                            rows={2}
+                                            {...props.field}
+                                            onKeyDown={e => {
+                                                if (e.key === 'Enter' && e.shiftKey) { 
+                                                    return;
+                                                }
+                                                if (e.key === 'Enter' && !e.shiftKey) {
+                                                    e.preventDefault();
+                                                    isValid && handleSubmit();
+                                                }
+                                            }}
+                                      />
+                                   </div>
+                                )}
+                            </Field>
+                        </Form>
+                        )}
+                    </Formik>   
                 </Comment.Group>
             </Segment>
         </>
