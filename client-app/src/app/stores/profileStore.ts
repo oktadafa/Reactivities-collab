@@ -78,7 +78,7 @@ export default class ProfileStore {
     deletePhoto = async (photo: Photo) => {
         this.loading = true;
         try {
-            await agent.Profiles.DeletePhoto(photo.id)
+            await agent.Profiles.deletePhoto(photo.id)
             runInAction(() => {
                 if (this.profile) {
                     this.profile.photos = this.profile.photos?.filter(p => p.id !== photo.id);
@@ -87,7 +87,7 @@ export default class ProfileStore {
             })
         } catch (error) {
             runInAction(() => this.loading = false);
-            console.log(error)
+            console.log(error);
         }
     }
 }
