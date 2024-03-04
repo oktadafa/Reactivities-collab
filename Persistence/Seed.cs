@@ -11,7 +11,8 @@ namespace Persistence
             if (!userManager.Users.Any() && !context.Activities.Any())
             {
                 var users = new List<AppUser>
-                {    new AppUser
+
+                {    new AppUser 
                     {
                         DisplayName = "Bob",
                         UserName = "bob",
@@ -28,6 +29,7 @@ namespace Persistence
                         DisplayName = "Tom",
                         UserName = "tom",
                         Email = "tom@test.com"
+
                     }, };
 
                 foreach (var user in users)

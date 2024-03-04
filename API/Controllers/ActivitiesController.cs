@@ -4,7 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 using Application.Activities;
 using Application.DTO;
-using Microsoft.AspNetCore.Authorization; // Pastikan ini sesuai dengan namespace definisi 'DataContext'
+using Microsoft.AspNetCore.Authorization;
+using Application.Core; // Pastikan ini sesuai dengan namespace definisi 'DataContext'
 
 
 namespace API.Controllers
@@ -13,9 +14,9 @@ namespace API.Controllers
     {
         [AllowAnonymous]
         [HttpGet] //api/activities
-        public async Task<IActionResult> GetActivities()
+        public async Task<IActionResult> GetActivities([FromQuery]ActivityParams paggingParams)
         {
-            return handleResult(await Mediator.Send(new List.Query()));
+            return handlePageResult(await Mediator.Send(new List.Query{Params = paggingParams}));
         }
 
         [AllowAnonymous]
