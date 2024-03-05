@@ -1,6 +1,6 @@
 export default interface ChatComment {
     id: number,
-    createAt: string,
+    createAt: Date,
     body: string;
     username: string;
     displayName: string;

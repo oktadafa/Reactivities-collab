@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import {Segment, Header, Comment, Form, Button} from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store';
 import { Link } from 'react-router-dom';
+import { formatDistanceToNow } from 'date-fns';
 
 interface Props {
     activityId: string;
@@ -40,7 +41,7 @@ export default observer(function ActivityDetailedChat({activityId}: Props) {
                                 {comment.username}/
                             </Comment.Author>
                             <Comment.Metadata>
-                                <div>{comment.createAt}</div>
+                                <div>{formatDistanceToNow(comment.createAt)}</div>
                             </Comment.Metadata>
                             <Comment.Text>{comment.body}</Comment.Text>
                         </Comment.Content>
