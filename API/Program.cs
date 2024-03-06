@@ -15,6 +15,7 @@ var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 app.UseMiddleware<ExceptionMidleware>();
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -25,10 +26,15 @@ app.UseHttpsRedirection();
 
 app.UseCors("CorsPolicy");
 
+app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseDefaultFiles();
+app.UseStaticFiles();
 
 app.MapControllers();
 app.MapHub<ChatHub>("/chat");
+
 using var scope = app.Services.CreateScope();
 var services  = scope.ServiceProvider;
 
