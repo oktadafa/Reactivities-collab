@@ -1,5 +1,4 @@
 import { makeAutoObservable } from "mobx"
-import { boolean } from "yup";
 
 interface Modal {
     open: boolean;

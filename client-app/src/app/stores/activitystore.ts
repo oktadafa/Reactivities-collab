@@ -1,4 +1,4 @@
-import { makeAutoObservable, reaction, runInAction, values } from "mobx"
+import { makeAutoObservable, reaction, runInAction } from "mobx"
 import { Activity, ActivityFormValues } from "../models/activity";
 import agent from "../api/agent";
 import { v4 as uuid } from "uuid";
@@ -37,7 +37,7 @@ export default class ActivityStore {
 
     setPredicate = (predicate: string, value: string | Date) => {
         const resetPredicate = () => {
-            this.predicate.forEach((value, key) => {
+            this.predicate.forEach((/*value,*/ key) => {
                 if (key !== 'startDate') this.predicate.delete(key);
             })
         }
