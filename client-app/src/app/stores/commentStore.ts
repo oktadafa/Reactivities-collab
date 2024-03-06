@@ -2,6 +2,7 @@ import { HubConnection, HubConnectionBuilder, LogLevel } from "@microsoft/signal
 import ChatComment from "../models/comment";
 import { makeAutoObservable, runInAction } from "mobx";
 import { store } from "./store";
+import { log } from "console";
 
 export default class CommentStore{
     comments: ChatComment[] = [];
@@ -26,13 +27,18 @@ export default class CommentStore{
 
             this.hubConnection.on('LoadComments', (comments: ChatComment[]) => {
                 runInAction(() =>  {
+<<<<<<< HEAD
                     comments.forEach(comment => {
+=======
+                    comments.forEach(comment => {                        
+>>>>>>> 5cacb3fa8ab2e7e9e200438a14da19a1ac247be7
                         comment.createdAt = new Date(comment.createdAt);
                     })
                     this.comments = comments
                 });    
             })
             this.hubConnection.on('ReceiveComment', (comment: ChatComment) => {
+                
                 runInAction(() => {
                     comment.createdAt = new Date(comment.createdAt)
                     this.comments.push(comment)
@@ -53,6 +59,8 @@ export default class CommentStore{
     addComment = async (values: any) => { 
         values.activityId = store.activityStore.selectedActivity?.id;
         try {
+            console.log(values);
+            
             await this.hubConnection?.invoke('SendComment', values);
         } catch (error) {
             console.log(error);
