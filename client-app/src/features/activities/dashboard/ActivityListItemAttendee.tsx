@@ -2,13 +2,18 @@ import { observer } from "mobx-react-lite";
 import { List, Image, Popup } from "semantic-ui-react";
 import { Profile } from "../../../app/models/profile";
 import { Link } from "react-router-dom";
-import ProfileCard from "../../profile/ProfileCard";
+import ProfileCard from "../../profiles/ProfileCard";
 
 export interface Props {
     attendees: Profile[];
 }
 
-export default observer(function ActivityListItemAttendee({attendees}: Props) {
+export default observer(function ActivityListItemAttendee({ attendees }: Props) {
+const styles = {
+    borderColor: 'orange',
+    borderwidth: 3
+}
+
     return (
         <List horizontal>
             {attendees.map(attendee => (
@@ -19,7 +24,9 @@ export default observer(function ActivityListItemAttendee({attendees}: Props) {
                         <List.Item key={attendee.username} as={ Link } to={`/profiles/${attendee.username}`}>
                             <Image size="mini" 
                             circular 
-                            src={attendee.image || '/assets/user.png'} />
+                            src={attendee.image || '/assets/user.png'} 
+                            bordered
+                            style={attendee.following ? styles: null}/>
                         </List.Item>
                     }
                 >
@@ -32,21 +39,3 @@ export default observer(function ActivityListItemAttendee({attendees}: Props) {
         </List>
     );
   })
-            {/* <List.Item>
-                <Image size="mini" circular src="/assets/user.png" />
-            </List.Item>
-            <List.Item>
-            <Image size="mini" circular src="/assets/user.png" />                
-            </List.Item>
-            <List.Item>
-            <Image size="mini" circular src="/assets/user.png" />
-            </List.Item>      */}
-    
-    
-    
-    
-    
-    
-    {/* <List.Content>
-<List.Header>{attandee}</List.Header> */}
-// </List.Content>
