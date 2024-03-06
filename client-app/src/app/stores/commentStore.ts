@@ -27,7 +27,11 @@ export default class CommentStore{
 
             this.hubConnection.on('LoadComments', (comments: ChatComment[]) => {
                 runInAction(() =>  {
+<<<<<<< HEAD
+                    comments.forEach(comment => {
+=======
                     comments.forEach(comment => {                        
+>>>>>>> 5cacb3fa8ab2e7e9e200438a14da19a1ac247be7
                         comment.createdAt = new Date(comment.createdAt);
                     })
                     this.comments = comments
@@ -62,4 +66,5 @@ export default class CommentStore{
             console.log(error);
         }
     }
+    
 }  
