@@ -1,9 +1,7 @@
-import React, { SyntheticEvent, useEffect } from "react";
+import { SyntheticEvent, useEffect } from "react";
 import { observer } from "mobx-react-lite";
-import ProfileStore from "../../app/stores/profileStore";
 import { useStore } from "../../app/stores/store";
-import { Card, Grid, Header, Tab, TabPane, TabProps, Image } from "semantic-ui-react";
-import { Activity } from "../../app/models/activity";
+import { Card, Grid, Header, Tab, TabProps, Image } from "semantic-ui-react";
 import { userActivity } from "../../app/models/profile";
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
@@ -27,7 +25,7 @@ export default observer(function ProfileActivities() {
         loadUserActiviies(profile!.username);
     }, [loadUserActiviies, profile]);
 
-    const handleTabChange = (e: SyntheticEvent, data: TabProps) => {
+    const handleTabChange = (_: SyntheticEvent, data: TabProps) => {
         loadUserActiviies(profile!.username, panes[data.activeIndex as number].pane.key);
     };
 

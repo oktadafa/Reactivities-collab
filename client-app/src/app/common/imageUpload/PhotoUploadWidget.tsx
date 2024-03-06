@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { Button, ButtonOr, Grid, Header, Image } from "semantic-ui-react";
+import { useEffect, useState } from "react";
+import { Button, Grid, Header } from "semantic-ui-react";
 import PhotoWidgetDropzone from "./PhotoWidgetDropzone";
-import { Cropper } from "react-cropper";
 import PhotoWidgetCropper from "./PhotoWidgetCropper";
-import { boolean } from "yup";
 
 
 interface Props {

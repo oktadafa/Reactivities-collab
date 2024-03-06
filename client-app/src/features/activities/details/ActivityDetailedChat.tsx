@@ -1,12 +1,10 @@
 import { observer } from 'mobx-react-lite'
-import React, { useEffect } from 'react'
-import {Segment, Header, Comment, Button, Loader} from 'semantic-ui-react'
+import { useEffect } from 'react'
+import {Segment, Header, Comment, Loader} from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store';
 import { Link } from 'react-router-dom';
 
 import { Formik, Form, Field, FieldProps } from 'formik';
-import { values } from 'mobx';
-import MyTextArea from '../../../app/common/form/MyTestArea';
 import * as Yup from 'yup';
 import {  formatDistanceToNow } from 'date-fns';
 
@@ -56,16 +54,8 @@ export default observer(function ActivityDetailedChat({activityId}: Props) {
                 </Comment.Content>
               </Comment>
             ))}
-
-            <Formik
-              onSubmit={(values, { resetForm }) =>
-                commentStore.addComment(values).then(() => resetForm())
-              }
-              initialValues={Yup.object({
-                body: Yup.string().required(),
-              })}
-            >
-<<<<<<< HEAD
+          </Comment.Group>
+              
                 <Header>Chat about this event</Header>
             </Segment>
             <Segment attached clearing>
@@ -121,38 +111,6 @@ export default observer(function ActivityDetailedChat({activityId}: Props) {
                 </Comment.Group>
             </Segment>
         </>
+  );
 
-    )
-=======
-              {({ isSubmitting, isValid, handleSubmit }) => (
-                <Form className="ui form">
-                  <Field name="body">
-                    {(props: FieldProps) => (
-                      <div style={{ position: "relative" }}>
-                        <Loader active={isSubmitting} />
-                        <textarea
-                          placeholder="Enter your comment to submit, SHIFT + enter for new line"
-                          rows={2}
-                          {...props.field}
-                          onKeyDown={(e) => {
-                            if (e.key === "Enter" && e.shiftKey) {
-                              return;
-                            }
-                            if (e.key === "Enter" && !e.shiftKey) {
-                              e.preventDefault();
-                              isValid && handleSubmit();
-                            }
-                          }}
-                        />
-                      </div>
-                    )}
-                  </Field>
-                </Form>
-              )}
-            </Formik>
-          </Comment.Group>
-        </Segment>
-      </>
-    );
->>>>>>> 5cacb3fa8ab2e7e9e200438a14da19a1ac247be7
 })
