@@ -19,7 +19,7 @@ namespace API.Controllers
             return handlePageResult(await Mediator.Send(new List.Query{Params = paggingParams}));
         }
 
-        [AllowAnonymous]
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetActivity(Guid id)
         {
@@ -41,14 +41,14 @@ namespace API.Controllers
             return handleResult(await Mediator.Send(new Edit.Command { activity = activity, id = id }));
         }
 
-        [AllowAnonymous]
+        [Authorize(Policy = "IsActivyHost")]
         [HttpDelete("delete/{id}")]
         public async Task<IActionResult> DeleteActivity(Guid id)
         {
             return handleResult(await Mediator.Send(new Delete.Command { id = id }));
             
         }
-
+        [Authorize]
         [HttpPost("{id}/attend")]
         public async Task<IActionResult> Attend(Guid id)
         {
