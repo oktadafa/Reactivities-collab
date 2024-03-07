@@ -18,6 +18,8 @@ namespace Domain
 
         public bool isCanceled { get; set; }
 
+        public bool isPrivate {get;set;} = false;
+
         public ICollection<ActivityAttendee> Attendees{get;set;} = new List<ActivityAttendee>();
         public ICollection<Comment> Comments { get; set; } = new List<Comment>();
     }

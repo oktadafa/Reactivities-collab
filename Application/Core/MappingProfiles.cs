@@ -44,6 +44,7 @@ namespace Application.Core
             .ForMember(x => x.Title, o => o.MapFrom(x => x.Activity.Title))
             .ForMember(x => x.HostUsername, o => o.MapFrom(p => p.Activity.Attendees.FirstOrDefault(u => u.isHost).AppUser.UserName))
             .ForMember(o => o.Date,y => y.MapFrom(p => p.Activity.Date))
+                .ForMember(d => d.isPrivate, o => o.MapFrom(s => s.Activity.isPrivate))
             .ForMember(t => t.Category, o => o.MapFrom(s => s.Activity.Category));
 
         }

@@ -9,7 +9,8 @@ import { format } from "date-fns";
 const panes = [
     { menuItem: 'Future Events', pane: {key: 'future' } },
     {menuItem: 'Past Events', pane: {key: 'past'} },
-    {menuItem: 'Hosting,', pane: {key: 'hosting'} }
+    {menuItem: 'Hosting,', pane: {key: 'hosting'} },
+    {menuItem: 'Private', pane: {key: 'private'}}
 ];
 
 export default observer(function ProfileActivities() {

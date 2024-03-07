@@ -18,11 +18,13 @@ const activityImageTextStyle = {
     color: 'white'
 };
 
+
 interface Props {
     activity: Activity
 }
 
 export default observer (function ActivityDetailedHeader({activity}: Props) {
+
     const {activityStore: {updateAttendance, loading, cancelActivityToggle}} = useStore();
     return (
         <Segment.Group>

@@ -8,6 +8,7 @@ export interface IActivity {
     category: string;
     city: string;
     venue: string;
+    isPrivate : boolean;
     hostUsername: string;
     isCancelled: boolean;
     isGoing: boolean;
@@ -21,6 +22,7 @@ export interface IActivity {
       this.id = init.id!;
       this.title  = init.title!;
       this.date = init.date!;
+      this.isPrivate = init.isPrivate!;
       this.category = init.category!;
       this.description = init.description!;
       this.venue = init.venue!;
@@ -32,6 +34,7 @@ export interface IActivity {
     date: Date | null;
     description: string;
     category: string;
+    isPrivate: boolean;
     city: string;
     venue: string;
     hostUsername: string = ''
@@ -44,24 +47,24 @@ export interface IActivity {
   
   export class ActivityFormValues {
     id?: string = undefined;
-    title: string = ''
-    category: string = ''
-    description: string = ''
+    title: string = "";
+    category: string = "";
+    description: string = "";
     date: Date | null = null;
-    city: string = ''
-    venue: string = ''
+    city: string = "";
+    venue: string = "";
+    isPrivate: boolean = false;
 
-  
-
-  constructor(activity?: ActivityFormValues) {
-    if (activity) {
-      this.id = activity.id;
-      this.title = activity.title;
-      this.category = activity.category;
-      this.description = activity.description;
-      this.date = activity.date;
-      this.venue = activity.venue;
-      this.city = activity.city;
+    constructor(activity?: ActivityFormValues) {
+      if (activity) {
+        this.id = activity.id;
+        this.title = activity.title;
+        this.category = activity.category;
+        this.description = activity.description;
+        this.date = activity.date;
+        this.venue = activity.venue;
+        this.city = activity.city;
+        this.isPrivate = activity.isPrivate;
+      }
     }
   }
-}

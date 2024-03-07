@@ -44,6 +44,9 @@ namespace Application.Profiles
                         case "past":
                             query = query.Where(a => a.Date < DateTime.UtcNow);
                             break;
+                        case "private":
+                            query = query.Where(a => a.isPrivate == true);
+                            break;
                         default :
                             query = query.Where(a => a.Date > DateTime.UtcNow);
                             break;

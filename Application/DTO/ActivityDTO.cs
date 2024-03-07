@@ -27,6 +27,8 @@ namespace Application.DTO
         public string HostUsername { get; set; }
     public bool isCanceled { get; set; }
 
+    public bool isPrivate {get;set;} = false;
+
     public ICollection<AttendeeDto> Attendees {get;set;}
      }
 }
