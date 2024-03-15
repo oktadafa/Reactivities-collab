@@ -10,11 +10,10 @@ const panes = [
     { menuItem: 'Future Events', pane: {key: 'future' } },
     {menuItem: 'Past Events', pane: {key: 'past'} },
     {menuItem: 'Hosting,', pane: {key: 'hosting'} },
-    {menuItem: 'Private', pane: {key: 'private'}}
 ];
 
 export default observer(function ProfileActivities() {
-    const { profileStore } = useStore();
+    const { profileStore, userStore } = useStore();
     const {
         loadUserActiviies,
         profile,
@@ -22,10 +21,19 @@ export default observer(function ProfileActivities() {
         userActivities,
     } = profileStore;
 
+    const {user} = userStore
     useEffect(() => {
         loadUserActiviies(profile!.username);
     }, [loadUserActiviies, profile]);
+    const privatePanes =     {menuItem: 'Private', pane: {key: 'private'}}
 
+    if (user?.username == profile?.username) {
+       const find = panes.find(x => x.menuItem == privatePanes.menuItem)
+       if (find == null) {
+            panes.push(privatePanes)
+       }
+    }
+        
     const handleTabChange = (_: SyntheticEvent, data: TabProps) => {
         loadUserActiviies(profile!.username, panes[data.activeIndex as number].pane.key);
     };

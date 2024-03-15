@@ -174,6 +174,36 @@ namespace Persistence.Migrations
                     b.ToTable("Comments");
                 });
 
+            modelBuilder.Entity("Domain.Notifikasi", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("From")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Message")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ToId")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ToId");
+
+                    b.ToTable("Notifications");
+                });
+
             modelBuilder.Entity("Domain.Photo", b =>
                 {
                     b.Property<string>("id")
@@ -377,6 +407,16 @@ namespace Persistence.Migrations
                     b.Navigation("Author");
                 });
 
+            modelBuilder.Entity("Domain.Notifikasi", b =>
+                {
+                    b.HasOne("Domain.AppUser", "To")
+                        .WithMany("Notifications")
+                        .HasForeignKey("ToId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("To");
+                });
+
             modelBuilder.Entity("Domain.Photo", b =>
                 {
                     b.HasOne("Domain.AppUser", null)
@@ -468,6 +508,8 @@ namespace Persistence.Migrations
                     b.Navigation("Followers");
 
                     b.Navigation("Followings");
+
+                    b.Navigation("Notifications");
 
                     b.Navigation("Photos");
                 });

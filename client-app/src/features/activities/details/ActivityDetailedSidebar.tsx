@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { observer } from 'mobx-react-lite'
 import { Activity } from '../../../app/models/activity'
 import { useStore } from '../../../app/stores/store';
+import { useState } from 'react';
 
 interface Props {
     activity: Activity;
@@ -10,7 +11,7 @@ interface Props {
 
 export default observer(function ActivityDetailedSidebar ({activity: {attendees, host}}: Props) {
     const{userStore, activityStore} = useStore()
-    const {kickUserActivity, loading} = activityStore
+    const {kickUserActivity, loadingKick} = activityStore
     const {user} = userStore
     if (!attendees) return null;
         
@@ -43,19 +44,18 @@ return (
                             <Item.Header as='h3'>
                                 <Link to={`/profiles/${attendee.username}`}>{attendee.displayName}</Link>
                             </Item.Header>
-                            {attendee.following &&   
+                            {attendee.following && 
                             <Item.Extra style={{ color: 'orange' }}>Following</Item.Extra>}
                             {
                                 attendee.username !== host?.username && user?.username == host?.username &&
                             <Button content="Kick" color='red' style={{position:'absolute', right:0}} onClick={() => {
                                kickUserActivity(attendee.username)
-                            }} loading={loading}/>
+                            }} loading={loadingKick} name={attendee.username}/>
                             }
                         </Item.Content>
                     </Item>
                     ))}
                     
-
                 </List>
             </Segment>
         </>

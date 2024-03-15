@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
+
 using Application.Core;
 using Application.Interface;
 using AutoMapper;
@@ -46,7 +42,6 @@ namespace Application.Comments
                 var activity = await _context.Activities.FindAsync(request.ActivityId);
                 if(activity is null) return null;
                 var user =  await _context.Users.Include(p=> p.Photos).SingleOrDefaultAsync(x =>x.UserName == _userAccessor.GetUsername());
- 
                 var coment  = new Comment {
                     Activity = activity,
                     Author = user,

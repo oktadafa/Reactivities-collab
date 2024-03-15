@@ -2,7 +2,7 @@ import { observer } from "mobx-react-lite";
 import { Profile } from "../../app/models/profile";
 import { Reveal, Button } from "semantic-ui-react";
 import { useStore } from "../../app/stores/store";
-import { SyntheticEvent } from "react";
+import { SyntheticEvent, useEffect } from "react";
 
 interface Props {
     profile: Profile;
@@ -13,6 +13,7 @@ export default observer(function FollowingButton({profile}: Props) {
 
     const {profileStore, userStore} = useStore();
     const {updateFollowing, loading} = profileStore;
+
 
     if(userStore.user?.username === profile.username) return null;
 
