@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import {Button, Header, Item, Segment, Image, Label, Modal, ModalHeader, ModalContent, ModalActions, Loader, Dimmer, List, ItemContent} from 'semantic-ui-react'
+import {Button, Header, Item, Segment, Image, Label, Modal, ModalHeader, ModalContent, ModalActions,  List} from 'semantic-ui-react'
 import {Activity} from "../../../app/models/activity";
 import { Link } from 'react-router-dom';
 import { format } from "date-fns";
@@ -15,7 +15,7 @@ const activityImageTextStyle = {
     bottom: '5%',
     left: '5%',
     width: '100%',
-    height: 'auto', 
+    height: 'auto',
     color: 'white'
 };
 

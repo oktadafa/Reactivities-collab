@@ -6,7 +6,6 @@ import { format } from "date-fns";
 import { store } from "./store";
 import { Profile } from "../models/profile";
 import { Pagination, PagingParams } from "../models/pagination";
-import { profile } from "console";
 
 export default class ActivityStore {
     activities: Activity[] = []
@@ -39,7 +38,7 @@ export default class ActivityStore {
 
     setPredicate = (predicate: string, value: string | Date) => {
         const resetPredicate = () => {
-            this.predicate.forEach((value, key) => {
+            this.predicate.forEach((_, key) => {
                 if (key !== 'startDate') this.predicate.delete(key);
             })
         }

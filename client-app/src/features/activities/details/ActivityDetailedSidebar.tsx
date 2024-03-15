@@ -4,7 +4,6 @@ import { observer } from 'mobx-react-lite'
 import { Activity } from '../../../app/models/activity'
 import { useStore } from '../../../app/stores/store';
 import { useState } from 'react';
-import { Profile } from '../../../app/models/profile';
 
 interface Props {
     activity: Activity;
@@ -14,7 +13,7 @@ export default observer(function ActivityDetailedSidebar ({activity: {attendees,
     const{userStore, activityStore} = useStore()
     const {kickUserActivity, loadingKick} = activityStore
     const {user} = userStore
-    const [target, setTarget] = useState('');
+    const [target, _] = useState('');
 
     if (!attendees) return null;
         

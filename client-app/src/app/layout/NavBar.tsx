@@ -1,4 +1,4 @@
-import { Button, Container, Menu, Image, Dropdown, Icon, Header } from "semantic-ui-react";
+import { Button, Container, Menu, Image, Dropdown, Header } from "semantic-ui-react";
 import { Link, NavLink } from "react-router-dom";
 import { store, useStore } from "../stores/store";
 import { observer } from "mobx-react-lite";

@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite'
 import { useEffect } from 'react'
-import {Segment, Header, Comment, Loader, Icon, Dropdown, DropdownMenu, DropdownItem, Button} from 'semantic-ui-react'
+import {Segment, Header, Comment, Loader, Dropdown, DropdownMenu, DropdownItem} from 'semantic-ui-react'
 import { store, useStore } from '../../../app/stores/store';
 import { Link } from 'react-router-dom';
 
@@ -8,7 +8,6 @@ import { Formik, Form, Field, FieldProps } from 'formik';
 import * as Yup from 'yup';
 import {  formatDistanceToNow } from 'date-fns';
 import { Activity } from '../../../app/models/activity';
-import { profile } from 'console';
 
 interface Props {
     activity:Activity

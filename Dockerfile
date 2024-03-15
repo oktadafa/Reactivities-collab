@@ -12,9 +12,10 @@ RUN dotnet restore "Reactivities.sln"
 
 #copy everything else build
 COPY . .
-RUN dotnet publish -C Release -o out
-
+WORKDIR /app
+RUN dotnet publish -c Release -o out
 #build a runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
+WORKDIR /app
 COPY --from=build-env /app/out .
 ENTRYPOINT [ "dotnet","API.dll" ]

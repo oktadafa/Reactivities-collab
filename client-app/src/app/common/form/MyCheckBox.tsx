@@ -1,10 +1,10 @@
 import { useField } from "formik";
 import { ComponentClass } from "react";
-import { CheckboxProps, Form, Item, Label, Menu } from "semantic-ui-react";
+import { CheckboxProps, Form, Label } from "semantic-ui-react";
 
 
 export default function CheckBoxInput(props: ComponentClass<CheckboxProps>) {
-    const [field, meta, helpers] = useField(props.name!);
+    const [field, meta] = useField(props.name!);
     return(
         <>
         <Form.Field size='tiny'>

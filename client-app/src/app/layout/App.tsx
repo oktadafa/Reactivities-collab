@@ -4,7 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { Outlet, ScrollRestoration, useLocation } from 'react-router-dom';
 import HomePage from '../../features/home/homePage';
 import { ToastContainer } from 'react-toastify';
-import { store, useStore } from '../stores/store';
+import {  useStore } from '../stores/store';
 import { useEffect } from 'react';
 import LoadingComponent from './LoadingComponent';
 import ModalContainer from '../common/modals/ModalContainer';

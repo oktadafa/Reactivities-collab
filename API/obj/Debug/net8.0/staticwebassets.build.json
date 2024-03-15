@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Si9Qsaz8zY5jhDqioLv86gh0MKQoSHGK1cemypCjR3o=",
+  "Hash": "spm10iym4JcTC/gLt4CDL1ky/N6RPlJr9bjgtlkHhss=",
   "Source": "API",
   "BasePath": "_content/API",
   "Mode": "Default",
@@ -340,6 +340,25 @@
       "OriginalItemSpec": "wwwroot\\assets\\icons-TgrQBER4.woff"
     },
     {
+      "Identity": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\API\\wwwroot\\assets\\index-_LIfEqt8.js",
+      "SourceId": "API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\API\\wwwroot\\",
+      "BasePath": "_content/API",
+      "RelativePath": "assets/index-_LIfEqt8.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\index-_LIfEqt8.js"
+    },
+    {
       "Identity": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\API\\wwwroot\\assets\\index-BIpiqdsM.js",
       "SourceId": "API",
       "SourceType": "Discovered",
@@ -376,6 +395,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\index-ichVLBTT.css"
+    },
+    {
+      "Identity": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\API\\wwwroot\\assets\\index-IYb95Gc_.js",
+      "SourceId": "API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\API\\wwwroot\\",
+      "BasePath": "_content/API",
+      "RelativePath": "assets/index-IYb95Gc_.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\index-IYb95Gc_.js"
     },
     {
       "Identity": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\API\\wwwroot\\assets\\logo.png",

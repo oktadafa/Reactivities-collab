@@ -1,6 +1,6 @@
 import { observer } from "mobx-react-lite";
 import { Grid } from "semantic-ui-react";
-import { store, useStore } from "../../../app/stores/store";
+import {  useStore } from "../../../app/stores/store";
 import LoadingComponent from "../../../app/layout/LoadingComponent";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
