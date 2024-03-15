@@ -3,7 +3,7 @@ import { Form, Label  } from 'semantic-ui-react';
 import DatePicker, { ReactDatePickerProps } from 'react-datepicker';
 
 
-//jadi klo semisal algi isi form tetapi di alihkanjadi warna merah
+//jadi klo semisal lagi isi form tetapi di alihkanjadi warna merah
 export default function MyDateInput(props: Partial<ReactDatePickerProps>) {
     const [field, meta, helpers] = useField(props.name!);
     return(

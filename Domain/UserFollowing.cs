@@ -9,6 +9,7 @@ namespace Domain
 
         public string TargetId { get; set; }
 
+
         public AppUser Target { get; set; }
     }
 }

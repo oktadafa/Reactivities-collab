@@ -16,6 +16,9 @@ namespace Application.Profiles
 
         public DateTime Date { get; set; }
 
+        public bool isPrivate { get; set; }
+        
+        
         [JsonIgnore]
         public string HostUsername { get; set; }
     }

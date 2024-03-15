@@ -37,7 +37,7 @@ export default class ActivityStore {
 
     setPredicate = (predicate: string, value: string | Date) => {
         const resetPredicate = () => {
-            this.predicate.forEach((/*value,*/ key) => {
+            this.predicate.forEach((value, key) => {
                 if (key !== 'startDate') this.predicate.delete(key);
             })
         }
@@ -82,8 +82,11 @@ export default class ActivityStore {
     get groupedActivities() {
         return Object.entries(
             this.activitiesByDate.reduce((activities, activity) => {
-                const date = format(activity.date!, 'dd MMM yyyy ');
-                activities[date] = activities[date] ? [...activities[date], activity] : [activity];
+                if(!activity.isPrivate)
+                {
+                    const date = format(activity.date!, 'dd MMM yyyy ');
+                    activities[date] = activities[date] ? [...activities[date], activity] : [activity];
+                }
                 return activities;
             }, {} as {[key: string]: Activity[]})
         )
@@ -262,6 +265,22 @@ export default class ActivityStore {
                 }
             })
         })
+    }
+
+    kickUserActivity = async(username:string) => {
+        this.loading = true
+        try {
+            await agent.Activities.kick(this.selectedActivity?.id || '', username);
+            runInAction(() => {
+                if (this.selectedActivity?.attendees) {
+                    this.selectedActivity.attendees = this.selectedActivity?.attendees.filter(e => e.username != username);
+                    // alert(username)
+                }
+                this.loading =false
+            })
+        } catch (error) {
+            runInAction(() => this.loading = false)
+        }        
     }
 }
 

@@ -88,7 +88,8 @@ const Activities = {
     create: (activity: ActivityFormValues) => requests.post<void>('/activities/tambah', activity),
     update: (activity: ActivityFormValues) => requests.put<void>(`/activities/edit/${activity.id}`, activity),
     delete: (id: string) => requests.del<void>(`/activities/${id}`),
-    attend: (id: string) => requests.post<void>(`/activities/${id}/attend`, {})
+    attend: (id: string) => requests.post<void>(`/activities/${id}/attend`, {}),
+    kick :(activityId:string, username:string) => requests.post<void>(`/activities/${activityId}/attend/kick/${username}`,{})
 }
 
 const Account = {

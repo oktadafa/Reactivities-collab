@@ -7,9 +7,10 @@ import { Link } from "react-router-dom";
 import { format } from "date-fns";
 
 const panes = [
-    { menuItem: 'Future Events', pane: {key: 'future' } },
-    {menuItem: 'Past Events', pane: {key: 'past'} },
-    {menuItem: 'Hosting,', pane: {key: 'hosting'} }
+    { menuItem: 'Future Events', pane: {key: 'future' }},
+    {menuItem: 'Past Events', pane: {key: 'past'}},
+    {menuItem: 'Hosting', pane: {key: 'hosting'}},
+    {menuItem: 'Private', pane: {key: 'private'}},
 ];
 
 export default observer(function ProfileActivities() {
@@ -30,16 +31,16 @@ export default observer(function ProfileActivities() {
     };
 
     return(
-        <Tab.Pane loading ={loadingActivities}>
+        <Tab.Pane /*loading ={loadingActivities}*/>
             <Grid>
                 <Grid.Column width={16}>
-                    <Header floated="left" icon='calender' content={'Activities'}/>
+                    <Header floated="left" icon='calendar' content={'Activities'}/>
                 </Grid.Column>
                 <Grid.Column width={16}>
                     <Tab
                         panes={panes}
                         menu={{ secondary: true, pointing: true }}
-                        onTabChange={(e, data ) =>handleTabChange(e, data)}
+                        // onTabChange={(e, data ) =>handleTabChange(e, data)}
                     />
                     <br />
                     <Card.Group itemPerRows={4}>

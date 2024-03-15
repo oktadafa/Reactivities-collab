@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, Header, Segment } from "semantic-ui-react";
+import { Button, Checkbox, Header, Segment } from "semantic-ui-react";
 import { useStore } from "../../../app/stores/store";
 import { observer } from "mobx-react-lite";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -29,7 +29,7 @@ export default observer(function ActivityForm() {
         date: Yup.string().required('Date is required').nullable(),
         city: Yup.string().required(),
         venue  : Yup.string().required(),
-
+        isPrivate: Yup.string()
     })
 
     useEffect(() => {
@@ -52,40 +52,79 @@ export default observer(function ActivityForm() {
 
     if (loadingInitial) return <LoadingComponent content='loading activity...'/>
 
-        return(
-            <Segment clearing>
-                <Header content='Activity Details' sub color='teal'/>
-                <Formik 
-                validationSchema={validationSchema}
-                enableReinitialize 
-                initialValues={activity} 
-                onSubmit={values => handleFormSubmit(values)}>
-                    {({handleSubmit, isValid, isSubmitting, dirty}) => (
-                        <Form className='ui form' onSubmit={handleSubmit} autoComplete='off'>
-                            <MyTextInput name="title" placeholder='Title'/>
-                            <MyTextArea rows={3} placeholder='Description'  name='description' />
-                            <MySelectInput options={categoryOptions} placeholder='Category' name='category'/>
-                            <MyDateInput 
-                                placeholderText='Date' 
-                                name='date'
-                                showTimeSelect
-                                timeCaption="time"
-                                dateFormat='MMMM d, YYYY h:mm aa'
-                                />
-                            <Header content='Location Details' sub color='teal'/>
-                            <MyTextInput placeholder='City' name='city'/>
-                            <MyTextInput placeholder='Venue' name='venue'/>
-                            <Button 
-                                disabled={!isValid || !dirty || isSubmitting}
-                                loading={isSubmitting} 
-                                floated='right' 
-                                positive type='submit' 
-                                content='submit' />
-                            <Button as={Link} to='/activities' floated='right' type='button' content='cancel' />
-                        </Form>
-                    )}
-                </Formik>
-                
-            </Segment>
-        )
+        return (
+          <Segment clearing>
+            <Header content="Activity Details" sub color="teal" />
+            <Formik
+              validationSchema={validationSchema}
+              enableReinitialize
+              initialValues={activity}
+              onSubmit={(values) => handleFormSubmit(values)
+              }
+            >
+              {({ handleSubmit, isValid, isSubmitting, dirty }) => (
+                <Form
+                  className="ui form"
+                  onSubmit={handleSubmit}
+                  autoComplete="off"
+                >
+                  <MyTextInput name="title" placeholder="Title" />
+                  <MyTextArea
+                    rows={3}
+                    placeholder="Description"
+                    name="description"
+                  />
+                  <MySelectInput
+                    options={categoryOptions}
+                    placeholder="Category"
+                    name="category"
+                  />
+                  <MyDateInput
+                    placeholderText="Date"
+                    name="date"
+                    showTimeSelect
+                    timeCaption="time"
+                    dateFormat="MMMM d, YYYY h:mm aa"
+                  />
+
+
+                  {/* <CheckBoxInput
+                  onClick = ''
+                  name="isPrivate"
+
+                  />  */}
+
+                  {/* <div style={{display:"flex", gap:"10px"}}> */}
+                  <Checkbox 
+                    type="checkbox" 
+                    toggle
+                    class='ui toggle checkbox'  
+                    label = 'Is Privatedocke'                  
+                    />
+                    {/* <p>Is Private</p> */}
+                  {/* </div> */}
+
+                  <Header content="Location Details" sub color="teal" />
+                  <MyTextInput placeholder="City" name="city" />
+                  <MyTextInput placeholder="Venue" name="venue" />
+                  <Button
+                    disabled={!isValid || !dirty || isSubmitting}
+                    loading={isSubmitting}
+                    floated="right"
+                    positive
+                    type="submit"
+                    content="submit"
+                  />
+                  <Button
+                    as={Link}
+                    to="/activities"
+                    floated="right"
+                    type="button"
+                    content="cancel"
+                  />
+                </Form>
+              )}
+            </Formik>
+          </Segment>
+        );
     })

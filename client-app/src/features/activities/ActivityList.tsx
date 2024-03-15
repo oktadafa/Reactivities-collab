@@ -17,9 +17,11 @@ export default observer(function ActivityList() {
                 {group}
             </Header>
 
-                {activities.map((activity: Activity) => (
-                   <ActivityListItem key={activity.id} activity={activity}/>
-                ))}
+                {activities.map((activity: Activity) => {
+                    if (!activity.isPrivate) {
+                      return  <ActivityListItem key={activity.id} activity={activity}/> 
+                    }
+                })}
         </Fragment>
             ))}
     </>
