@@ -4,15 +4,18 @@ import { observer } from 'mobx-react-lite'
 import { Activity } from '../../../app/models/activity'
 import { useStore } from '../../../app/stores/store';
 import { useState } from 'react';
+import { Profile } from '../../../app/models/profile';
 
 interface Props {
     activity: Activity;
 }
-
+ 
 export default observer(function ActivityDetailedSidebar ({activity: {attendees, host}}: Props) {
     const{userStore, activityStore} = useStore()
     const {kickUserActivity, loadingKick} = activityStore
     const {user} = userStore
+    const [target, setTarget] = useState('');
+
     if (!attendees) return null;
         
 return (
@@ -46,12 +49,17 @@ return (
                             </Item.Header>
                             {attendee.following && 
                             <Item.Extra style={{ color: 'orange' }}>Following</Item.Extra>}
-                            {
+                            
                                 attendee.username !== host?.username && user?.username == host?.username &&
-                            <Button content="Kick" color='red' style={{position:'absolute', right:0}} onClick={() => {
+                            <Button 
+                            content="Kick" 
+                            color='red' 
+                            style={{position:'absolute', right:0}} 
+                            loading={target === `main${user}` && loadingKick}
+                            onClick={() => {
                                kickUserActivity(attendee.username)
-                            }} loading={loadingKick} name={attendee.username}/>
-                            }
+                            }} 
+                            />
                         </Item.Content>
                     </Item>
                     ))}

@@ -15,6 +15,7 @@ export default observer(function ProfilePhotos({profile}: Props) {
     const [addPhotoMode, setAddPhotoMode] = useState(false);
     const [target, setTarget] = useState('');
 
+
     function  handlePhotoUpload(file:Blob){
         uploudPhoto(file).then(() => setAddPhotoMode(false));
     }
@@ -57,9 +58,13 @@ export default observer(function ProfilePhotos({profile}: Props) {
                                                 basic
                                                 color="green"
                                                 content='Main'
-                                                name={'main' + photo.id}
-                                                disabled={photo.isMain}
-                                                loading={target === 'main' + photo.id && loading}
+                                                // name={'main' + photo.id}
+                                                // disabled={photo.isMain}
+                                                // loading={target === 'main' + photo.id && loading}
+                                                name={`main${photo.id}`} // Nama tombol berdasarkan ID foto
+                                                disabled={photo.isMain || target === `main${photo.id}`} // Tombol dinonaktifkan jika foto sudah menjadi utama atau sedang diproses
+                                                // loading={target === `main${photo.id}`}
+                                                loading={target === `main${photo.id}` && loading}
                                                 onClick={e => handleSetMainPhoto(photo, e)}
                                             />
                                             <Button 

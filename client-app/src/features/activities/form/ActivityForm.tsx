@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { Button, Checkbox, Header, Label, Segment } from "semantic-ui-react";
+import { Button, Checkbox, Header, Segment } from "semantic-ui-react";
 import { useStore } from "../../../app/stores/store";
 import { observer } from "mobx-react-lite";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import LoadingComponent from "../../../app/layout/LoadingComponent";
 import {v4 as uuid} from 'uuid'; 
-import { Formik,Form, Field } from "formik";
+import { Formik,Form } from "formik";
 import * as Yup from 'yup';
 import MyTextInput from "../../../app/common/form/MyTextInput";
 import MyTextArea from "../../../app/common/form/MyTestArea";
@@ -86,10 +86,24 @@ export default observer(function ActivityForm() {
                     timeCaption="time"
                     dateFormat="MMMM d, YYYY h:mm aa"
                   />
-                  <label>
-                  <Field type="checkbox" name="isPrivate"/> 
-                  Is Private
-                  </label>
+
+
+                  {/* <CheckBoxInput
+                  onClick = ''
+                  name="isPrivate"
+
+                  />  */}
+
+                  {/* <div style={{display:"flex", gap:"10px"}}> */}
+                  <Checkbox 
+                    type="checkbox" 
+                    toggle
+                    class='ui toggle checkbox'  
+                    label = 'Is Privatedocke'                  
+                    />
+                    {/* <p>Is Private</p> */}
+                  {/* </div> */}
+
                   <Header content="Location Details" sub color="teal" />
                   <MyTextInput placeholder="City" name="city" />
                   <MyTextInput placeholder="Venue" name="venue" />

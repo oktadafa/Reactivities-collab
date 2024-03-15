@@ -14,16 +14,20 @@ export default observer(function ActivityFilters() {
                     content='all Activities'
                     active={predicate.has('all')}
                     onClick={() => setPredicate('all', 'true')}
+                
+                    
                 />
                 <Menu.Item 
                     content="i'm going"
                     active={predicate.has('isGoing')}
                     onClick={() => setPredicate('isGoing', 'true')}
+                    
                 />
                 <Menu.Item 
                     content="I'm Hosting"
                     active={predicate.has('isHost')}
                     onClick={() => setPredicate('isHost', 'true')}
+
                 />
             </Menu>
             <Header/>

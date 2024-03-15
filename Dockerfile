@@ -1,4 +1,4 @@
-FROM mcr.microsofr.com/dotnet/sdk:8.0 AS build-env
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
 WORKDIR /app
 
 #copy .scproj and resotre as distinct layers
