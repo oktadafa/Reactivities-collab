@@ -47,7 +47,7 @@ namespace Application.Core
             .ForMember(d => d.isPrivate, o => o.MapFrom(s => s.Activity.isPrivate))
             .ForMember(t => t.Category, o => o.MapFrom(s => s.Activity.Category));
 
-            CreateMap<Notifikasi, NotificationDTO>().ForMember(x => x.To, o => o.MapFrom(x => x.To.DisplayName));
+            CreateMap<Notifikasi, NotificationDTO>().ForMember(x => x.From, o => o.MapFrom(p => p.From.DisplayName)).ForMember(x => x.Image, o => o.MapFrom(l => l.From.Photos.FirstOrDefault(m => m.IsMain).Url)).ForMember(x =>x.userNameFrom, o => o.MapFrom(p => p.From.UserName));
         }
     }
 }

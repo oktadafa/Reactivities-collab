@@ -21,5 +21,7 @@ namespace Domain
 
         public ICollection<Notifikasi> Notifications {get;set;}
 
+        public ICollection<Notifikasi> historyNotif { get; set; }
+
     }
 }

@@ -5,9 +5,10 @@ import { observer } from "mobx-react-lite";
 import { useEffect } from "react";
 import userStore from "../stores/userStore";
 import notificationStore from "../stores/notificationStore";
+import { formatDistanceToNow } from "date-fns";
 
 export default observer(function NavBar() {
-    const {userStore: {user, logout}, notificationStore: {notifications,loadNotifications}} = useStore();
+    const {userStore: {user, logout}, notificationStore:{loadNotifications, notifications} } = useStore();
 
     
     useEffect(() => {
@@ -16,6 +17,8 @@ export default observer(function NavBar() {
         loadNotifications()      
       }
     }, [notificationStore, userStore]);
+   
+    
     return (
       <Menu inverted fixed="top">
         <Container>
@@ -47,13 +50,24 @@ export default observer(function NavBar() {
                   <Header as="h5" content="No Any Notifications" />
                 ) : (
                   notifications.map((e) => (
-                    <Dropdown.Item style={{ padding: 10 }}>
-                      <Image
-                        src={e.image || "/assets/user.png"}
-                        avatar
-                        spaced="right"
-                      />
-                      <b>{e.from}</b> {e.message}
+                    <Dropdown.Item
+                      as={Link}
+                      to={`/profiles/${e.userNameFrom}`}
+                    >
+                      <div style={{padding:"0px 5px"}}>
+                        <Image
+                          src={e.image ? e.image : "/assets/user.png"}
+                          avatar
+                          spaced="right"
+                        />
+                        <b>{e.from}</b> <p>{e.message}</p>
+                        <small>
+                          {" "}
+                          {formatDistanceToNow(
+                            new Date(e.date).toLocaleString()
+                          )}
+                        </small>
+                      </div>
                     </Dropdown.Item>
                   ))
                 )}

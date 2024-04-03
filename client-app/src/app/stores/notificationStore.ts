@@ -1,11 +1,11 @@
 import { HubConnection, HubConnectionBuilder, LogLevel } from "@microsoft/signalr";
-import { INotification, Notifikasi} from "../models/notification";
+import {  Notifikasi} from "../models/notification";
 import { makeAutoObservable, runInAction } from "mobx";
 import { store } from "./store";
 import agent from "../api/agent";
 
 export default class NotificationStore {
-    notifications: INotification[] = []
+    notifications: Notifikasi[] = []
     hubConnection: HubConnection | null = null;
 
     constructor()
@@ -16,25 +16,41 @@ export default class NotificationStore {
     createHubConnection = () => {
         if (store.userStore.user) {
             this.hubConnection = new HubConnectionBuilder()
-        .withUrl(`http://localhost:5000/notification`,{
-            accessTokenFactory: () => store.userStore.user?.token as string
-        }).withAutomaticReconnect().configureLogging(LogLevel.Information).build();
+              .withUrl(import.meta.env.VITE_NOTIFICATION_URL, {
+                accessTokenFactory: () => store.userStore.user?.token as string,
+              })
+              .withAutomaticReconnect()
+              .configureLogging(LogLevel.Information)
+              .build();
 
         this.hubConnection.start().catch(err => console.log(err)
         )
 
         this.hubConnection.on("LoadNotification", (notifications:Notifikasi[]) => {
             runInAction(() => {
-               this.notifications = notifications;                
+               this.notifications = notifications;
+               console.log(notifications);
+                               
             })
         })
+
+        this.hubConnection.on("DeleteFollow", (username:string) => {
+            runInAction(() => {
+                this.notifications = this.notifications.filter(e => e.from !== username)                               
+            })
+        })
+
         this.hubConnection.on("ReceiveNotif", (notification : Notifikasi) => {
             runInAction(() => {
-                var result =this.notifications.some(e => e.id == notification.id)
-                if (!result) {
-                    this.notifications.unshift(notification)
-                    console.log(notification);
-                    
+                console.log(notification);
+                
+                if(notification.from !== store.userStore.user?.displayName)
+                {
+                    var result = this.notifications.some((e) => e.id == notification.id);
+                    if (!result) {
+                        notification.date = new Date(notification.date).toLocaleString()
+                    this.notifications.unshift(notification);
+                    }
                 }
             })
         })
@@ -49,7 +65,8 @@ export default class NotificationStore {
         console.log(this.hubConnection?.invoke);
         
         await this.hubConnection
-          ?.invoke("Send", value)
+          ?.invoke("Send", value).then(err => console.log(err)
+          )
           .catch((err) => console.log(err));
     }
 
@@ -57,9 +74,28 @@ export default class NotificationStore {
         try {
             var result = await agent.Notifications.get();
             this.notifications = result
+              console.log(this.notifications);
+            
         } catch (error) {
             console.log(error);
                         
         }
+    }
+
+    unfollowToggle = async(From:string, To:string) => {
+        try {
+        var value = {
+            From : From,
+            To : To
+        }
+        console.log(value);
+        
+        await this.hubConnection?.invoke("Delete", value).catch(err => console.log(err)
+        )    
+        } catch (error) {
+         console.log(error);
+           
+        }
+        
     }
 }

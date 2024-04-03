@@ -185,10 +185,7 @@ namespace Persistence.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("From")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Image")
+                    b.Property<string>("FromId")
                         .HasColumnType("text");
 
                     b.Property<string>("Message")
@@ -197,7 +194,12 @@ namespace Persistence.Migrations
                     b.Property<string>("ToId")
                         .HasColumnType("text");
 
+                    b.Property<string>("type")
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("FromId");
 
                     b.HasIndex("ToId");
 
@@ -409,10 +411,17 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Notifikasi", b =>
                 {
+                    b.HasOne("Domain.AppUser", "From")
+                        .WithMany("historyNotif")
+                        .HasForeignKey("FromId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("Domain.AppUser", "To")
                         .WithMany("Notifications")
                         .HasForeignKey("ToId")
                         .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("From");
 
                     b.Navigation("To");
                 });
@@ -512,6 +521,8 @@ namespace Persistence.Migrations
                     b.Navigation("Notifications");
 
                     b.Navigation("Photos");
+
+                    b.Navigation("historyNotif");
                 });
 #pragma warning restore 612, 618
         }

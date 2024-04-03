@@ -127,6 +127,7 @@ export default class ProfileStore {
                        await store.notificationStore.sendNotification("Follow You", username).then(p => console.log(`Anda Diffolow ${p}`)).catch(p => console.log(`Error ${p}`)
                         )
                     } else {
+                        await store.notificationStore.unfollowToggle(store.userStore.user?.displayName!, username)
                         this.profile.followersCount--;
                     }
                     // following ? this.profile.followersCount++ : this.profile.followersCount--;

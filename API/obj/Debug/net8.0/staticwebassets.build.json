@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "spm10iym4JcTC/gLt4CDL1ky/N6RPlJr9bjgtlkHhss=",
+  "Hash": "u6pB/ql3NSoi9gvFunQHLhTfjFMCkFPMdE9qhgOE+Kw=",
   "Source": "API",
   "BasePath": "_content/API",
   "Mode": "Default",
@@ -340,44 +340,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\icons-TgrQBER4.woff"
     },
     {
-      "Identity": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\API\\wwwroot\\assets\\index-_LIfEqt8.js",
-      "SourceId": "API",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\API\\wwwroot\\",
-      "BasePath": "_content/API",
-      "RelativePath": "assets/index-_LIfEqt8.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\index-_LIfEqt8.js"
-    },
-    {
-      "Identity": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\API\\wwwroot\\assets\\index-BIpiqdsM.js",
-      "SourceId": "API",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\API\\wwwroot\\",
-      "BasePath": "_content/API",
-      "RelativePath": "assets/index-BIpiqdsM.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\index-BIpiqdsM.js"
-    },
-    {
       "Identity": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\API\\wwwroot\\assets\\index-ichVLBTT.css",
       "SourceId": "API",
       "SourceType": "Discovered",
@@ -397,12 +359,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\index-ichVLBTT.css"
     },
     {
-      "Identity": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\API\\wwwroot\\assets\\index-IYb95Gc_.js",
+      "Identity": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\API\\wwwroot\\assets\\index-t0WmRxlr.js",
       "SourceId": "API",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
-      "RelativePath": "assets/index-IYb95Gc_.js",
+      "RelativePath": "assets/index-t0WmRxlr.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -413,7 +375,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\index-IYb95Gc_.js"
+      "OriginalItemSpec": "wwwroot\\assets\\index-t0WmRxlr.js"
     },
     {
       "Identity": "C:\\Users\\UT School\\Documents\\Okta Daffa Ramadani\\React JS And ASP\\Reactivities-collab\\API\\wwwroot\\assets\\logo.png",

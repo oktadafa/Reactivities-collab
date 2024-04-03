@@ -1,26 +1,32 @@
 export interface INotification {
-    id :number,
+    toId :number,
     date:string,
     message:string,
     from:string,
     image:string,
     to:string,
+    id: string,
+    userNameFrom :string
 }
 
 export class Notifikasi implements INotification {
     constructor(notifikasi:INotification)
     {
-        this.id=  notifikasi.id,
+        this.toId = notifikasi.toId,
 this.date = notifikasi.date,
 this.message = notifikasi.message,
 this.from = notifikasi.from,
 this.image = notifikasi.image,
 this.to = notifikasi.to
+this.id = notifikasi.id
+this.userNameFrom = notifikasi.userNameFrom
     }
-    id: number;
+    toId: number;
     date: string;
     message: string;
     from: string;
     image: string;
     to: string;
+    id: string;
+    userNameFrom:string;
 }

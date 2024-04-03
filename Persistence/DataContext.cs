@@ -33,6 +33,7 @@ namespace Persistence
             builder.Entity<ActivityAttendee>().HasOne(u => u.Activity).WithMany(a => a.Attendees).HasForeignKey(aa => aa.ActivityId);
             builder.Entity<Comment>().HasOne(a => a.Activity).WithMany(c => c.Comments).OnDelete(DeleteBehavior.Cascade);
             builder.Entity<Notifikasi>().HasOne(a => a.To).WithMany(x => x.Notifications).OnDelete(DeleteBehavior.Cascade);
+            builder.Entity<Notifikasi>().HasOne(a => a.From).WithMany(x => x.historyNotif).OnDelete(DeleteBehavior.Cascade);
             builder.Entity<UserFollowing>(b => {
                 b.HasKey(k=> new {k.ObserverId, k.TargetId});
                 b.HasOne(o => o.Observer).WithMany(f => f.Followings).HasForeignKey(o => o.ObserverId).OnDelete(DeleteBehavior.Cascade);

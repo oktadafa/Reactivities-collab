@@ -53,7 +53,7 @@ export interface IActivity {
     date: Date | null = null;
     city: string = "";
     venue: string = "";
-    isPrivate: boolean = false;
+    isPrivate: boolean =  false;
 
     constructor(activity?: ActivityFormValues) {
       if (activity) {

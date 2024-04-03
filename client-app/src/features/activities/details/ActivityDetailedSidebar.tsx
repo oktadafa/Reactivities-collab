@@ -49,7 +49,7 @@ return (
                             {attendee.following && 
                             <Item.Extra style={{ color: 'orange' }}>Following</Item.Extra>}
                             
-                                attendee.username !== host?.username && user?.username == host?.username &&
+                               { attendee.username !== host?.username && user?.username == host?.username &&
                             <Button 
                             content="Kick" 
                             color='red' 
@@ -59,6 +59,7 @@ return (
                                kickUserActivity(attendee.username)
                             }} 
                             />
+                        }
                         </Item.Content>
                     </Item>
                     ))}

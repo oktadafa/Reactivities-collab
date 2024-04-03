@@ -6,9 +6,9 @@ namespace Domain
         public int Id { get; set; }
         public AppUser To { get; set; }
         public string Message { get; set; }
-        public string From { get; set; }
-        public string Image { get; set; }
-        public DateTime Date { get; set; } = DateTime.UtcNow;        
+        public string type {get;set;}
+        public AppUser From { get; set; }
+        public DateTime Date { get; set; } = DateTime.UtcNow;
         
     }
 }

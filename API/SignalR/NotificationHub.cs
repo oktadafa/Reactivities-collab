@@ -24,8 +24,22 @@ namespace API.Signal
 
         public async Task Send(Create.Command command)
         {
-            var Notification = await _mediator.Send(command);
-            await Clients.All.SendAsync("ReceiveNotif", Notification.Value);
+            try
+            {
+                var Notification = await _mediator.Send(command);
+                await Clients.Users(Notification.Value.ToId).SendAsync("ReceiveNotif", Notification.Value);
+            }
+            catch (System.Exception err)
+            {
+                Console.WriteLine(err);
+                
+            }
+        }
+
+        public async Task Delete(DeleteFollow.Command command)
+        {
+            var result = await _mediator.Send(command);
+            await Clients.User(result.Value).SendAsync("DeleteFollow", command.From); 
         }
     }
 }

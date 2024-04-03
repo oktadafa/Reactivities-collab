@@ -1,7 +1,7 @@
-import {  useEffect } from "react";
+import {  SyntheticEvent, useEffect } from "react";
 import { observer } from "mobx-react-lite";
 import { useStore } from "../../app/stores/store";
-import { Card, Grid, Header, Tab,  Image } from "semantic-ui-react";
+import { Card, Grid, Header, Tab,  Image, TabProps } from "semantic-ui-react";
 import { userActivity } from "../../app/models/profile";
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
@@ -10,7 +10,6 @@ const panes = [
     { menuItem: 'Future Events', pane: {key: 'future' }},
     {menuItem: 'Past Events', pane: {key: 'past'}},
     {menuItem: 'Hosting', pane: {key: 'hosting'}},
-    {menuItem: 'Private', pane: {key: 'private'}},
 ];
 
 export default observer(function ProfileActivities() {
@@ -34,9 +33,9 @@ export default observer(function ProfileActivities() {
        }
     }
         
-    // const handleTabChange = (_: SyntheticEvent, data: TabProps) => {
-    //     loadUserActiviies(profile!.username, panes[data.activeIndex as number].pane.key);
-    // };
+    const handleTabChange = (_: SyntheticEvent, data: TabProps) => {
+        loadUserActiviies(profile!.username, panes[data.activeIndex as number].pane.key);
+    };
 
     return(
         <Tab.Pane /*loading ={loadingActivities}*/>
@@ -48,7 +47,7 @@ export default observer(function ProfileActivities() {
                     <Tab
                         panes={panes}
                         menu={{ secondary: true, pointing: true }}
-                        // onTabChange={(e, data ) =>handleTabChange(e, data)}
+                        onTabChange={(e, data ) =>handleTabChange(e, data)}
                     />
                     <br />
                     <Card.Group itemPerRows={4}>
