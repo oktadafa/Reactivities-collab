@@ -15,13 +15,10 @@ const sleep = (delay: number) => {
 
 axios.defaults.baseURL = import.meta.env.VITE_API_URL;
 
-// const url = import.meta.env.VITE_API_URL;
-// console.log(url);
-
 const responseBody = <T> (response: AxiosResponse<T>) => response.data;
 
 axios.interceptors.request.use(config => {
-    const token = store.commonStore.token;
+    const token = store.commonStore.token; 
     if (token && config.headers) config.headers!.Authorization = `Bearer ${token}`;
     return config;
 })
@@ -78,7 +75,6 @@ const requests = {
     post: <T>(url: string, body: {}) => axios.post<T>(url, body).then(responseBody),
     put: <T>(url: string, body: {}) => axios.put<T>(url, body).then(responseBody),
     del: <T>(url: string) => axios.delete<T>(url).then(responseBody), 
-
 }
 
 const Activities = {

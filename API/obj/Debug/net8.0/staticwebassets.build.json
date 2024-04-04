@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "oPidhTITOKoN36rVFK6/VO/vOeVcUHNoTeXEyHCoa9Q=",
+  "Hash": "Y7AAlDEj3G5iTj+gZ4TEJotTbqYUJYTBeifSLuDkrqo=",
   "Source": "API",
   "BasePath": "_content/API",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "API\\wwwroot",
       "Source": "API",
-      "ContentRoot": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
+      "ContentRoot": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\brand-icons-Bd0jwnh9.woff",
+      "Identity": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\brand-icons-Bd0jwnh9.woff",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
+      "ContentRoot": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/brand-icons-Bd0jwnh9.woff",
       "AssetKind": "All",
@@ -36,10 +36,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\brand-icons-Bd0jwnh9.woff"
     },
     {
-      "Identity": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\brand-icons-Fy_bMVKQ.woff2",
+      "Identity": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\brand-icons-Fy_bMVKQ.woff2",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
+      "ContentRoot": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/brand-icons-Fy_bMVKQ.woff2",
       "AssetKind": "All",
@@ -55,10 +55,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\brand-icons-Fy_bMVKQ.woff2"
     },
     {
-      "Identity": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\brand-icons-LKidj4O2.eot",
+      "Identity": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\brand-icons-LKidj4O2.eot",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
+      "ContentRoot": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/brand-icons-LKidj4O2.eot",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\brand-icons-LKidj4O2.eot"
     },
     {
-      "Identity": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\brand-icons-Lm4VqMZc.ttf",
+      "Identity": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\brand-icons-Lm4VqMZc.ttf",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
+      "ContentRoot": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/brand-icons-Lm4VqMZc.ttf",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\brand-icons-Lm4VqMZc.ttf"
     },
     {
-      "Identity": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\brand-icons-rvwtIWeM.svg",
+      "Identity": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\brand-icons-rvwtIWeM.svg",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
+      "ContentRoot": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/brand-icons-rvwtIWeM.svg",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\brand-icons-rvwtIWeM.svg"
     },
     {
-      "Identity": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\categoryImages\\culture.jpg",
+      "Identity": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\categoryImages\\culture.jpg",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
+      "ContentRoot": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/categoryImages/culture.jpg",
       "AssetKind": "All",
@@ -131,10 +131,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\categoryImages\\culture.jpg"
     },
     {
-      "Identity": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\categoryImages\\drinks.jpg",
+      "Identity": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\categoryImages\\drinks.jpg",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
+      "ContentRoot": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/categoryImages/drinks.jpg",
       "AssetKind": "All",
@@ -150,10 +150,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\categoryImages\\drinks.jpg"
     },
     {
-      "Identity": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\categoryImages\\film.jpg",
+      "Identity": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\categoryImages\\film.jpg",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
+      "ContentRoot": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/categoryImages/film.jpg",
       "AssetKind": "All",
@@ -169,10 +169,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\categoryImages\\film.jpg"
     },
     {
-      "Identity": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\categoryImages\\food.jpg",
+      "Identity": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\categoryImages\\food.jpg",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
+      "ContentRoot": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/categoryImages/food.jpg",
       "AssetKind": "All",
@@ -188,10 +188,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\categoryImages\\food.jpg"
     },
     {
-      "Identity": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\categoryImages\\music.jpg",
+      "Identity": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\categoryImages\\music.jpg",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
+      "ContentRoot": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/categoryImages/music.jpg",
       "AssetKind": "All",
@@ -207,10 +207,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\categoryImages\\music.jpg"
     },
     {
-      "Identity": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\categoryImages\\travel.jpg",
+      "Identity": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\categoryImages\\travel.jpg",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
+      "ContentRoot": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/categoryImages/travel.jpg",
       "AssetKind": "All",
@@ -226,10 +226,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\categoryImages\\travel.jpg"
     },
     {
-      "Identity": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\flags-zi6jlO2O.png",
+      "Identity": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\flags-zi6jlO2O.png",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
+      "ContentRoot": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/flags-zi6jlO2O.png",
       "AssetKind": "All",
@@ -245,10 +245,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\flags-zi6jlO2O.png"
     },
     {
-      "Identity": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\icons-7ukzh50T.woff2",
+      "Identity": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\icons-7ukzh50T.woff2",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
+      "ContentRoot": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/icons-7ukzh50T.woff2",
       "AssetKind": "All",
@@ -264,10 +264,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\icons-7ukzh50T.woff2"
     },
     {
-      "Identity": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\icons-9vWUBx8H.ttf",
+      "Identity": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\icons-9vWUBx8H.ttf",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
+      "ContentRoot": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/icons-9vWUBx8H.ttf",
       "AssetKind": "All",
@@ -283,10 +283,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\icons-9vWUBx8H.ttf"
     },
     {
-      "Identity": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\icons-EcIcnV99.svg",
+      "Identity": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\icons-EcIcnV99.svg",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
+      "ContentRoot": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/icons-EcIcnV99.svg",
       "AssetKind": "All",
@@ -302,10 +302,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\icons-EcIcnV99.svg"
     },
     {
-      "Identity": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\icons-h8ytVQ_V.eot",
+      "Identity": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\icons-h8ytVQ_V.eot",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
+      "ContentRoot": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/icons-h8ytVQ_V.eot",
       "AssetKind": "All",
@@ -321,10 +321,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\icons-h8ytVQ_V.eot"
     },
     {
-      "Identity": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\icons-TgrQBER4.woff",
+      "Identity": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\icons-TgrQBER4.woff",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
+      "ContentRoot": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/icons-TgrQBER4.woff",
       "AssetKind": "All",
@@ -340,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\icons-TgrQBER4.woff"
     },
     {
-      "Identity": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\index-BIpiqdsM.js",
+      "Identity": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\index-BIpiqdsM.js",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
+      "ContentRoot": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/index-BIpiqdsM.js",
       "AssetKind": "All",
@@ -359,10 +359,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\index-BIpiqdsM.js"
     },
     {
-      "Identity": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\index-ichVLBTT.css",
+      "Identity": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\index-ichVLBTT.css",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
+      "ContentRoot": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/index-ichVLBTT.css",
       "AssetKind": "All",
@@ -378,10 +378,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\index-ichVLBTT.css"
     },
     {
-      "Identity": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\logo.png",
+      "Identity": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\logo.png",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
+      "ContentRoot": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/logo.png",
       "AssetKind": "All",
@@ -397,10 +397,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\logo.png"
     },
     {
-      "Identity": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\outline-icons-C1_GnSeJ.eot",
+      "Identity": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\outline-icons-C1_GnSeJ.eot",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
+      "ContentRoot": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/outline-icons-C1_GnSeJ.eot",
       "AssetKind": "All",
@@ -416,10 +416,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\outline-icons-C1_GnSeJ.eot"
     },
     {
-      "Identity": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\outline-icons-GkPPJ5bU.woff",
+      "Identity": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\outline-icons-GkPPJ5bU.woff",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
+      "ContentRoot": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/outline-icons-GkPPJ5bU.woff",
       "AssetKind": "All",
@@ -435,10 +435,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\outline-icons-GkPPJ5bU.woff"
     },
     {
-      "Identity": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\outline-icons-w_I5tLsu.ttf",
+      "Identity": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\outline-icons-w_I5tLsu.ttf",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
+      "ContentRoot": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/outline-icons-w_I5tLsu.ttf",
       "AssetKind": "All",
@@ -454,10 +454,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\outline-icons-w_I5tLsu.ttf"
     },
     {
-      "Identity": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\outline-icons-X3S6_Law.svg",
+      "Identity": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\outline-icons-X3S6_Law.svg",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
+      "ContentRoot": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/outline-icons-X3S6_Law.svg",
       "AssetKind": "All",
@@ -473,10 +473,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\outline-icons-X3S6_Law.svg"
     },
     {
-      "Identity": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\outline-icons-yJx6IqiG.woff2",
+      "Identity": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\outline-icons-yJx6IqiG.woff2",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
+      "ContentRoot": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/outline-icons-yJx6IqiG.woff2",
       "AssetKind": "All",
@@ -492,10 +492,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\outline-icons-yJx6IqiG.woff2"
     },
     {
-      "Identity": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\placeholder.png",
+      "Identity": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\placeholder.png",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
+      "ContentRoot": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/placeholder.png",
       "AssetKind": "All",
@@ -511,10 +511,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\placeholder.png"
     },
     {
-      "Identity": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\user.png",
+      "Identity": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\assets\\user.png",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
+      "ContentRoot": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "assets/user.png",
       "AssetKind": "All",
@@ -530,10 +530,10 @@
       "OriginalItemSpec": "wwwroot\\assets\\user.png"
     },
     {
-      "Identity": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\index.html",
+      "Identity": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\index.html",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
+      "ContentRoot": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "index.html",
       "AssetKind": "All",
@@ -549,10 +549,10 @@
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\vite.svg",
+      "Identity": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\vite.svg",
       "SourceId": "API",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
+      "ContentRoot": "c:\\AABelajar\\dotnet-ke-react\\Reactivies2\\Collab\\Reactivities-collab\\API\\wwwroot\\",
       "BasePath": "_content/API",
       "RelativePath": "vite.svg",
       "AssetKind": "All",
