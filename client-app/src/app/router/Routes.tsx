@@ -9,6 +9,7 @@ import NotFound from "../../features/errors/NotFound";
 import ServerError from "../../features/errors/ServerError";
 import ProfilePage from "../../features/profiles/ProfilePage";
 import RequireAuth from "./RequireAuth";
+import VerifiyEmail from "../../features/users/VerifiyEmail";
 
 export const routes:  RouteObject[] = [
     {
@@ -23,12 +24,13 @@ export const routes:  RouteObject[] = [
                 {path:'profiles/:username', element: <ProfilePage/>},
                 // {path:'login', element: <LoginForm/>},
                 {path:'errors', element: <TestErrors/>},            
+                {path:'verify-email', element: <VerifiyEmail/>}
             ]},
             {path:'', element: <HomePage />},
             {path:'not-found', element: <NotFound/>},
             {path:'server-error', element: <ServerError />},
             {path:'*', element: <Navigate replace to ='/not-found'/>},
-        ]
+        ],
     },
 ]
 

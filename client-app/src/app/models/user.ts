@@ -3,6 +3,9 @@ export interface User {
     displayName: string;
     token: string;
     image?: string;
+    emailVerify:boolean;
+    expireVerifyCode:Date;
+    email?:string
 }
 
 export interface UserFormValues {
@@ -10,4 +13,7 @@ export interface UserFormValues {
     password: string;
     displayName?: string;
     username?: string;
+    photo? :string;
+    emailVerify?:boolean;
+    expireVerifyCode?:Date;
 }

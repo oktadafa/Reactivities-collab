@@ -38,6 +38,7 @@ export default observer(function FollowingButton({profile}: Props) {
                     color={profile.following ? 'red' : 'green'} 
                     content={profile.following ? 'Unfollow' : 'Follow'}
                     loading={loading}
+                    disabled={loading}
                     onClick={(e) => handleFollow(e, profile.username)}
                 />
             </Reveal.Content>

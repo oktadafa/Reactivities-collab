@@ -5,8 +5,9 @@ export interface INotification {
     from:string,
     image:string,
     to:string,
-    id: string,
+    id: number,
     userNameFrom :string
+    isRead : boolean
 }
 
 export class Notifikasi implements INotification {
@@ -19,6 +20,7 @@ this.from = notifikasi.from,
 this.image = notifikasi.image,
 this.to = notifikasi.to
 this.id = notifikasi.id
+this.isRead = notifikasi.isRead
 this.userNameFrom = notifikasi.userNameFrom
     }
     toId: number;
@@ -27,6 +29,7 @@ this.userNameFrom = notifikasi.userNameFrom
     from: string;
     image: string;
     to: string;
-    id: string;
+    id: number;
     userNameFrom:string;
+    isRead: boolean;
 }

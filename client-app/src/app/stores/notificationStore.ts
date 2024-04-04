@@ -3,6 +3,7 @@ import {  Notifikasi} from "../models/notification";
 import { makeAutoObservable, runInAction } from "mobx";
 import { store } from "./store";
 import agent from "../api/agent";
+import { router } from "../router/Routes";
 
 export default class NotificationStore {
     notifications: Notifikasi[] = []
@@ -29,8 +30,7 @@ export default class NotificationStore {
         this.hubConnection.on("LoadNotification", (notifications:Notifikasi[]) => {
             runInAction(() => {
                this.notifications = notifications;
-               console.log(notifications);
-                               
+               console.log(notifications);                      
             })
         })
 
@@ -97,5 +97,25 @@ export default class NotificationStore {
            
         }
         
+    }
+
+    updateNotification = async(id:number, username:string, isRead:boolean) => {
+        try {
+            if (isRead) {
+                router.navigate(`/profiles/${username}`);
+            }
+            await agent.Notifications.update(id)    
+            runInAction(() => {
+                this.notifications = this.notifications.map(e => {
+                    if (id == e.id) {
+                     e.isRead = true
+                    }
+                    return e;
+                })
+                router.navigate(`/profiles/${username}`)
+            })   
+        } catch (error) {
+            console.error(error)
+        }
     }
 }

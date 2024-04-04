@@ -2,10 +2,12 @@ import { HubConnection, HubConnectionBuilder, LogLevel } from "@microsoft/signal
 import ChatComment from "../models/comment";
 import { makeAutoObservable, runInAction } from "mobx";
 import { store } from "./store";
+import agent from "../api/agent";
 
 export default class CommentStore{
     comments: ChatComment[] = [];
     hubConnection: HubConnection | null = null;
+    image: string = "";
 
     constructor() {
         makeAutoObservable(this);
@@ -26,7 +28,7 @@ export default class CommentStore{
             this.hubConnection.start().catch(error => console.log('Error establishing the connection: ', error)).then(err => console.log(err)
             );
 
-            this.hubConnection.on('LoadComments', (comments: ChatComment[]) => {
+        this.hubConnection.on('LoadComments', (comments: ChatComment[]) => {
                 runInAction(() =>  {
                     comments.forEach(comment => {                        
                         comment.createdAt = new Date(comment.createdAt);
@@ -35,14 +37,29 @@ export default class CommentStore{
                     this.comments = comments
                 });    
             })
-            this.hubConnection.on('ReceiveComment', (comment: ChatComment) => {
-                console.log("test");
-                
+            this.hubConnection.on('ReceiveComment',async (comment: ChatComment) => {
+                try {  
+                if(this.image)
+                {
+                    comment.commentImage = this.image
+                     agent.Activities.uploadPhotoChat(comment).then(_ => 
                 runInAction(() => {
-                    comment.createdAt = new Date(comment.createdAt)
-                    this.comments.push(comment)
+                  comment.createdAt = new Date(comment.createdAt);
+                  this.comments.push(comment);
+                }));
+                }
+                else{
+                     runInAction(() => {
+                       comment.createdAt = new Date(comment.createdAt);
+                       this.comments.push(comment);
+                     });
+                }
+                   
+                } catch (error) {
+                   console.log(error);
                     
-                });
+                }
+                
             })
 
             this.hubConnection.on("DeleteComment", (commentId:number) => {
@@ -62,9 +79,11 @@ export default class CommentStore{
         this.stopHubConnection();
     }
 
-    addComment = async (values: any) => { 
+    addComment = async (values: any, file:File) => { 
         values.activityId = store.activityStore.selectedActivity?.id;
-        
+        if(file){
+            this.image = await this.convertImage(file);
+        }
         try {         
             await this.hubConnection?.invoke('SendComment', values).then(err => console.log(err)
             );
@@ -85,6 +104,15 @@ export default class CommentStore{
             console.log(error);
             
         }
+    }
+
+    convertImage = (image : File):Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = reject;
+      reader.readAsDataURL(image);
+    });
     }
     
 }  

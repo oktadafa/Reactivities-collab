@@ -5,4 +5,5 @@ export default interface ChatComment {
     username: string;
     displayName: string;
     image: string;
+    commentImage:string;
 }

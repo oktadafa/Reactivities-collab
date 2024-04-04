@@ -15,7 +15,7 @@ export default observer(function RegisterForm() {
                 setErrors({error}))} 
             validationSchema={Yup.object({
                 displayName: Yup.string().required(),
-                username: Yup.string().required(),
+            username: Yup.string().required(),
                 email: Yup.string().required(),
                 password: Yup.string().required(),
             })}

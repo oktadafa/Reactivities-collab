@@ -7,6 +7,7 @@ import { User, UserFormValues } from "../models/user";
 import { Photo, Profile, userActivity } from "../models/profile";
 import { PaginatedResult } from "../models/pagination";
 import { INotification } from "../models/notification";
+import ChatComment from "../models/comment";
 
 const sleep = (delay: number) => {
     return new Promise((resolve) => {
@@ -91,14 +92,17 @@ const Activities = {
     delete: (id: string) => requests.del<void>(`/activities/${id}`),
     attend: (id: string) => requests.post<void>(`/activities/${id}/attend`, {}),
     kick :(activityId:string, username:string) => requests.post<void>(`/activities/${activityId}/attend/kick/${username}`,{}),
-    addAttend : (activityId:string, username:string) => requests.post<void>(`/activities/${activityId}/attend/add/${username}`, {})
-
+    addAttend : (activityId:string, username:string) => requests.post<void>(`/activities/${activityId}/attend/add/${username}`, {}),
+    uploadPhotoChat : (comment:ChatComment) => requests.post<void>(`/comment/uploadPhoto/`,comment)
 }
 
 const Account = {
     current: () => requests.get<User>('/accounc'),
     login: (user: UserFormValues) => requests.post<User>('/accounc/login', user),
-    register: (user: UserFormValues) => requests.post<User>('/accounc/register', user)
+    register: (user: UserFormValues) => requests.post<User>('/accounc/register', user),
+    google : (user:UserFormValues) => requests.post<User>('/accounc/login/google', user),
+    sendemail : () => requests.post('/accounc/email-verify',{}),
+    verificationEmail: (code:any) => requests.put(`/accounc/email-verify`,code)
 }
 
 const Profiles= {
@@ -120,7 +124,8 @@ const Profiles= {
         requests.get<userActivity[]>(`/profile/${username}/activities?Predikat=${predicate}`)
 }
 const Notifications= {
-    get:() => requests.get<INotification[]>('/notifications')
+    get:() => requests.get<INotification[]>('/notifications'),
+    update : (id:number) => requests.put(`/notifications/update/${id}`,{})
 }
 
 const agent = {

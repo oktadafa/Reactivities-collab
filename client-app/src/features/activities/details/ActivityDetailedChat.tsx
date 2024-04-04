@@ -1,13 +1,11 @@
 import { observer } from 'mobx-react-lite'
 import { useEffect } from 'react'
-import {Segment, Header, Comment, Loader, Dropdown, DropdownMenu, DropdownItem} from 'semantic-ui-react'
+import {Segment, Header, Comment, Dropdown, DropdownMenu, DropdownItem, Icon} from 'semantic-ui-react'
 import { store, useStore } from '../../../app/stores/store';
 import { Link } from 'react-router-dom';
-
-import { Formik, Form, Field, FieldProps } from 'formik';
-import * as Yup from 'yup';
 import {  formatDistanceToNow } from 'date-fns';
 import { Activity } from '../../../app/models/activity';
+import { useForm } from 'react-hook-form';
 
 interface Props {
     activity:Activity
@@ -15,6 +13,22 @@ interface Props {
 
 export default observer(function ActivityDetailedChat({activity}: Props) {
     const {commentStore} = useStore();
+    // const[selectedFile, setSelectedFile] = useState<File |null>(null)
+    // const[preveiwImage, setPreveiwImage] = useState<any>('')
+    const {register,handleSubmit, reset} = useForm()
+    // const [meta,helpers] = useField("file")
+    // const handleChange = (e:any) => {
+    //   const file  = e.target.files[0]
+    //   setSelectedFile(file)
+
+    //   if (file) {
+    //     const reader = new FileReader()
+    //     reader.onloadend = () => {setPreveiwImage(reader.result)}
+    //     reader.readAsDataURL(file);
+    //   }else {
+    //     setPreveiwImage('')
+    //   }
+    // }
     
     useEffect(() => {
         if (activity.id) {
@@ -68,48 +82,28 @@ export default observer(function ActivityDetailedChat({activity}: Props) {
                   <Comment.Text style={{ whiteSpace: "pre-wrap" }}>
                     {comment.body}
                   </Comment.Text>
+                  {comment.commentImage && (
+                    <img src={comment.commentImage} style={{ width: "50%" }} />
+                  )}
                 </Comment.Content>
               </Comment>
             ))}
           </Comment.Group>
-
-          <Formik
-            onSubmit={(values, { resetForm }) =>
+          <form
+            onSubmit={handleSubmit((data) => {
               commentStore
-                .addComment(values)
-                .then(() => resetForm())
-                .catch((err) => console.log(err))
-            }
-            initialValues={Yup.object({
-              body: Yup.string().required(),
+                .addComment(data, data.file[0])
+                .then((_) => reset())
+                .catch((err) => console.log(err));
             })}
           >
-            {({ isSubmitting, isValid, handleSubmit }) => (
-              <Form className="ui form">
-                <Field name="body">
-                  {(props: FieldProps) => (
-                    <div style={{ position: "relative" }}>
-                      <Loader active={isSubmitting} />
-                      <textarea
-                        placeholder="Enter your comment to submit, SHIFT + enter for new line"
-                        rows={2}
-                        {...props.field}
-                        onKeyDown={(e) => {
-                          if (e.key === "Enter" && e.shiftKey) {
-                            return;
-                          }
-                          if (e.key === "Enter" && !e.shiftKey) {
-                            e.preventDefault();
-                            isValid && handleSubmit();
-                          }
-                        }}
-                      />
-                    </div>
-                  )}
-                </Field>
-              </Form>
-            )}
-          </Formik>
+            <input {...register("body", { required: true })} className="w-80 border-2 px-1 py-2 border-blue-400 rounded-xl" placeholder='Message'/>
+            <label htmlFor='file'>
+              <Icon name='photo' circular className='bg-blue-400 border-none hover:bg-white hover:border-blue-900' size='large'/>
+            <input type="file" {...register("file")} className="hidden" id='file'/>
+            </label>
+            <button type="submit" className='py-1 bg-green-700 px-7 text-white rounded-lg'>test</button>
+          </form>
         </Segment>
       </>
     );
