@@ -1,0 +1,48 @@
+version: "2"
+services:
+  db:
+    hostname: db
+    container_name: db
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: dafa
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: test
+    ports:
+      - "5432:5432"
+    networks:
+      - my_network
+
+  backend:
+    domainname: backendd
+    hostname: backends
+    container_name: backend-services
+    build: ./Reactivities-collab
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    networks:
+      - my_network
+
+  frontend:
+    domainname: frontendd
+    hostname: frontend
+    container_name: frontend-services
+    build: ./client-app
+    environment:
+    - VITE_API_URL=http://localhost:8080/api
+    - VITE_CHAT_URL=http://localhost:8080/chat
+    - VITE_NOTIFICATION_URL=http://localhost:8080/notification
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - my_network
+    dns_search: backends
+
+networks:
+  my_network:
+    driver: bridge
