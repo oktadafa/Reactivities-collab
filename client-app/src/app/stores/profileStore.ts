@@ -10,6 +10,7 @@ export default class ProfileStore {
     loading = false;
     followings: Profile[] = [];
     loadingFollowings = false;
+    buttonAdd = false
     activeTab = 0;
     userActivities: userActivity[] = [];
     loadingActivities = false;
@@ -23,6 +24,7 @@ export default class ProfileStore {
                 if(activeTab === 3 || this.activeTab === 4) {
                     const predicate = activeTab === 3 ? 'followers' : 'following';
                     this.loadFollowings(predicate);
+                    this.buttonAdd = false
                 } else {
                     this.followings = [];
                 }
@@ -86,7 +88,7 @@ export default class ProfileStore {
                 if (this.profile && this.profile.photos) {
                     this.profile.photos.find(p => p.isMain)!.isMain = false;
                     this.profile.photos.find(p => p.id === photo.id)!.isMain = true;
-                    this.profile.image = photo.url;
+                    this.profile.image = this.profile.photos.find(x => x.isMain == true)?.url
                 this.loading = false;
                 }
             })
@@ -115,17 +117,35 @@ export default class ProfileStore {
     updateFollowing = async (username: string, following: boolean) => {
         this.loading = true;
         try {
-            await agent.Profiles.updateFollowing(username);
+            await agent.Profiles.updateFollowing(username).catch(err => console.log(err)
+            );
             store.activityStore.updateAttendeeFollowing(username);
-            runInAction(() => {
+            runInAction(async() => {
                 if (this.profile && this.profile.username !== store.userStore.user?.username && this.profile.username === username) {
-                    following ? this.profile.followersCount++ : this.profile.followersCount--;
+                    if (following) {
+                        this.profile.followersCount++;
+                       await store.notificationStore.sendNotification("Follow You", username).then(p => console.log(`Anda Diffolow ${p}`)).catch(p => console.log(`Error ${p}`)
+                        )
+                    } else {
+                        await store.notificationStore.unfollowToggle(store.userStore.user?.displayName!, username)
+                        this.profile.followersCount--;
+                    }
+                    // following ? this.profile.followersCount++ : this.profile.followersCount--;
                     this.profile.following = !this.profile.following;
                     this.loading = false;
                 }
                 if (this.profile && this.profile.username === store.userStore.user?.username) {
-                    following ? this.profile.followingCount++ : this.profile.followingCount--;
-                    // this.profile.following = !this.profile.following
+                    if (following) {
+                      this.profile.followersCount++;
+                     await store.notificationStore
+                        .sendNotification("Follow You", username)
+                        .then((p) => console.log(`Anda Diffolow ${p}`))
+                        .catch((p) => console.log(`Error ${p}`));
+                    } else {
+                      this.profile.followersCount--;
+                    }
+                    // following ? this.profile.followingCount++ : this.profile.followingCount--;
+                    this.profile.following = !this.profile.following
                 }
                 // this.following = !this.following;
                 
@@ -151,7 +171,7 @@ export default class ProfileStore {
                 this.loadingFollowings = false;
             })
         } catch (error) {
-            console.log(error);
+            console.log(this.profile?.username);
             runInAction(() => this.loadingFollowings = false);
             
         }
@@ -193,4 +213,25 @@ export default class ProfileStore {
             runInAction(() => this.loading = false);
         }
     }
+
+    loadFollowers = async() => {
+        try {
+            const user =store.userStore.user
+            const activity =store.activityStore.selectedActivity
+            if (user?.username) {
+                const pengikut = await agent.Profiles.listFollowings(user.username, "followers");
+                console.log(pengikut);
+                runInAction(() => {
+                const followersNotInActivity = pengikut.filter(pengikut => !activity?.attendees.some(attendee => attendee.username === pengikut.username));
+                    this.followings = followersNotInActivity
+                })
+            }
+        } catch (error) {
+            console.log(error);
+                        
+        }
+    }
+
+
+
 }

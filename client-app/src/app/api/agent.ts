@@ -6,6 +6,7 @@ import { store } from "../stores/store";
 import { User, UserFormValues } from "../models/user";
 import { Photo, Profile, userActivity } from "../models/profile";
 import { PaginatedResult } from "../models/pagination";
+import { INotification } from "../models/notification";
 
 const sleep = (delay: number) => {
     return new Promise((resolve) => {
@@ -85,7 +86,9 @@ const Activities = {
     update: (activity: ActivityFormValues) => requests.put<void>(`/activities/edit/${activity.id}`, activity),
     delete: (id: string) => requests.del<void>(`/activities/${id}`),
     attend: (id: string) => requests.post<void>(`/activities/${id}/attend`, {}),
-    kick :(activityId:string, username:string) => requests.post<void>(`/activities/${activityId}/attend/kick/${username}`,{})
+    kick :(activityId:string, username:string) => requests.post<void>(`/activities/${activityId}/attend/kick/${username}`,{}),
+    addAttend : (activityId:string, username:string) => requests.post<void>(`/activities/${activityId}/attend/add/${username}`, {})
+
 }
 
 const Account = {
@@ -104,7 +107,7 @@ const Profiles= {
         })
     },
     setMainPhoto: (id: string) => requests.post(`/photo/${id}/setMain`, {}),
-    deletePhoto: (id: string) => requests.del(`/photo?id= ${id}`),
+    deletePhoto: (id: string) => requests.del(`/photo?id=${id}`),
     updateProfile: (profile: Partial<Profile>) => requests.put(`/profile`, profile),
     updateFollowing: (username: string) => requests.post(`/follow/${username}`, {}),
     listFollowings: (username: string, predicate: string) => 
@@ -112,11 +115,15 @@ const Profiles= {
     listActivities: (username: string, predicate: string) => 
         requests.get<userActivity[]>(`/profile/${username}/activities?Predikat=${predicate}`)
 }
+const Notifications= {
+    get:() => requests.get<INotification[]>('/notifications')
+}
 
 const agent = {
     Activities, 
     Account,
-    Profiles
+    Profiles,
+    Notifications
 }
 
 export default agent;

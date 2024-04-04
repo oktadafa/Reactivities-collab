@@ -4,7 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { Outlet, ScrollRestoration, useLocation } from 'react-router-dom';
 import HomePage from '../../features/home/homePage';
 import { ToastContainer } from 'react-toastify';
-import { useStore } from '../stores/store';
+import {  useStore } from '../stores/store';
 import { useEffect } from 'react';
 import LoadingComponent from './LoadingComponent';
 import ModalContainer from '../common/modals/ModalContainer';
@@ -12,15 +12,17 @@ import ModalContainer from '../common/modals/ModalContainer';
 
 function App() {
   const location = useLocation();
-  const {commonStore, userStore} = useStore();
+  const {commonStore, userStore, notificationStore} = useStore();
 
   useEffect(() => {
     if (commonStore.token) {
-      userStore.getUser().finally(() => commonStore.setAppLoaded())
+      userStore.getUser().finally(() => commonStore.setAppLoaded());
+      notificationStore.createHubConnection();
+
     } else {
-      commonStore.setAppLoaded()
+      commonStore.setAppLoaded();
     }
-  }, [commonStore, userStore])
+  }, [commonStore, userStore, notificationStore]);
 
   if(!commonStore.appLoaded) return <LoadingComponent content='Loading app...'/>
 

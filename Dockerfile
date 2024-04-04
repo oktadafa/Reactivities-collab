@@ -1,20 +1,22 @@
-FROM mcr.microsofr.com/dotnet/sdk:8.0 AS build-env
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
 WORKDIR /app
 
-#copy .scproj and resotre as distinct layers
-COPY "Reactivities.sln" "Reactivities.sln"
-COPY "API/API.csproj" "API/API.csproj"
-COPY "Application/Application.csproj" "Application/Application.csproj"
-COPY "Persistence/Persistence.csproj" "Persistence/Persistence.csproj"
-COPY "Domain/Domain.csproj" "Domain/Domain.csproj"
-COPY "Infrastructure/Infrastructure.csproj" "Infrastructure/Infrastructure.csproj"
-RUN dotnet restore "Reactivities.sln"
+# Copy and restore as distinct layers
+COPY Reactivities.sln .
+COPY API/API.csproj ./API/
+COPY Application/Application.csproj ./Application/
+COPY Persistence/Persistence.csproj ./Persistence/
+COPY Domain/Domain.csproj ./Domain/
+COPY Infrastructure/Infrastructure.csproj ./Infrastructure/
+RUN dotnet restore
 
-#copy everything else build
+# Copy everything else and build
 COPY . .
-RUN dotnet publish -C Release -o out
+RUN dotnet publish -c Release -o out
 
-#build a runtime image
+# Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
+WORKDIR /app
 COPY --from=build-env /app/out .
-ENTRYPOINT [ "dotnet","API.dll" ]
+EXPOSE 8080
+ENTRYPOINT [ "dotnet", "API.dll" ]

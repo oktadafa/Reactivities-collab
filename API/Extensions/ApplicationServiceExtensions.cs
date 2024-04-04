@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Application.Activities;
 using Application.Core;
 using Application.Interface;
@@ -30,7 +26,7 @@ namespace API.Extensions
             services.AddDbContext<DataContext>(opt =>
             {
                 // opt.UseSqlite(servicesation.GetConnectionString("DefaultConnection"));
-                opt.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
+                opt.UseNpgsql(configuration["KoneksiDB"]);
             });
 
             services.AddCors(opt =>
@@ -41,7 +37,7 @@ namespace API.Extensions
                     .AllowAnyHeader()
                     .AllowAnyMethod()
                     .AllowCredentials()
-                    .WithOrigins("http://localhost:3000");
+                    .WithOrigins("http://localhost:3000").WithOrigins("http://frontend:3000");
                 });
             });
 

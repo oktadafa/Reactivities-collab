@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Threading.Tasks;
 using Application.Core;
 using Application.Interface;
 using Domain;
+using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +14,22 @@ namespace Application.Photos
         public class Command : IRequest<Result<Photo>>
         {
             public IFormFile File { get; set; }
+        }
+
+        public class CommandValidator : AbstractValidator<Command>
+        {
+            public CommandValidator()
+            {
+                RuleFor(x =>x.File).Must(x => x.Length < 3000000).WithMessage("File size very big");
+                RuleFor(x =>x.File).NotEmpty().WithMessage("File Not Empty");
+                RuleFor(x => x.File).Must(x => IsValid(x.ContentType)).WithMessage("File Type Not Supported");
+            }
+
+            private bool IsValid(string contentType)
+            {
+                var allowedContentTypes = new[] { "image/jpeg", "image/png" };
+                return allowedContentTypes.Contains(contentType);
+            }
         }
 
         public class Handler : IRequestHandler<Command, Result<Photo>>

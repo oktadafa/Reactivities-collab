@@ -8,7 +8,7 @@ import { Profile } from "../models/profile";
 import { Pagination, PagingParams } from "../models/pagination";
 
 export default class ActivityStore {
-    // activities: Activity[] = []
+    activities: Activity[] = []
     activityRegistry = new Map<String, Activity>();
     selectedActivity: Activity | undefined = undefined;
     editMode = false;
@@ -17,7 +17,8 @@ export default class ActivityStore {
     pagination: Pagination | null = null;
     pagingParams = new PagingParams();
     predicate = new Map().set('all', true);
-
+    loadingKick = false;
+    loadingAddUser = false;
     constructor() {
         makeAutoObservable(this)
 
@@ -268,19 +269,41 @@ export default class ActivityStore {
     }
 
     kickUserActivity = async(username:string) => {
-        this.loading = true
+        this.loadingKick = true
         try {
             await agent.Activities.kick(this.selectedActivity?.id || '', username);
             runInAction(() => {
                 if (this.selectedActivity?.attendees) {
                     this.selectedActivity.attendees = this.selectedActivity?.attendees.filter(e => e.username != username);
-                    // alert(username)
                 }
-                this.loading =false
+                this.loadingKick =false
             })
         } catch (error) {
-            runInAction(() => this.loading = false)
+            runInAction(() => this.loadingKick = false)
         }        
+    }
+
+    addUserActivity = async(userrname:string) => {
+        this.loadingAddUser = true;
+        try {
+            await agent.Activities.addAttend(this.selectedActivity?.id || '', userrname);
+            runInAction(async () => {
+                if(this.selectedActivity?.attendees)
+                {
+                    await store.profileStore.loadProfile(userrname)
+                   const user = store.profileStore.profile
+                   if (user) {
+                       this.selectedActivity.attendees.push(user);
+                       store.profileStore.followings = store.profileStore.followings.filter(e => e.username !== user.username);                
+                   }
+                }                
+            })
+            this.loadingAddUser =false
+        } catch (error) {
+            this.loadingAddUser =false
+            console.log("function addUserActivity error cuy");
+            
+        }
     }
 }
 

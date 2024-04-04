@@ -174,6 +174,38 @@ namespace Persistence.Migrations
                     b.ToTable("Comments");
                 });
 
+            modelBuilder.Entity("Domain.Notifikasi", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("FromId")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Message")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ToId")
+                        .HasColumnType("text");
+
+                    b.Property<string>("type")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FromId");
+
+                    b.HasIndex("ToId");
+
+                    b.ToTable("Notifications");
+                });
+
             modelBuilder.Entity("Domain.Photo", b =>
                 {
                     b.Property<string>("id")
@@ -377,6 +409,23 @@ namespace Persistence.Migrations
                     b.Navigation("Author");
                 });
 
+            modelBuilder.Entity("Domain.Notifikasi", b =>
+                {
+                    b.HasOne("Domain.AppUser", "From")
+                        .WithMany("historyNotif")
+                        .HasForeignKey("FromId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Domain.AppUser", "To")
+                        .WithMany("Notifications")
+                        .HasForeignKey("ToId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("From");
+
+                    b.Navigation("To");
+                });
+
             modelBuilder.Entity("Domain.Photo", b =>
                 {
                     b.HasOne("Domain.AppUser", null)
@@ -469,7 +518,11 @@ namespace Persistence.Migrations
 
                     b.Navigation("Followings");
 
+                    b.Navigation("Notifications");
+
                     b.Navigation("Photos");
+
+                    b.Navigation("historyNotif");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,11 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Application.Activities;
-using Application.Profiles;
-using Domain;
-using Microsoft.AspNetCore.Mvc.ActionConstraints;
 
 namespace Application.DTO
 {

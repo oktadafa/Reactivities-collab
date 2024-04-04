@@ -1,28 +1,29 @@
 import { observer } from 'mobx-react-lite'
 import { useEffect } from 'react'
-import {Segment, Header, Comment, Loader} from 'semantic-ui-react'
-import { useStore } from '../../../app/stores/store';
+import {Segment, Header, Comment, Loader, Dropdown, DropdownMenu, DropdownItem} from 'semantic-ui-react'
+import { store, useStore } from '../../../app/stores/store';
 import { Link } from 'react-router-dom';
 
 import { Formik, Form, Field, FieldProps } from 'formik';
 import * as Yup from 'yup';
 import {  formatDistanceToNow } from 'date-fns';
+import { Activity } from '../../../app/models/activity';
 
 interface Props {
-    activityId: string;
+    activity:Activity
 }
 
-export default observer(function ActivityDetailedChat({activityId}: Props) {
+export default observer(function ActivityDetailedChat({activity}: Props) {
     const {commentStore} = useStore();
     
     useEffect(() => {
-        if (activityId) {
-            commentStore.createHubConnection(activityId);
+        if (activity.id) {
+            commentStore.createHubConnection(activity.id);
         }
         return () => {
             commentStore.clearComments();
         }
-    }, [commentStore,activityId])
+    }, [commentStore,activity.id])
     
 
     return (
@@ -45,6 +46,22 @@ export default observer(function ActivityDetailedChat({activityId}: Props) {
                   <Comment.Author as={Link} to={`/profile/${comment.username}`}>
                     {comment.displayName}
                   </Comment.Author>
+
+                  {comment.username == store.userStore.user?.username && (
+                    <Dropdown icon="ellipsis vertical" color="grey">
+                      <DropdownMenu>
+                        <DropdownItem
+                          content="hapus"
+                          onClick={() =>
+                            commentStore
+                              .deleteComment(comment.id)
+                              .catch((error) => console.log(error))
+                          }
+                        />
+                      </DropdownMenu>
+                    </Dropdown>
+                  )}
+
                   <Comment.Metadata>
                     <div>{formatDistanceToNow(comment.createdAt)}</div>
                   </Comment.Metadata>
@@ -54,42 +71,45 @@ export default observer(function ActivityDetailedChat({activityId}: Props) {
                 </Comment.Content>
               </Comment>
             ))}
-
-            <Formik
-              onSubmit={(values, { resetForm }) =>
-                commentStore.addComment(values).then(() => resetForm())
-              }
-              initialValues={Yup.object({
-                body: Yup.string().required(),
-              })}
-            >
-              {({ isSubmitting, isValid, handleSubmit }) => (
-                <Form className="ui form">
-                  <Field name="body">
-                    {(props: FieldProps) => (
-                      <div style={{ position: "relative" }}>
-                        <Loader active={isSubmitting} />
-                        <textarea
-                          placeholder="Enter your comment to submit, SHIFT + enter for new line"
-                          rows={2}
-                          {...props.field}
-                          onKeyDown={(e) => {
-                            if (e.key === "Enter" && e.shiftKey) {
-                              return;
-                            }
-                            if (e.key === "Enter" && !e.shiftKey) {
-                              e.preventDefault();
-                              isValid && handleSubmit();
-                            }
-                          }}
-                        />
-                      </div>
-                    )}
-                  </Field>
-                </Form>
-              )}
-            </Formik>
           </Comment.Group>
+
+          <Formik
+            onSubmit={(values, { resetForm }) =>
+              commentStore
+                .addComment(values)
+                .then(() => resetForm())
+                .catch((err) => console.log(err))
+            }
+            initialValues={Yup.object({
+              body: Yup.string().required(),
+            })}
+          >
+            {({ isSubmitting, isValid, handleSubmit }) => (
+              <Form className="ui form">
+                <Field name="body">
+                  {(props: FieldProps) => (
+                    <div style={{ position: "relative" }}>
+                      <Loader active={isSubmitting} />
+                      <textarea
+                        placeholder="Enter your comment to submit, SHIFT + enter for new line"
+                        rows={2}
+                        {...props.field}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" && e.shiftKey) {
+                            return;
+                          }
+                          if (e.key === "Enter" && !e.shiftKey) {
+                            e.preventDefault();
+                            isValid && handleSubmit();
+                          }
+                        }}
+                      />
+                    </div>
+                  )}
+                </Field>
+              </Form>
+            )}
+          </Formik>
         </Segment>
       </>
     );

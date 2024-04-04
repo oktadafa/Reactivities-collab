@@ -12,32 +12,43 @@ export default class CommentStore{
     }
 
     createHubConnection = (activityId: string) => {
+        console.log("okta");
             if (store.activityStore.selectedActivity) {
+                
                 this.hubConnection = new HubConnectionBuilder()
                 .withUrl(import.meta.env.VITE_CHAT_URL + '/?activityId=' + activityId, {
                     accessTokenFactory: () => store.userStore.user?.token as string
                 })
-            
                 .withAutomaticReconnect()
                 .configureLogging(LogLevel.Information)
                 .build();
             
-            this.hubConnection.start().catch(error => console.log('Error establishing the connection: ', error));
+            this.hubConnection.start().catch(error => console.log('Error establishing the connection: ', error)).then(err => console.log(err)
+            );
 
             this.hubConnection.on('LoadComments', (comments: ChatComment[]) => {
                 runInAction(() =>  {
                     comments.forEach(comment => {                        
                         comment.createdAt = new Date(comment.createdAt);
+
                     })
                     this.comments = comments
                 });    
             })
             this.hubConnection.on('ReceiveComment', (comment: ChatComment) => {
+                console.log("test");
                 
                 runInAction(() => {
                     comment.createdAt = new Date(comment.createdAt)
                     this.comments.push(comment)
+                    
                 });
+            })
+
+            this.hubConnection.on("DeleteComment", (commentId:number) => {
+                runInAction(() => {
+                    this.comments =this.comments.filter(e => e.id != commentId)
+                })
             })
         }
     }
@@ -53,12 +64,26 @@ export default class CommentStore{
 
     addComment = async (values: any) => { 
         values.activityId = store.activityStore.selectedActivity?.id;
-        try {
-            console.log(values);
-            
-            await this.hubConnection?.invoke('SendComment', values);
+        
+        try {         
+            await this.hubConnection?.invoke('SendComment', values).then(err => console.log(err)
+            );
         } catch (error) {
             console.log(error);
+        }
+    }
+
+    deleteComment = async(commentId : number) => {
+        let values = 
+        {
+            commentId :commentId,
+            activityId : store.activityStore.selectedActivity?.id
+        }
+        try {
+            await this.hubConnection?.invoke("DeleteComment", values);
+        } catch (error) {
+            console.log(error);
+            
         }
     }
     

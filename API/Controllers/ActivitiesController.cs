@@ -62,5 +62,13 @@ namespace API.Controllers
             return handleResult(await Mediator.Send(new KickUser.Command{Username = username, ActivityId= activityId}));
             // return NotFound("tidak ada");
         }
+
+        [AllowAnonymous]
+        [HttpPost("{activityId}/attend/add/{username}")]
+        public async Task<IActionResult> AddUserAttendee(Guid activityId, string username)
+        {
+            return handleResult(await Mediator.Send(new AddAttende.Command{Username = username, ActivityId = activityId}));
+        }
+        
     }
 }

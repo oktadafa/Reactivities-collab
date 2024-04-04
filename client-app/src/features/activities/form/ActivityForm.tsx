@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { Button, Checkbox, Header, Segment } from "semantic-ui-react";
+import { Button, Header, Segment } from "semantic-ui-react";
 import { useStore } from "../../../app/stores/store";
 import { observer } from "mobx-react-lite";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import LoadingComponent from "../../../app/layout/LoadingComponent";
 import {v4 as uuid} from 'uuid'; 
-import { Formik,Form } from "formik";
+import { Formik,Form, Field } from "formik";
 import * as Yup from 'yup';
 import MyTextInput from "../../../app/common/form/MyTextInput";
 import MyTextArea from "../../../app/common/form/MyTestArea";
@@ -23,14 +23,16 @@ export default observer(function ActivityForm() {
     const [activity, setActivity] = useState<ActivityFormValues>(new ActivityFormValues());
 
     const validationSchema = Yup.object({
-        title: Yup.string().required('The activity title is required'),
-        description: Yup.string().required('The activity description is required'),
-        category: Yup.string().required(),
-        date: Yup.string().required('Date is required').nullable(),
-        city: Yup.string().required(),
-        venue  : Yup.string().required(),
-        isPrivate: Yup.string()
-    })
+      title: Yup.string().required("The activity title is required"),
+      description: Yup.string().required(
+        "The activity description is required"
+      ),
+      category: Yup.string().required(),
+      date: Yup.string().required("Date is required").nullable(),
+      city: Yup.string().required(),
+      venue: Yup.string().required(),
+      isPrivate: Yup.boolean(),
+    });
 
     useEffect(() => {
         if (id) loadActivity(id).then(activity => setActivity(new ActivityFormValues(activity)))
@@ -44,6 +46,8 @@ export default observer(function ActivityForm() {
             }
             // createActivity(newActivity).then(() => navigate(`/activities/${activity.id}`));
             createActivity(newActivity).then(() => navigate(`/activities/${newActivity.id}`));
+            console.log(newActivity);
+            
         } else{
             updateActivity(activity).then(() => navigate(`/activities/${activity.id}`));
         }
@@ -54,13 +58,12 @@ export default observer(function ActivityForm() {
 
         return (
           <Segment clearing>
-            <Header content="Activity Details" sub color="teal" />
+            <Header content={`Activity Details`} sub color="teal" />
             <Formik
               validationSchema={validationSchema}
               enableReinitialize
               initialValues={activity}
-              onSubmit={(values) => handleFormSubmit(values)
-              }
+              onSubmit={(values) => handleFormSubmit(values)}
             >
               {({ handleSubmit, isValid, isSubmitting, dirty }) => (
                 <Form
@@ -87,7 +90,6 @@ export default observer(function ActivityForm() {
                     dateFormat="MMMM d, YYYY h:mm aa"
                   />
 
-
                   {/* <CheckBoxInput
                   onClick = ''
                   name="isPrivate"
@@ -95,13 +97,14 @@ export default observer(function ActivityForm() {
                   />  */}
 
                   {/* <div style={{display:"flex", gap:"10px"}}> */}
-                  <Checkbox 
-                    type="checkbox" 
-                    toggle
-                    class='ui toggle checkbox'  
-                    label = 'Is Privatedocke'                  
-                    />
-                    {/* <p>Is Private</p> */}
+                  <label>
+                  <Field
+                    type="checkbox"
+                    name="isPrivate"
+                  />
+                    is Private
+                  </label>
+                  {/* <p>Is Private</p> */}
                   {/* </div> */}
 
                   <Header content="Location Details" sub color="teal" />

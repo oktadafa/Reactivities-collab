@@ -1,5 +1,6 @@
 using API.Extensions;
 using API.Middleware;
+using API.Signal;
 using API.SignalR;
 using Domain;
 using Microsoft.AspNetCore.Identity;
@@ -34,8 +35,13 @@ app.UseStaticFiles();
 
 app.MapControllers();    
 app.MapHub<ChatHub>("/chat");
+<<<<<<< HEAD
 app.MapFallbackToController("Index", "Fallback");
 
+=======
+app.MapHub<NotificationHub>("/notification");
+app.MapFallbackToController("index", "Fallback");
+>>>>>>> ec7d01b32bf3e9ed43fc1fc2a5f7f163780b7bdb
 using var scope = app.Services.CreateScope();
 var services  = scope.ServiceProvider;
 

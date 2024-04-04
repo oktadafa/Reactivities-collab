@@ -15,10 +15,18 @@ namespace API.SignalR
 
         public async Task SendComment(Create.Command command)
         {
-            var comment = await _mediator.Send(command);
+            try
+            {
+                var comment = await _mediator.Send(command);
 
-            await Clients.Group(command.ActivityId.ToString())
-                .SendAsync("ReceiveComment", comment.Value);
+                await Clients.Group(command.ActivityId.ToString())
+                    .SendAsync("ReceiveComment", comment.Value);
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+            }
+            
         }
 
         public override async Task OnConnectedAsync()
@@ -28,6 +36,12 @@ namespace API.SignalR
             await Groups.AddToGroupAsync(Context.ConnectionId, activityId);
             var result = await _mediator.Send(new List.Query { ActivityId = Guid.Parse(activityId) });
             await Clients.Caller.SendAsync("LoadComments", result.Value);
+        }
+
+        public async Task DeleteComment(Delete.Command command)
+        {
+            var coment = await _mediator.Send(command);
+            await Clients.Group(command.ActivityId.ToString()).SendAsync("DeleteComment", command.CommentId);
         }
     }
 }

@@ -32,7 +32,7 @@ namespace API.Extensions
                     {
                         var accessToken = context.Request.Query["access_token"];
                         var path = context.HttpContext.Request.Path;
-                        if (!string.IsNullOrEmpty(accessToken) && (path.StartsWithSegments("/chat")))
+                        if (!string.IsNullOrEmpty(accessToken) && ((path.StartsWithSegments("/chat")) || path.StartsWithSegments("/notification")))
                         {
                             context.Token= accessToken;                            
                         }
