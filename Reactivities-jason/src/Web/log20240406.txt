@@ -1,0 +1,158 @@
+2024-04-06 21:17:05.557 +07:00 [INF] User profile is available. Using 'C:\Users\UT School\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-04-06 21:17:06.210 +07:00 [WRN] The entity type 'Colour' is an optional dependent using table sharing without any required non shared property that could be used to identify whether the entity exists. If all nullable properties contain a null value in database then an object instance won't be created in the query. Add a required property to create instances with null values for other properties or mark the incoming navigation as required to always create an instance.
+2024-04-06 21:17:06.751 +07:00 [INF] Executed DbCommand (61ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-04-06 21:17:06.779 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-04-06 21:17:06.809 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-04-06 21:17:06.831 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-04-06 21:17:06.837 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-04-06 21:17:06.848 +07:00 [INF] No migrations were applied. The database is already up to date.
+2024-04-06 21:17:12.512 +07:00 [INF] User profile is available. Using 'C:\Users\UT School\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-04-06 21:17:12.964 +07:00 [WRN] The entity type 'Colour' is an optional dependent using table sharing without any required non shared property that could be used to identify whether the entity exists. If all nullable properties contain a null value in database then an object instance won't be created in the query. Add a required property to create instances with null values for other properties or mark the incoming navigation as required to always create an instance.
+2024-04-06 21:17:13.257 +07:00 [INF] Executed DbCommand (37ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-04-06 21:17:13.273 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-04-06 21:17:13.301 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-04-06 21:17:13.323 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-04-06 21:17:13.325 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-04-06 21:17:13.337 +07:00 [INF] No migrations were applied. The database is already up to date.
+2024-04-06 21:17:13.825 +07:00 [INF] Now listening on: https://localhost:5001
+2024-04-06 21:17:13.825 +07:00 [INF] Now listening on: http://localhost:5000
+2024-04-06 21:17:13.826 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-04-06 21:17:13.826 +07:00 [INF] Hosting environment: Development
+2024-04-06 21:17:13.826 +07:00 [INF] Content root path: C:\Users\UT School\Documents\Okta Daffa Ramadani\React JS And ASP\Reactivities-jason\src\Web
+2024-04-06 21:17:14.217 +07:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - null null
+2024-04-06 21:17:14.299 +07:00 [INF] Executing endpoint '/'
+2024-04-06 21:17:14.300 +07:00 [INF] Executing RedirectResult, redirecting to /api.
+2024-04-06 21:17:14.301 +07:00 [INF] Executed endpoint '/'
+2024-04-06 21:17:14.302 +07:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - 302 0 null 87.0702ms
+2024-04-06 21:17:14.308 +07:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api - null null
+2024-04-06 21:17:14.316 +07:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api - 302 0 null 7.7909ms
+2024-04-06 21:17:14.320 +07:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/index.html?url=/api/specification.json - null null
+2024-04-06 21:17:14.374 +07:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/index.html?url=/api/specification.json - 200 null text/html; charset=utf-8 54.4282ms
+2024-04-06 21:17:14.414 +07:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2024-04-06 21:17:14.423 +07:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 8.988ms
+2024-04-06 21:17:14.454 +07:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2024-04-06 21:17:14.455 +07:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 1.0385ms
+2024-04-06 21:17:14.629 +07:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/specification.json - null null
+2024-04-06 21:17:14.635 +07:00 [INF] The file /api/specification.json was not modified
+2024-04-06 21:17:14.665 +07:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/specification.json - 304 null application/json 35.0298ms
+2024-04-06 21:27:48.924 +07:00 [INF] User profile is available. Using 'C:\Users\UT School\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-04-06 21:27:49.446 +07:00 [WRN] The entity type 'Colour' is an optional dependent using table sharing without any required non shared property that could be used to identify whether the entity exists. If all nullable properties contain a null value in database then an object instance won't be created in the query. Add a required property to create instances with null values for other properties or mark the incoming navigation as required to always create an instance.
+2024-04-06 21:27:49.784 +07:00 [INF] Executed DbCommand (54ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-04-06 21:27:49.807 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-04-06 21:27:49.832 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-04-06 21:27:49.844 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-04-06 21:27:49.847 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-04-06 21:27:49.857 +07:00 [INF] No migrations were applied. The database is already up to date.
+2024-04-06 21:27:51.431 +07:00 [INF] User profile is available. Using 'C:\Users\UT School\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-04-06 21:27:51.918 +07:00 [WRN] The entity type 'Colour' is an optional dependent using table sharing without any required non shared property that could be used to identify whether the entity exists. If all nullable properties contain a null value in database then an object instance won't be created in the query. Add a required property to create instances with null values for other properties or mark the incoming navigation as required to always create an instance.
+2024-04-06 21:27:52.169 +07:00 [INF] Executed DbCommand (37ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-04-06 21:27:52.186 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-04-06 21:27:52.211 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-04-06 21:27:52.224 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2024-04-06 21:27:52.225 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2024-04-06 21:27:52.234 +07:00 [INF] No migrations were applied. The database is already up to date.
+2024-04-06 21:27:52.422 +07:00 [INF] Now listening on: https://localhost:5001
+2024-04-06 21:27:52.422 +07:00 [INF] Now listening on: http://localhost:5000
+2024-04-06 21:27:52.424 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-04-06 21:27:52.424 +07:00 [INF] Hosting environment: Development
+2024-04-06 21:27:52.424 +07:00 [INF] Content root path: C:\Users\UT School\Documents\Okta Daffa Ramadani\React JS And ASP\Reactivities-jason\src\Web
+2024-04-06 21:27:52.484 +07:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/index.html?url=/api/specification.json - null null
+2024-04-06 21:27:52.578 +07:00 [INF] Request finished HTTP/2 GET https://localhost:5001/api/index.html?url=/api/specification.json - 200 null text/html; charset=utf-8 94.6107ms
+2024-04-06 21:27:52.639 +07:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2024-04-06 21:27:52.647 +07:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 8.2158ms

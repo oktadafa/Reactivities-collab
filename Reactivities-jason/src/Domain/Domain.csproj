@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>Reactivities_jason.Domain</RootNamespace>
+    <AssemblyName>Reactivities_jason.Domain</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" /> 
+  </ItemGroup>
+    <!-- <ItemGroup>i
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+  </ItemGroup> -->
+
+
+</Project>
