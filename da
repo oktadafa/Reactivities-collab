@@ -1,0 +1,294 @@
+[33mcommit b13c6f83ba3a7d3a90b3b790e52c4b3647dbad45[m[33m ([m[1;36mHEAD -> [m[1;32mokta[m[33m, [m[1;31morigin/okta[m[33m)[m
+Author: oktadafa <oktadafasampang@gmail.com>
+Date:   Mon Apr 29 20:26:33 2024 +0700
+
+    delete branch okta
+
+[33mcommit 3e3d2bd6e5848ad02a575c67e24c12167566412f[m[33m ([m[1;32mfinal[m[33m)[m
+Author: oktadafa <oktadafasampang@gmail.com>
+Date:   Thu Apr 4 13:25:33 2024 +0700
+
+    Changes
+
+[33mcommit 79099c306cab6e847787c65eaf7d8e20e572a962[m
+Author: oktadafa <oktadafasampang@gmail.com>
+Date:   Thu Apr 4 11:26:36 2024 +0700
+
+    04/04/2024 2
+
+[33mcommit 2be520dbd9d4cc896074c62f4e90bdfb4bb3f6e7[m
+Author: oktadafa <oktadafasampang@gmail.com>
+Date:   Thu Apr 4 11:24:20 2024 +0700
+
+    04/04/2024 1
+
+[33mcommit fd408e84550a635ef973ff15b71de85730676a97[m
+Author: oktadafa <oktadafasampang@gmail.com>
+Date:   Thu Apr 4 11:16:53 2024 +0700
+
+    04/04/2024
+
+[33mcommit d03c306977baa21ac914913906d605ec0677d053[m
+Author: oktadafa <oktadafasampang@gmail.com>
+Date:   Thu Apr 4 11:10:16 2024 +0700
+
+    04/04/2024
+
+[33mcommit ec7d01b32bf3e9ed43fc1fc2a5f7f163780b7bdb[m
+Author: oktadafa <oktadafasampang@gmail.com>
+Date:   Wed Apr 3 15:11:54 2024 +0700
+
+    update 03/04/2024
+
+[33mcommit e3f491e34f2dfac194d0c51c456771eaea0e8f38[m
+Author: oktadafa <oktadafasampang@gmail.com>
+Date:   Fri Mar 15 10:31:22 2024 +0700
+
+    test
+
+[33mcommit 286cef772c1ea2e088466c1f2a8e68b22fc47d7a[m
+Merge: 87a781d 615851d
+Author: oktadafa <oktadafasampang@gmail.com>
+Date:   Fri Mar 15 09:06:09 2024 +0700
+
+    test
+
+[33mcommit 87a781d14b4e85df1d5c6585a89211782a093ef2[m
+Author: oktadafa <oktadafasampang@gmail.com>
+Date:   Fri Mar 15 08:54:55 2024 +0700
+
+    cob
+
+[33mcommit 615851d33b9592e2eaa0320c4e5b4e446d142ef1[m
+Merge: 98bc6d0 f29aeab
+Author: Wikrama1 <rakaiwikrama@gmail.com>
+Date:   Fri Mar 15 08:49:46 2024 +0700
+
+    update bug profile foto, filter
+
+[33mcommit 98bc6d06b8fa5253c4341f8b71ebe82b2751fada[m
+Author: Wikrama1 <rakaiwikrama@gmail.com>
+Date:   Thu Mar 7 14:15:35 2024 +0700
+
+    update
+
+[33mcommit f29aeab257af83b3b44c3d91b9fd64badf19a3a3[m
+Author: oktadafa <oktadafasampang@gmail.com>
+Date:   Thu Mar 7 14:10:16 2024 +0700
+
+    menambahkan kick user dan private activity
+
+[33mcommit bc3d8038a230c03b5c1d3e24f203aed633acd817[m
+Merge: fb53608 d60df6d
+Author: oktadafa <oktadafasampang@gmail.com>
+Date:   Wed Mar 6 15:53:02 2024 +0700
+
+    update
+
+[33mcommit fb536085ffd032438e780ef95172af34cad16521[m
+Author: oktadafa <oktadafasampang@gmail.com>
+Date:   Wed Mar 6 15:50:28 2024 +0700
+
+    update
+
+[33mcommit d60df6d5480e16680de9c4ae3f6c5a0699fd3d92[m
+Author: Wikrama1 <rakaiwikrama@gmail.com>
+Date:   Wed Mar 6 15:46:24 2024 +0700
+
+    update bagian 21
+
+[33mcommit 642c06a7ac14024c2935239c4ab832161396462c[m
+Author: Wikrama1 <rakaiwikrama@gmail.com>
+Date:   Wed Mar 6 13:14:40 2024 +0700
+
+    updateee
+
+[33mcommit 4fc79ff440686e0e210e3b17e675aed6b3904a6e[m
+Merge: 84e2d4d 253746b
+Author: Wikrama1 <rakaiwikrama@gmail.com>
+Date:   Wed Mar 6 11:33:53 2024 +0700
+
+    update
+
+[33mcommit 84e2d4d84f43cebb2cabed14b856d8b40e22edc8[m
+Author: Wikrama1 <rakaiwikrama@gmail.com>
+Date:   Wed Mar 6 11:32:33 2024 +0700
+
+    update
+
+[33mcommit 253746bfe62cf1ad5cb33b95b68c73949718d436[m
+Merge: eb3a803 ae8e0c9
+Author: oktadafa <oktadafasampang@gmail.com>
+Date:   Wed Mar 6 11:29:39 2024 +0700
+
+    update 06/03/2024
+
+[33mcommit eb3a8037badb042a1e7cf0dc20ba2d48f2205948[m
+Author: oktadafa <oktadafasampang@gmail.com>
+Date:   Wed Mar 6 11:28:24 2024 +0700
+
+    update 06/03/2024
+
+[33mcommit ae8e0c92352aff4b70b108e72d6b02415fadbb53[m
+Merge: f357c99 5cacb3f
+Author: Wikrama1 <rakaiwikrama@gmail.com>
+Date:   Wed Mar 6 08:28:29 2024 +0700
+
+    update bagian 21 menambahkan fitur events pada profile
+
+[33mcommit f357c9974f0dc1e39465c43d98ac93e36cc13dfe[m
+Author: Wikrama1 <rakaiwikrama@gmail.com>
+Date:   Wed Mar 6 08:27:19 2024 +0700
+
+    update bagian 21
+
+[33mcommit 5cacb3fa8ab2e7e9e200438a14da19a1ac247be7[m
+Merge: 7ae7a58 f60426e
+Author: oktadafa <oktadafasampang@gmail.com>
+Date:   Tue Mar 5 08:49:42 2024 +0700
+
+    fixing error time comment
+
+[33mcommit 7ae7a584548df920298ab78197584bc94eb883ea[m
+Author: oktadafa <oktadafasampang@gmail.com>
+Date:   Tue Mar 5 07:58:21 2024 +0700
+
+    update
+
+[33mcommit f60426e18c24ff48beb43dbf3203020a79999f74[m
+Author: Wikrama1 <rakaiwikrama@gmail.com>
+Date:   Mon Mar 4 20:54:22 2024 +0700
+
+    update ffitur komen tetapi masi eror pada penambahan waktu memosting komen
+
+[33mcommit 36682e1ff2244c950754fc58a979071231cc90a0[m
+Merge: 960c2ce cd41231
+Author: Wikrama1 <rakaiwikrama@gmail.com>
+Date:   Mon Mar 4 13:17:24 2024 +0700
+
+    Merge branch 'main' of https://github.com/oktadafa/Reactivities-collab
+
+[33mcommit 960c2ce1bcf9edbfbd61466b84d6caec270b3c94[m
+Author: Wikrama1 <rakaiwikrama@gmail.com>
+Date:   Mon Mar 4 13:17:17 2024 +0700
+
+    s
+
+[33mcommit cd41231d19cfc36f5652837358183c9731ecb2bf[m
+Author: oktadafa <oktadafasampang@gmail.com>
+Date:   Mon Mar 4 11:39:14 2024 +0700
+
+    fix error client-app
+
+[33mcommit b281565501495f7a0075ec027dd478d3fa0cba92[m
+Merge: 95fb9dc 7575af1
+Author: oktadafa <oktadafasampang@gmail.com>
+Date:   Mon Mar 4 11:11:02 2024 +0700
+
+    update 04/03/2024
+
+[33mcommit 95fb9dcd3d3efed7d44e029a26082e9b4172ebaf[m
+Author: oktadafa <oktadafasampang@gmail.com>
+Date:   Mon Mar 4 11:09:50 2024 +0700
+
+    gabung 04/03/2024
+
+[33mcommit 7575af1591723212e9b6990f31471c93cc003851[m
+Merge: d20e50a 4f81aca
+Author: Wikrama1 <rakaiwikrama@gmail.com>
+Date:   Mon Mar 4 11:08:15 2024 +0700
+
+    update
+
+[33mcommit d20e50a398b22511168d1f02c20a292aa9b2a234[m
+Author: Wikrama1 <rakaiwikrama@gmail.com>
+Date:   Mon Mar 4 11:05:54 2024 +0700
+
+    update
+
+[33mcommit 4f81acaf50b03b8c989e69e1330c9df5abc76297[m
+Merge: 18ab370 d283946
+Author: oktadafa <oktadafasampang@gmail.com>
+Date:   Mon Mar 4 11:01:26 2024 +0700
+
+    done challenge 18 and 21 backend
+
+[33mcommit 18ab370a54f0df21ef294445bb7fdafc21d4a6ee[m
+Author: oktadafa <oktadafasampang@gmail.com>
+Date:   Mon Mar 4 10:57:49 2024 +0700
+
+    done challenge 18 and 21 backend
+
+[33mcommit d28394670c02e199b89291fe2f2513b65c0f5f65[m
+Merge: 98e5fd5 1c1ae8e
+Author: Wikrama1 <rakaiwikrama@gmail.com>
+Date:   Mon Mar 4 07:53:28 2024 +0700
+
+    update
+
+[33mcommit 98e5fd5b601e7bea9c13fc9cc392f1e96ae0472a[m
+Author: Wikrama1 <rakaiwikrama@gmail.com>
+Date:   Mon Mar 4 07:51:53 2024 +0700
+
+    bagian 18
+
+[33mcommit 1c1ae8e161f069c0a449a005f3249070908cd40b[m
+Merge: 0167371 40770fa
+Author: oktadafa <oktadafasampang@gmail.com>
+Date:   Thu Feb 29 16:04:47 2024 +0700
+
+    update section of 20 part 2
+
+[33mcommit 0167371ac7326a974d52d005c4872fce16c74a77[m
+Author: oktadafa <oktadafasampang@gmail.com>
+Date:   Thu Feb 29 16:03:52 2024 +0700
+
+    update section of 20
+
+[33mcommit 40770fa1c0c1a3c8b82ff6dcda55167619a1ae56[m
+Merge: 488d37e 1572b1f
+Author: Wikrama1 <rakaiwikrama@gmail.com>
+Date:   Thu Feb 29 16:00:20 2024 +0700
+
+    bagian 17
+
+[33mcommit 488d37e502130132ef925c7a9f56fe515c68670c[m
+Author: Wikrama1 <rakaiwikrama@gmail.com>
+Date:   Thu Feb 29 15:59:08 2024 +0700
+
+    udah sampai bagian 17
+
+[33mcommit 1572b1f6a1e6beeb7f24f380c9d87f0894a84158[m
+Author: oktadafa <oktadafasampang@gmail.com>
+Date:   Thu Feb 29 08:17:12 2024 +0700
+
+    update 29 februari
+
+[33mcommit dfcdfb339fe8fb64a73b2ae118df688646efed30[m
+Merge: 290da58 f48a417
+Author: oktadafa <oktadafasampang@gmail.com>
+Date:   Wed Feb 28 16:06:42 2024 +0700
+
+    update section 19 part 2
+
+[33mcommit 290da58fb863367821a1d66705f80c7e3cdf3a10[m
+Author: oktadafa <oktadafasampang@gmail.com>
+Date:   Wed Feb 28 16:05:42 2024 +0700
+
+    update section 19
+
+[33mcommit f48a4177d30e1363760add086ffb97e035e64f19[m
+Merge: 974aa24 d55ccad
+Author: Wikrama1 <rakaiwikrama@gmail.com>
+Date:   Wed Feb 28 15:50:31 2024 +0700
+
+    Merge branch 'main' of https://github.com/oktadafa/Reactivities-collab
+
+[33mcommit 974aa24145f2a14ff0b56de1ed20af757929e47a[m
+Author: Wikrama1 <rakaiwikrama@gmail.com>
+Date:   Wed Feb 28 15:49:30 2024 +0700
+
+    file accouncnya line 51 dan 56 ku ubah register masi eror ngga muncul alert email/username taken
+
+[33mcommit d55ccad311ea71b3f5831e047aba6d4aa964adce[m
+Author: oktadafa <oktadafasa
