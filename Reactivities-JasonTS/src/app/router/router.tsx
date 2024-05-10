@@ -6,6 +6,8 @@ import ActivityDetails from "../../features/activities/details/ActivityDetails";
 import RequireAuth from "./RequireAuth";
 import HomePage from "../../features/home/homePage";
 import ProfilPage from "../../features/profile/ProfilPage";
+import ChatDashboard from "../../features/chat/dashboard/ChatDashboard";
+import Video from "../common/Video/Video";
 
 export const routes: RouteObject[] = [
   {
@@ -14,15 +16,17 @@ export const routes: RouteObject[] = [
     children: [
       {
         element: <RequireAuth />,
-        children : [
-          { path: "createActivity", element: <ActivityForm key={"create"} /> },
+        children: [
           { path: "update/:id", element: <ActivityForm key={"update"} /> },
+          { path: "createActivity", element: <ActivityForm key={"create"} /> },
           { path: "activities", element: <ActivityDashboard /> },
           { path: "activities/:id", element: <ActivityDetails /> },
-          {path:'profile/:username', element:<ProfilPage/>}
+          { path: "profile/:username", element: <ProfilPage /> },
+          { path: "chat", element: <ChatDashboard /> },
+          { path: "video", element: <Video /> },
         ],
       },
-      {path:'', element:<HomePage/>},
+      { path: "", element: <HomePage /> },
     ],
   },
 ];

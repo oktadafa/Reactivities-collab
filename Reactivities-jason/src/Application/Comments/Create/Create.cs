@@ -15,9 +15,7 @@ namespace Reactivities_jason.Application.Comments.Create
         public string Body { get; set; } = null;
         public string CommentImage { get; set; } = null;
         public Guid ActivityId{ get; set; }
-
-        [MaybeNull]
-        public Guid ParentCommentId{get;set;} 
+        public string ParentCommentId{get;set;}
     }
 
     public class CreateHandler : IRequestHandler<CreateCommand, CommentDto>
@@ -45,7 +43,7 @@ namespace Reactivities_jason.Application.Comments.Create
                 return null;
             }
 
-            var paretnComment =  Activity.Comments.FirstOrDefault(x => x.Id == request.ParentCommentId);
+            var paretnComment =  Activity.Comments.FirstOrDefault(x => x.Id.ToString() == request.ParentCommentId);
             var user = await _myUser.Users.Include(x => x.Photos).SingleOrDefaultAsync(x => x.UserName == _user.GetUsername());
             // var comment = new Comment{
             //     Activity = Activity,

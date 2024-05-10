@@ -57,7 +57,7 @@ export default  function ActivityDashboard() {
     <div className="container px-10 py-20">
       <div className="grid gap-4 grid-cols-5">   
         <div className="activities flex-col col-span-3">
-      <InfiniteScroll hasMore={activityStore.hasNextPage} pageStart={4} initialLoad={false} loadMore={handleGetNext} >
+      <InfiniteScroll  hasMore={activityStore.hasNextPage} pageStart={4} initialLoad={false} loadMore={handleGetNext} >
           {activityStore.groupedActivities.map(([group, activities]) => (
             <>
               <p className='text-blue-500 font-semibold mb-2'>{group}</p>

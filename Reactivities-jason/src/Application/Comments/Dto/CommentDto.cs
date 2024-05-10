@@ -18,6 +18,8 @@ namespace Reactivities_jason.Application.Comments.Dto
         public string Image { get; set; }
         
         public string CommentImage { get; set; }
+        
+        public string commentParentId { get; set; }
 
         public DateTime CreatedAt { get; set; }
         
@@ -29,7 +31,8 @@ namespace Reactivities_jason.Application.Comments.Dto
             {
                 CreateMap<Domain.Entities.Comment, CommentDto>().ForMember(x => x.DisplayName, o => o.MapFrom(p => p.Author.DisplayName))
                 .ForMember(x => x.Username, o =>  o.MapFrom( p=> p.Author.UserName))
-                .ForMember(x => x.Image, o => o.MapFrom(p => p.Author.Photos.FirstOrDefault(x => x.isMain).fileBase64));
+                .ForMember(x => x.Image, o => o.MapFrom(p => p.Author.Photos.FirstOrDefault(x => x.isMain).fileBase64))
+                .ForMember(x => x.commentParentId, o => o.MapFrom(p => p.CommentParent.Id));
             }
         }
         

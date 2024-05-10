@@ -15,6 +15,9 @@ export default class CommentStore {
   constructor() {
     makeAutoObservable(this);
   }
+  show(id:string){
+    this.comments.find(e => e.id == id)!.showReply = !this.comments.find(e => e.id == id)!.showReply;
+  }
 
   createHubConnection = (activityId: string) => {
     this.hubConnection = new HubConnectionBuilder()
@@ -32,11 +35,19 @@ export default class CommentStore {
       .catch((error) => console.log(error, "Waduh Error"));
     this.hubConnection.on("LoadComments", (comments: ChatComment[]) => {
       this.comments = comments;
-      console.log(comments);
-      
     });
     this.hubConnection.on("ReceiveComment", (comment: ChatComment) => {
-      this.comments.unshift(comment);
+      
+      if(comment.commentParentId == "00000000-0000-0000-0000-000000000000")
+        {
+          this.comments.unshift(comment);
+        }else{
+          this.comments.forEach(element => {
+            if (element.id  == comment.commentParentId) {
+              element.replyComments.unshift(comment)
+            }
+          });
+        }
     });
   };
 
@@ -53,7 +64,7 @@ export default class CommentStore {
 
   addComent = async (values: any, activityId: string) => {
     values.activityId = activityId;
-    console.log(values);
+    console.log(values); 
 
     try {
       await this.hubConnection

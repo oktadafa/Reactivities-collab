@@ -18,11 +18,15 @@ namespace Reactivities_jason.Domain.Entities
 
         public DateTime ExpireVerifyCode { get; set; }
 
+        public ICollection<ConversationsParticipants> ConversationsParticipants {get;set;}
+
         public ICollection<ActivityAttendee> ActivityAttendees { get; set; }
 
         public ICollection<UserFollowing> Followings { get; set; }
 
         public ICollection<UserFollowing> Followers { get; set; }
+
+        public ICollection<Messages> Messages{ get; set; }
 
         public ICollection<Photo> Photos { get; set; }
     }

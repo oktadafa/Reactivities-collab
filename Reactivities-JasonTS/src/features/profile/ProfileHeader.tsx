@@ -1,11 +1,14 @@
-import  {useState } from 'react'
-import { useStore } from '../../app/store/store';
-import LoadingAddAtendee from '../../app/common/LoadingAddAtendee';
-import { useMutationUpdateFollow } from '../../app/common/service';
-import { observer } from 'mobx-react-lite';
+import { useState } from "react";
+import { useStore } from "../../app/store/store";
+import LoadingAddAtendee from "../../app/common/LoadingAddAtendee";
+import { useMutationUpdateFollow } from "../../app/common/service";
+import { observer } from "mobx-react-lite";
+import { Link } from "react-router-dom";
+import { BsFillChatFill } from "react-icons/bs";
+import { router } from "../../app/router/router";
 
 export default observer(function ProfileHeader() {
-  const { userStore, profileStore } = useStore();
+  const { userStore, profileStore, conversationStore } = useStore();
   const [loading, setLoading] = useState(false);
   const { mutateAsync } = useMutationUpdateFollow();
   const handleUpdateFollow = (username: string) => {
@@ -21,11 +24,13 @@ export default observer(function ProfileHeader() {
     // console.log("succesa");
   };
 
-
   return (
     <div className="header bg-white p-5 flex justify-between rounded">
       <div className="flex text-2xl font-semibold items-center">
-        <img src={profileStore.profile?.image || "/assets/user.png"} className="w-36 rounded-full" />
+        <img
+          src={profileStore.profile?.image || "/assets/user.png"}
+          className="w-36 rounded-full"
+        />
         <p className="ml-4">{profileStore.profile?.displayName}</p>
       </div>
       <div>
@@ -45,32 +50,47 @@ export default observer(function ProfileHeader() {
         </div>
         <hr className="font-bold" />
         <div className="flex justify-center pt-4">
-          {userStore.user?.userName !== profileStore.profile?.username ? (
-            profileStore.profile?.following ? (
-              <button
-                className="w-56 py-1 bg-green-600 text-white hover:bg-green-500 active:bg-green-400"
-                onClick={() =>
-                  handleUpdateFollow(profileStore.profile?.username!)
-                }
-              >
-                Following
-                {loading && <LoadingAddAtendee />}
-              </button>
+          <div>
+            {userStore.user?.userName !== profileStore.profile?.username ? (
+              <>
+                {profileStore.profile?.following ? (
+                  <button
+                    className="w-56 py-1 bg-green-600 text-white hover:bg-green-500 active:bg-green-400"
+                    onClick={() =>
+                      handleUpdateFollow(profileStore.profile?.username!)
+                    }
+                  >
+                    Following
+                    {loading && <LoadingAddAtendee />}
+                  </button>
+                ) : (
+                  <button
+                    className="w-56 py-1 bg-green-600 text-white hover:bg-green-500 active:bg-green-400"
+                    onClick={() =>
+                      handleUpdateFollow(profileStore.profile?.username!)
+                    }
+                  >
+                    Follow {loading && <LoadingAddAtendee />}
+                  </button>
+                )}
+                <button
+                  onClick={() => {
+                    conversationStore.setSelectedUser(
+                      profileStore.profile?.username!
+                    );
+                    router.navigate("/chat");
+                  }}
+                  className="px-10 mt-2 bg-blue-500 text-white py-1 flex justify-center items-center"
+                >
+                  <BsFillChatFill className="mr-2" /> Chat
+                </button>
+              </>
             ) : (
-              <button
-                className="w-56 py-1 bg-green-600 text-white hover:bg-green-500 active:bg-green-400"
-                onClick={() =>
-                  handleUpdateFollow(profileStore.profile?.username!)
-                }
-              >
-                Follow {loading && <LoadingAddAtendee />}
-              </button>
-            )
-          ) : (
-            ""
-          )}
+              ""
+            )}
+          </div>
         </div>
       </div>
     </div>
   );
-}); 
+});

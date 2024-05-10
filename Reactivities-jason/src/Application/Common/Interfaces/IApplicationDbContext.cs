@@ -12,7 +12,10 @@ public interface IApplicationDbContext
     DbSet<ActivityAttendee> ActivityAttendees { get; }
     DbSet<Comment> Comments { get; }
     DbSet<Domain.Entities.Photo> Photos { get; }
-
+    DbSet<Conversations> Conversations { get; }
+    DbSet<ConversationsParticipants> ConversationsParticipants { get; }
+    DbSet<Messages> Messages { get; }
+    DbSet<ConvesationFile> ConvesationsFiles { get; }
     DbSet<Domain.Entities.AppToken> AppTokens { get; }
     Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 }

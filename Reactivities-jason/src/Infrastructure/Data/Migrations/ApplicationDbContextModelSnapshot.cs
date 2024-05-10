@@ -338,6 +338,100 @@ namespace Reactivities_jason.Infrastructure.Data.Migrations
                     b.ToTable("Comments");
                 });
 
+            modelBuilder.Entity("Reactivities_jason.Domain.Entities.Conversations", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Conversations");
+                });
+
+            modelBuilder.Entity("Reactivities_jason.Domain.Entities.ConversationsParticipants", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("ConversationId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ConversationId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ConversationsParticipants");
+                });
+
+            modelBuilder.Entity("Reactivities_jason.Domain.Entities.ConvesationFile", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Base64")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ContentType")
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("MessageId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<int>("Size")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MessageId")
+                        .IsUnique();
+
+                    b.ToTable("ConvesationsFiles");
+                });
+
+            modelBuilder.Entity("Reactivities_jason.Domain.Entities.Messages", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Body")
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("ConversationsId")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CraetedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("IsRead")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("SenderId")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ConversationsId");
+
+                    b.HasIndex("SenderId");
+
+                    b.ToTable("Messages");
+                });
+
             modelBuilder.Entity("Reactivities_jason.Domain.Entities.Photo", b =>
                 {
                     b.Property<Guid>("id")
@@ -548,6 +642,53 @@ namespace Reactivities_jason.Infrastructure.Data.Migrations
                     b.Navigation("CommentParent");
                 });
 
+            modelBuilder.Entity("Reactivities_jason.Domain.Entities.ConversationsParticipants", b =>
+                {
+                    b.HasOne("Reactivities_jason.Domain.Entities.Conversations", "Conversations")
+                        .WithMany("ConversationsParticipants")
+                        .HasForeignKey("ConversationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Reactivities_jason.Domain.Entities.AppUser", "AppUser")
+                        .WithMany("ConversationsParticipants")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Conversations");
+                });
+
+            modelBuilder.Entity("Reactivities_jason.Domain.Entities.ConvesationFile", b =>
+                {
+                    b.HasOne("Reactivities_jason.Domain.Entities.Messages", "Messages")
+                        .WithOne("Files")
+                        .HasForeignKey("Reactivities_jason.Domain.Entities.ConvesationFile", "MessageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Messages");
+                });
+
+            modelBuilder.Entity("Reactivities_jason.Domain.Entities.Messages", b =>
+                {
+                    b.HasOne("Reactivities_jason.Domain.Entities.Conversations", "Conversations")
+                        .WithMany("Messages")
+                        .HasForeignKey("ConversationsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Reactivities_jason.Domain.Entities.AppUser", "Sender")
+                        .WithMany("Messages")
+                        .HasForeignKey("SenderId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("Conversations");
+
+                    b.Navigation("Sender");
+                });
+
             modelBuilder.Entity("Reactivities_jason.Domain.Entities.Photo", b =>
                 {
                     b.HasOne("Reactivities_jason.Domain.Entities.AppUser", null)
@@ -617,9 +758,13 @@ namespace Reactivities_jason.Infrastructure.Data.Migrations
                 {
                     b.Navigation("ActivityAttendees");
 
+                    b.Navigation("ConversationsParticipants");
+
                     b.Navigation("Followers");
 
                     b.Navigation("Followings");
+
+                    b.Navigation("Messages");
 
                     b.Navigation("Photos");
                 });
@@ -627,6 +772,18 @@ namespace Reactivities_jason.Infrastructure.Data.Migrations
             modelBuilder.Entity("Reactivities_jason.Domain.Entities.Comment", b =>
                 {
                     b.Navigation("ReplyComments");
+                });
+
+            modelBuilder.Entity("Reactivities_jason.Domain.Entities.Conversations", b =>
+                {
+                    b.Navigation("ConversationsParticipants");
+
+                    b.Navigation("Messages");
+                });
+
+            modelBuilder.Entity("Reactivities_jason.Domain.Entities.Messages", b =>
+                {
+                    b.Navigation("Files");
                 });
 
             modelBuilder.Entity("Reactivities_jason.Domain.Entities.TodoList", b =>

@@ -1,16 +1,15 @@
-import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react'
-import { FaBell, FaChevronDown, FaChevronUp } from 'react-icons/fa6';
-import { Link, NavLink } from 'react-router-dom';
-import { useStore } from '../store/store';
-import { observer } from 'mobx-react-lite';
-import { BiNotification } from 'react-icons/bi';
+import { useState } from "react";
+import { FaBell, FaChevronDown, FaChevronUp } from "react-icons/fa6";
+import { Link, NavLink } from "react-router-dom";
+import { useStore } from "../store/store";
+import { observer } from "mobx-react-lite";
+import { BsFillChatFill } from "react-icons/bs";
 // import { getUser } from '../api/api';
 
 export default observer(function Navbar() {
   const [dropHidden, setDropHidden] = useState(true);
   const [hiddenNot, setHiddenNot] = useState(true);
-  const { userStore } = useStore();
+  const { userStore, conversationStore } = useStore();
   return (
     <>
       <div className=" z-10 navbar w-full py-2 bg-blue-600 text-white px-7 shadow-2xl flex justify-between fixed">
@@ -30,6 +29,15 @@ export default observer(function Navbar() {
         </div>
 
         <div className="flex items-center">
+          <div className="mr-5">
+            <Link to={"/chat"}>
+              <BsFillChatFill />
+              <p className="text-small absolute -translate-y-8 translate-x-3 font-semibold">
+                {conversationStore.CountNewMessage / 2 !== 0 &&
+                  conversationStore.CountNewMessage / 2}
+              </p>
+            </Link>
+          </div>
           <div className="mr-5">
             <FaBell onClick={() => setHiddenNot(!hiddenNot)} />
             {!hiddenNot && (
@@ -67,4 +75,4 @@ export default observer(function Navbar() {
       </div>
     </>
   );
-}); 
+});

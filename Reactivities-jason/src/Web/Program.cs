@@ -66,6 +66,7 @@ app.UseExceptionHandler(options =>
 
 app.Map("/", () => Results.Redirect("/api"));
 app.MapHub<ChatHub>("/chat");
+app.MapHub<ConversationHub>("/conversation");
 app.MapEndpoints();
 
 app.Run();
