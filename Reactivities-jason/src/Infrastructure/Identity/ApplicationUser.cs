@@ -15,6 +15,6 @@ public class ApplicationUser : IdentityUser
     public DateTime ExpireVerifyCode { get; set; }
 
     public ICollection<ActivityAttendee> ActivityAttendees { get; set; }
-    
-        
+
+
 }

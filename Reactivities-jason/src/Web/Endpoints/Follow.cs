@@ -9,21 +9,21 @@ namespace Reactivities_jason.Web.Endpoints
     {
         public override void Map(WebApplication app)
         {
-            app.MapGroup(this)
+            app.MapGroup(this).RequireAuthorization()
             .RequireAuthorization()
             .MapPut(FollowToggle, "{username}")
             .MapGet(GetFollow, "{username}");
         }
 
-        public async Task<Result> FollowToggle(ISender sender, string username )
+        public async Task<Result> FollowToggle(ISender sender, string username)
         {
-            var result = await sender.Send(new FollowToggleCommand{TargetUsername = username});
+            var result = await sender.Send(new FollowToggleCommand { TargetUsername = username });
             return result;
         }
 
-        public async Task<List<Application.Profiles.Profiles>> GetFollow(ISender sender, string username, [FromQuery]string predicate)
+        public async Task<List<Application.Profiles.Profiles>> GetFollow(ISender sender, string username, [FromQuery] string predicate)
         {
-            return await sender.Send(new ListFollowQuery{Username = username, Predicate = predicate});
+            return await sender.Send(new ListFollowQuery { Username = username, Predicate = predicate });
         }
     }
 }

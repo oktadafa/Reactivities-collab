@@ -8,7 +8,7 @@ namespace Reactivities_jason.Application.Common.Models
 {
     public class UserDTO
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
         public string DisplayName { get; set; }
 
         public string UserName { get; set; }

@@ -15,7 +15,6 @@ namespace Reactivities_jason.Application.Conversation.DTO
         public string Image { get; set; }
         public string FromUsername { get; set; }
         public bool IsRead { get; set; }
-
         public string file { get; set; }
         public string fileType { get; set; }
         public int NoReadCount { get; set; }

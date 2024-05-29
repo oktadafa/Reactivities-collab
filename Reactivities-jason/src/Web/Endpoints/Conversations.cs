@@ -12,6 +12,7 @@ namespace Reactivities_jason.Web.Endpoints
         public override void Map(WebApplication app)
         {
             app.MapGroup(this)
+            .RequireAuthorization()
             .MapGet(GetConversations, "")
             .MapGet(GetMessages, "messages/{Username}")
             .MapPost(CreateConversations, "create")

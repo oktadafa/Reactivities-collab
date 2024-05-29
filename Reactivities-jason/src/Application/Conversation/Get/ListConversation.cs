@@ -7,6 +7,7 @@ using Reactivities_jason.Application.Common.Interfaces;
 using Reactivities_jason.Application.Common.Security;
 using Reactivities_jason.Application.Conversation.DTO;
 using Reactivities_jason.Domain.Entities;
+using Serilog;
 
 namespace Reactivities_jason.Application.Conversation.Get
 {
@@ -15,13 +16,15 @@ namespace Reactivities_jason.Application.Conversation.Get
 
     public class ListConversationHandler : IRequestHandler<ListConversationQuery, List<ConversationsDTO>>
     {
+        private readonly ILogger _logger;
         private readonly IApplicationDbContext _context;
         private readonly IUserAccessor _userAccessor;
         private readonly UserManager<AppUser> _userManager;
         private readonly IMapper _mapper;
 
-        public ListConversationHandler(IApplicationDbContext context, IUserAccessor userAccessor, UserManager<AppUser> userManager, IMapper mapper)
+        public ListConversationHandler(IApplicationDbContext context, IUserAccessor userAccessor, UserManager<AppUser> userManager, IMapper mapper, ILogger logger)
         {
+            _logger = logger;
             _context = context;
             _userAccessor = userAccessor;
             _userManager = userManager;
@@ -32,6 +35,7 @@ namespace Reactivities_jason.Application.Conversation.Get
         {
             var currentUser = await _userManager.Users.FirstOrDefaultAsync(x => x.UserName == _userAccessor.GetUsername());
             var conversations = await _context.Conversations.Include(x => x.Messages).ThenInclude(x => x.Files).Include(x => x.ConversationsParticipants).ThenInclude(x => x.AppUser).Where(x => x.ConversationsParticipants.Any(x => x.AppUser.UserName == currentUser.UserName)).ProjectTo<ConversationsDTO>(_mapper.ConfigurationProvider, new { currentUsername = currentUser.UserName }).AsNoTracking().ToListAsync();
+            _logger.Information($"User ID {currentUser.Id} Successfully Get Conversation");
             return conversations;
         }
     }

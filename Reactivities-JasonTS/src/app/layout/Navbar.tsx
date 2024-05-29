@@ -8,7 +8,6 @@ import { BsFillChatFill } from "react-icons/bs";
 
 export default observer(function Navbar() {
   const [dropHidden, setDropHidden] = useState(true);
-  const [hiddenNot, setHiddenNot] = useState(true);
   const { userStore, conversationStore } = useStore();
   return (
     <>
@@ -33,18 +32,10 @@ export default observer(function Navbar() {
             <Link to={"/chat"}>
               <BsFillChatFill />
               <p className="text-small absolute -translate-y-8 translate-x-3 font-semibold">
-                {conversationStore.CountNewMessage / 2 !== 0 &&
-                  conversationStore.CountNewMessage / 2}
+                {conversationStore.CountNewMessage > 0 &&
+                  conversationStore.CountNewMessage}
               </p>
             </Link>
-          </div>
-          <div className="mr-5">
-            <FaBell onClick={() => setHiddenNot(!hiddenNot)} />
-            {!hiddenNot && (
-              <div className="bg-white p-2 absolute -translate-x-60 text-black w-60 text-sm">
-                <p>Okta daffa Ramdi</p>
-              </div>
-            )}
           </div>
           <div className="flex items-center">
             <button className="mr-1" onClick={() => setDropHidden(!dropHidden)}>
@@ -54,11 +45,9 @@ export default observer(function Navbar() {
             {!dropHidden && (
               <div className="bg-white absolute translate-y-10 translate-x-5 text-black text-sm">
                 <ul>
-                  <li className="py-1 px-10">
-                    <Link to={`/profile/${userStore.user?.userName}`}>
-                      Profil
-                    </Link>
-                  </li>
+                  <Link to={`/profile/${userStore.user?.userName}`}>
+                    <li className="py-1 px-10">Profil</li>
+                  </Link>
                   <li>
                     <button
                       className="bg-red-500 text-white py-1 px-10"

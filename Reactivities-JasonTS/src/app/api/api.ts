@@ -28,10 +28,20 @@ export const getActivities = async (
   return data.data;
 };
 
-export const getActivities2 = async ({ pageNumber }: { pageNumber: any }) => {
+export const getActivities2 = async ({
+  pageParam,
+  startDate,
+  params,
+}: {
+  pageParam: number;
+  startDate: string;
+  params: string;
+}) => {
   const data = await axios.get<Pagination>(
-    `/api/Activity?ListId=1&PageNumber=${pageNumber}&PageSize=2&startDate=2024-04-24T04%3A41%3A28.405Z`
+    `/api/Activity?ListId=1&PageNumber=${pageParam}&PageSize=2&startDate=${startDate}&Param=${params}`
   );
+  console.log(data.data);
+
   return data.data;
 };
 
@@ -40,11 +50,11 @@ export const loginApi = (user: any) => {
 };
 
 export const RegisterApi = async (register: any) => {
-  return await axios.post("/api/UserEntity/register", register);
+  return await axios.post("/api/Users/register", register);
 };
 
 export const getCurrentUser = async (): Promise<User> => {
-  const data = await axios.get("/api/UserEntity");
+  const data = await axios.get("/api/Users");
   return data.data;
 };
 

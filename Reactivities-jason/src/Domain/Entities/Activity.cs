@@ -16,8 +16,7 @@ namespace Reactivities_jason.Domain.Entities
         public string Venue { get; set; }
         public string City { get; set; }
         public bool isCanceled { get; set; }
-        public bool isPrivate { get; set; } = false;
         public ICollection<Comment> Comments { get; set; } = new List<Comment>();
-        public ICollection<ActivityAttendee> Attendees { get; set; } = new List<ActivityAttendee>();        
+        public ICollection<ActivityAttendee> Attendees { get; set; } = new List<ActivityAttendee>();
     }
 }

@@ -2,11 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Reactivities_jason.Application.Common.Interfaces;
 using Reactivities_jason.Application.Common.Models;
 
 namespace Reactivities_jason.Application.Activities.Command.DeleteActivity
 {
+    [Authorize(Policy = "IsHost")]
     public record DeleteActivityCommand(Guid id) : IRequest<Result>;
 
     public class DeleteActivityHandler : IRequestHandler<DeleteActivityCommand, Result>
@@ -18,7 +20,7 @@ namespace Reactivities_jason.Application.Activities.Command.DeleteActivity
         }
         public async Task<Result> Handle(DeleteActivityCommand request, CancellationToken cancellationToken)
         {
-            var Activity =await _context.Activities.SingleOrDefaultAsync(x => x.Id == request.id);
+            var Activity = await _context.Activities.SingleOrDefaultAsync(x => x.Id == request.id);
             if (Activity is null)
             {
                 IEnumerable<string> strings = ["activity is null"];

@@ -43,3 +43,14 @@ interface FileBase64 {
   base64: string;
   message: string;
 }
+
+interface UserCall {
+  DisplayName: string;
+  image: string;
+  status: string;
+}
+
+interface ListMessage {
+  messageDelete: Messages;
+  latestMessage: Messages;
+}

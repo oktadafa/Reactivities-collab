@@ -3,7 +3,6 @@ import {
   SendComment,
   deleteMessage,
   deletePhoto,
-  getActivities,
   getActivityById,
   getActivityByPredicate,
   getProfile,
@@ -17,7 +16,6 @@ import {
   updateProfile,
   uploadPhoto,
 } from "../api/api";
-import { Store } from "../store/store";
 import Swal from "sweetalert2";
 import { Profile } from "../models/profile";
 
@@ -27,13 +25,6 @@ export const useQueryActivityById = (id: string) => {
     queryFn: () => getActivityById(id),
   });
 };
-
-// export const useQueryActity = () => {
-//     return useQuery({
-//         queryKey:["activities"],
-//         queryFn:  getActivities
-//     })
-// }
 
 export const useMutationDeleteMessage = () => {
   return useMutation({

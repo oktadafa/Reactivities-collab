@@ -20,7 +20,7 @@ builder.Services.AddScoped<ITokenConfiguration, TokenConfiguration>();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddWebServices();
 builder.Services.AddSingleton<IUserAccessor, UserAccessor>();
-var logger = new LoggerConfiguration().WriteTo.Console().WriteTo.File("log.txt", rollingInterval: RollingInterval.Day).CreateLogger();
+var logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
 builder.Logging.ClearProviders();
 builder.Logging.AddSerilog(logger);
 var app = builder.Build();

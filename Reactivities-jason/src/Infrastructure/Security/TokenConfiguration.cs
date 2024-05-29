@@ -14,7 +14,7 @@ namespace Reactivities_jason.Infrastructure.Security
     public class TokenConfiguration : ITokenConfiguration
     {
         private readonly IApplicationDbContext _context;
-        public TokenConfiguration( IApplicationDbContext context)
+        public TokenConfiguration(IApplicationDbContext context)
         {
             _context = context;
         }
@@ -22,7 +22,7 @@ namespace Reactivities_jason.Infrastructure.Security
         public async Task<TokenExpireDTO> GetExpireBearer()
         {
             var token = await _context.AppTokens.FirstOrDefaultAsync(x => x.nameSetting == "Expire Bearers");
-                
+
             return new TokenExpireDTO
             {
                 ExpireBearer = Convert.ToDouble(token.values)

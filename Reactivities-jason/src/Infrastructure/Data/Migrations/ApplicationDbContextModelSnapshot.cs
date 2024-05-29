@@ -181,9 +181,6 @@ namespace Reactivities_jason.Infrastructure.Data.Migrations
                     b.Property<bool>("isCanceled")
                         .HasColumnType("boolean");
 
-                    b.Property<bool>("isPrivate")
-                        .HasColumnType("boolean");
-
                     b.HasKey("Id");
 
                     b.ToTable("Activities");

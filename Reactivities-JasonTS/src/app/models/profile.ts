@@ -23,8 +23,8 @@ export class Profile implements IProfile {
   displayName: string;
   image?: string;
   bio?: string;
-  followersCount:number = 0;
-  followingCount:number = 0;
+  followersCount: number = 0;
+  followingCount: number = 0;
   following = false;
   photos?: Photo[];
 }
@@ -40,11 +40,10 @@ export interface userActivity {
   title: string;
   category: string;
   date: Date;
-  isPrivate:boolean
 }
 
-export interface Tab{
-  id:number;
-  name:string;
-  page:JSX.Element
+export interface Tab {
+  id: number;
+  name: string;
+  page: JSX.Element;
 }

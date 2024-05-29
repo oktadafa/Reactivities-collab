@@ -4,10 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.Extensions.Caching.Distributed;
+using Newtonsoft.Json;
 using Reactivities_jason.Application.Common.Interfaces;
 using Reactivities_jason.Application.Conversation.DTO;
 using Reactivities_jason.Application.SignalR;
 using Reactivities_jason.Domain.Entities;
+using Serilog;
 
 namespace Reactivities_jason.Application.Conversation.Message
 {
@@ -24,11 +27,14 @@ namespace Reactivities_jason.Application.Conversation.Message
         private readonly IApplicationDbContext _context;
         private readonly IUserAccessor _userAccessor;
         private readonly UserManager<AppUser> _userManager;
-
+        private readonly ILogger _logger;
         private readonly IMapper _mapper;
         private readonly IHubContext<ConversationHub> _hubContext;
-        public SendMessageHandler(IApplicationDbContext context, IMapper mapper, IUserAccessor userAccessor, UserManager<AppUser> userManager, IHubContext<ConversationHub> hubContext)
+        private readonly IDistributedCache _cache;
+        public SendMessageHandler(IApplicationDbContext context, IMapper mapper, IUserAccessor userAccessor, UserManager<AppUser> userManager, IHubContext<ConversationHub> hubContext, ILogger logger, IDistributedCache cache)
         {
+            _cache = cache;
+            _logger = logger;
             _userAccessor = userAccessor;
             _context = context;
             _userManager = userManager;
@@ -38,9 +44,10 @@ namespace Reactivities_jason.Application.Conversation.Message
         public async Task<int> Handle(SendMessageCommand request, CancellationToken cancellationToken)
         {
             var toUser = await _userManager.Users.FirstOrDefaultAsync(x => x.UserName == request.Username);
-            var currentUser = await _userManager.Users.FirstOrDefaultAsync(x => x.UserName == _userAccessor.GetUsername());
+            var currentUser = await _userManager.Users.Include(x => x.Photos).FirstOrDefaultAsync(x => x.UserName == _userAccessor.GetUsername());
             if (toUser is null || currentUser is null || request.Username == currentUser.UserName)
             {
+                _logger.Error("Error : To User or Current User is null");
                 return 0;
             }
             var ListConversations = await _context.Conversations.Include(x => x.ConversationsParticipants).ThenInclude(x => x.AppUser).Include(x => x.Messages).ThenInclude(x => x.Files).Where(x => x.ConversationsParticipants.Any(x => x.AppUser.UserName == currentUser.UserName)).ToListAsync();
@@ -71,6 +78,7 @@ namespace Reactivities_jason.Application.Conversation.Message
                 data.FromDisplayName = currentUser.UserName;
                 data.Image = currentUser.Photos?.FirstOrDefault(x => x.isMain)?.fileBase64;
                 var result = await _context.SaveChangesAsync(cancellationToken);
+                _logger.Information("Successfully Create Conversation");
             }
             var file = new ConvesationFile { };
             if (request.File != null)
@@ -92,9 +100,22 @@ namespace Reactivities_jason.Application.Conversation.Message
                 CraetedAt = DateTime.UtcNow,
                 Files = file
             };
+            string keyCacheListMessage = $"List-Message-Conversation-{Conversations.Id}";
+            string resultListMessageCache = await _cache.GetStringAsync(keyCacheListMessage);
+            List<MessageDTO> MessageDTOs;
+            MessageDTO messageDTO;
+            if (!string.IsNullOrEmpty(resultListMessageCache))
+            {
+                MessageDTOs = JsonConvert.DeserializeObject<List<MessageDTO>>(resultListMessageCache);
+                messageDTO = _mapper.Map<MessageDTO>(messages);
+                MessageDTOs.Add(messageDTO);
+                await _cache.SetStringAsync(keyCacheListMessage, JsonConvert.SerializeObject(MessageDTOs));
+            }
             Conversations.Messages.Add(messages);
             var es = await _context.SaveChangesAsync(cancellationToken);
             data.Id = messages.Id;
+            data.FromDisplayName = currentUser.DisplayName;
+            data.Image = currentUser.Photos?.FirstOrDefault(x => x.isMain)?.fileBase64;
             data.Body = request.Body;
             data.FromUsername = currentUser.UserName;
             data.createdAt = messages.CraetedAt;
@@ -102,10 +123,12 @@ namespace Reactivities_jason.Application.Conversation.Message
             data.File = _mapper.Map<FileDTO>(messages.Files);
             try
             {
+                _logger.Information($"Successfully Send Message From User Id {currentUser.Id} to User ID {toUser.Id}");
                 await _hubContext.Clients.User(toUser.Id).SendAsync("ReceiveMessage", data);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
+                _logger.Error($"Error Cannot Send Message : {ex.Message}");
                 Console.WriteLine("Error");
                 Console.WriteLine(ex.Message);
             }

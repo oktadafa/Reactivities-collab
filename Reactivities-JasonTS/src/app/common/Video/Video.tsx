@@ -1,48 +1,126 @@
-import Peer from "peerjs";
-import { useEffect, useState } from "react";
+import Peer, { DataConnection, MediaConnection } from "peerjs";
+import React, { LegacyRef, useEffect, useRef, useState } from "react";
 import UserStore from "../../store/userStore";
 import { Store, useStore } from "../../store/store";
+import { FaPhoneFlip, FaPhoneSlash } from "react-icons/fa6";
+import { observer } from "mobx-react-lite";
+interface Props {
+  currentRef: React.MutableRefObject<HTMLVideoElement | undefined>;
+  userRef: React.MutableRefObject<HTMLVideoElement | undefined>;
+  call: MediaConnection;
+  setCalling: React.Dispatch<React.SetStateAction<boolean>>;
+  // setCon: React.Dispatch<React.SetStateAction<DataConnection | undefined>>;
+  conn: DataConnection | undefined;
+}
 
-export default function Video() {
-  const [peerId, setPeerId] = useState<string>("");
-  const [peer, setPeer] = useState<Peer | null>(null);
-  const [inputId, setInputId] = useState("");
-  useEffect(() => {
-    const peer2 = new Peer(Store.userStore.user?.id!);
-    // peer2.on("open", (id: string) => {
-    // setPeerId(id);
-    // });
-    peer2.on("connection", (conn) => {
-      conn.on("data", (data) => {
-        console.log(data);
-      });
-    });
-    peer2.on("error", (err) => {
-      console.log(err);
-    });
-    // console.log(peer);
-    setPeer(peer2);
-  }, []);
+export default observer(function Video({
+  currentRef,
+  userRef,
+  call,
+  setCalling,
+  conn,
+}: Props) {
+  const { peerStore, conversationStore } = useStore();
 
-  const connect = (id: string) => {
-    const conn = peer?.connect(id);
-    conn?.send("okta");
-    conn?.on("open", () => {
-      conn.send("dafa");
-    });
+  const handleAcceptCall = () => {
+    call.answer(peerStore.currentMediaStream!);
+    console.log(peerStore.peerCall);
 
-    conn?.on("data", (data: any) => {
-      console.log(data);
+    call.on("stream", (remoteStream) => {
+      peerStore.userMediaStream = remoteStream;
+      userRef.current!.srcObject = remoteStream;
     });
+    peerStore.AcceptCall = true;
   };
 
+  const handleRejectCall = () => {
+    // call.off("willCloseOnRemote")
+    // call.close();
+    conn?.close();
+    currentRef.current = undefined;
+    peerStore.userCall = null;
+    peerStore.onCallUser = false;
+    setCalling(false);
+  };
+  const handleRejectedCall = () => {
+    call.close();
+    setCalling(false);
+    currentRef.current = undefined;
+    peerStore.userCall = null;
+    peerStore.onCallUser = false;
+  };
   return (
-    <div className="w-screen h-screen flex justify-evenly items-center">
-      <p>Your id {Store.userStore.user?.id}</p>
-      <input type="text" onChange={(e) => setInputId(e.target.value)} />
-      <button onClick={() => connect(inputId)}>input</button>
-      <div className="p-20 bg-red-500 inline-block"></div>
-      <div className="p-20 bg-red-500 inline-block"></div>
+    <div className="w-screen h-screen flex justify-center items-center">
+      <video
+        className="w-full h-full"
+        autoPlay
+        playsInline
+        ref={currentRef as LegacyRef<HTMLVideoElement>}
+      />
+      {peerStore.userMediaStream ? (
+        <div className="w-40 absolute mt-10 left-10">
+          <video
+            className="w-full h-full"
+            playsInline
+            autoPlay
+            ref={userRef as LegacyRef<HTMLVideoElement>}
+          />
+          <p className="absolute bottom-0 text-white">
+            {peerStore.userCall?.DisplayName ||
+              conversationStore.ProfileMessage?.displayName}
+          </p>
+        </div>
+      ) : (
+        <>
+          {(peerStore.userCall || conversationStore.ProfileMessage) && (
+            <div className="absolute w-60">
+              <img
+                src={
+                  peerStore.userCall?.image ||
+                  conversationStore.ProfileMessage?.image ||
+                  "/assets/user.png"
+                }
+                className="rounded-full w-44 mx-auto"
+              />
+              <p className="text-center text-2xl font-semibold">
+                {peerStore.userCall?.DisplayName ||
+                  conversationStore.ProfileMessage?.displayName}
+              </p>
+              {/* <p>{peerStore.userCall.status == "call" && "Calling..."}</p> */}
+              {peerStore.userCall?.status == "called" ? (
+                <div className="  flex justify-between mt-10">
+                  <button
+                    className="p-4 bg-red-500 rounded-full"
+                    onClick={() => handleRejectCall()}
+                  >
+                    <FaPhoneSlash size={40} />
+                  </button>
+                  <button
+                    onClick={() => handleAcceptCall()}
+                    className="p-4  bg-green-500 rounded-full"
+                  >
+                    <FaPhoneFlip size={40} />
+                  </button>
+                </div>
+              ) : (
+                <p className="text-center text-white">Calling...</p>
+              )}
+            </div>
+          )}
+        </>
+      )}
+      {peerStore.userMediaStream && (
+        <>
+          <div className="absolute bottom-24 ">
+            <button
+              className="p-4 bg-red-500 text-red-800 rounded-full"
+              onClick={() => handleRejectedCall()}
+            >
+              <FaPhoneSlash size={40} />
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
-}
+});

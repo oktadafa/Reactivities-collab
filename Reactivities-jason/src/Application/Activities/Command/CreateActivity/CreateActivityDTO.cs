@@ -3,8 +3,8 @@ namespace Reactivities_jason.Application.Activities.Command.CreateActivity
     public class CreateActivityDTO
     {
 
-        public Guid id { get; set; } = new Guid();
-        
+        public Guid id { get; set; } = Guid.NewGuid();
+
         public string Title { get; set; }
 
         public DateTime Date { get; set; }
@@ -16,8 +16,6 @@ namespace Reactivities_jason.Application.Activities.Command.CreateActivity
         public string Venue { get; set; }
 
         public string City { get; set; }
-        
-        
 
     }
 }

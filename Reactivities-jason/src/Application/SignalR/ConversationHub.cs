@@ -1,12 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR;
 using Reactivities_jason.Application.Conversation.DTO;
 using Reactivities_jason.Application.Conversation.Get;
 using Reactivities_jason.Application.Conversation.Message;
-using Reactivities_jason.Domain.Entities;
 
 namespace Reactivities_jason.Application.SignalR
 {
@@ -21,7 +16,7 @@ namespace Reactivities_jason.Application.SignalR
 
         public override async Task OnConnectedAsync()
         {
-            var result = await _mediator.Send(new ListConversationQuery{});
+            var result = await _mediator.Send(new ListConversationQuery { });
             await Clients.Caller.SendAsync("LoadConversation", result);
         }
 
@@ -41,8 +36,8 @@ namespace Reactivities_jason.Application.SignalR
         public async Task<int> ReadMessage(MessageDTO message)
         {
             Console.WriteLine(message);
-        var result = await _mediator.Send(new ReadMessageCommad{Message = message}); 
-        return result;
+            var result = await _mediator.Send(new ReadMessageCommad { Message = message });
+            return result;
         }
 
     }

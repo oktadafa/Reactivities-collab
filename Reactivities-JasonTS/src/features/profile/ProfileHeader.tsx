@@ -55,7 +55,7 @@ export default observer(function ProfileHeader() {
               <>
                 {profileStore.profile?.following ? (
                   <button
-                    className="w-56 py-1 bg-green-600 text-white hover:bg-green-500 active:bg-green-400"
+                    className="w-56 py-1 bg-green-500 text-white hover:bg-green-600 active:bg-green-700"
                     onClick={() =>
                       handleUpdateFollow(profileStore.profile?.username!)
                     }
@@ -65,7 +65,7 @@ export default observer(function ProfileHeader() {
                   </button>
                 ) : (
                   <button
-                    className="w-56 py-1 bg-green-600 text-white hover:bg-green-500 active:bg-green-400"
+                    className="w-56 py-1 bg-green-500 text-white hover:bg-green-600 active:bg-green-700"
                     onClick={() =>
                       handleUpdateFollow(profileStore.profile?.username!)
                     }
@@ -80,7 +80,7 @@ export default observer(function ProfileHeader() {
                     );
                     router.navigate("/chat");
                   }}
-                  className="px-10 mt-2 bg-blue-500 text-white py-1 flex justify-center items-center"
+                  className="px-10 mt-2 bg-blue-500 text-white py-1 flex justify-center items-center hover:bg-blue-600 active:bg-blue-700"
                 >
                   <BsFillChatFill className="mr-2" /> Chat
                 </button>

@@ -8,11 +8,11 @@ export interface IActivity {
   category: string;
   city: string;
   venue: string;
-  isPrivate: boolean;
   hostUsername: string;
   isCanceled: boolean;
   isGoing: boolean;
   isHost: boolean;
+  hostDisplayName: string;
   host?: Profile;
   attendees: Profile[];
 }
@@ -22,7 +22,6 @@ export class Activity implements IActivity {
     this.id = init.id!;
     this.title = init.title!;
     this.date = init.date!;
-    this.isPrivate = init.isPrivate!;
     this.category = init.category!;
     this.description = init.description!;
     this.venue = init.venue!;
@@ -33,7 +32,6 @@ export class Activity implements IActivity {
   date: Date | null;
   description: string;
   category: string;
-  isPrivate: boolean;
   city: string;
   venue: string;
   hostUsername: string = "";
@@ -42,6 +40,7 @@ export class Activity implements IActivity {
   isHost: boolean = false;
   host?: Profile;
   attendees: Profile[] = [];
+  hostDisplayName: string = "";
 }
 
 export class ActivityFormValues {
@@ -52,7 +51,6 @@ export class ActivityFormValues {
   date: Date | null = null;
   city: string = "";
   venue: string = "";
-  isPrivate: boolean = false;
 
   constructor(activity?: ActivityFormValues) {
     if (activity) {
@@ -63,7 +61,6 @@ export class ActivityFormValues {
       this.date = activity.date;
       this.venue = activity.venue;
       this.city = activity.city;
-      this.isPrivate = activity.isPrivate;
     }
   }
 }

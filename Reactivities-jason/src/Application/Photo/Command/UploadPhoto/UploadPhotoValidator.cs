@@ -9,7 +9,7 @@ namespace Reactivities_jason.Application.Photo.Command.UploadPhoto
     {
         public UploadPhotoValidator()
         {
-            RuleFor(x => x.fileBase64).Must(x => ToMb(x) < 3.0 ).WithMessage("File Size To Big");
+            RuleFor(x => x.fileBase64).Must(x => ToMb(x) < 3.0).WithMessage("File Size To Big");
             RuleFor(x => x.fileBase64).Must(x => checkEkstension(x)).WithMessage("File Extension Not Supported");
         }
 
@@ -32,7 +32,7 @@ namespace Reactivities_jason.Application.Photo.Command.UploadPhoto
         {
             int indexSemiColon = Base64.IndexOf(";");
             string contentType = Base64.Substring(5, indexSemiColon - 5);
-            var allowedExtension = new []{"image/png", "image/jpg", "image/jpeg"};
+            var allowedExtension = new[] { "image/png", "image/jpg", "image/jpeg" };
             return allowedExtension.Contains(contentType);
         }
     }

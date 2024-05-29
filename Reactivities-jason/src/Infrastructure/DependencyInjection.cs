@@ -11,12 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Reactivities_jason.Domain.Entities;
 using Reactivities_jason.Infrastructure.Security;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authentication.BearerToken;
-using System.IdentityModel.Tokens.Jwt;
-
 namespace Microsoft.Extensions.DependencyInjection;
-
 public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
@@ -24,17 +20,19 @@ public static class DependencyInjection
         var connectionString = configuration.GetConnectionString("DefaultConnection");
 
         Guard.Against.Null(connectionString, message: "Connection string 'DefaultConnection' not found.");
-
         services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();
         services.AddScoped<ISaveChangesInterceptor, DispatchDomainEventsInterceptor>();
-
+        services.AddStackExchangeRedisCache(options =>
+        {
+            options.Configuration = configuration.GetConnectionString("RedisConnection");
+            options.InstanceName = "Reactivities";
+        });
         services.AddDbContext<ApplicationDbContext>((sp, options) =>
         {
             options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
 
             options.UseNpgsql(connectionString);
         });
-
         services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
 
         services.AddScoped<ApplicationDbContextInitialiser>();
@@ -84,8 +82,6 @@ public static class DependencyInjection
             options.AddPolicy(Policies.IsHost, policy => { policy.Requirements.Add(new IHostRequirement()); });
         });
         services.AddTransient<IAuthorizationHandler, IHostRequirementHandler>();
-        // services.AddSingleton<ITokenConfiguration, TokenConfiguration>();
-
         return services;
     }
 }

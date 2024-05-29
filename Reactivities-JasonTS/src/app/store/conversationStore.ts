@@ -7,7 +7,6 @@ import { makeAutoObservable, runInAction } from "mobx";
 import { Store } from "./store";
 import { format } from "date-fns";
 import Peer from "peerjs";
-
 export default class ConversationStore {
   selectedParticipants: Participant | null = null;
   hubConnection: HubConnection | null = null;
@@ -19,6 +18,7 @@ export default class ConversationStore {
   CountNewMessage: number = 0;
   peer: Peer | undefined = undefined;
   stream: MediaStream | null = null;
+  newMessage: Messages[] = [];
   constructor() {
     makeAutoObservable(this);
   }
@@ -52,11 +52,11 @@ export default class ConversationStore {
 
     this.hubConnection.on("LoadConversation", (data: Conversation[]) => {
       runInAction(() => {
+        this.CountNewMessage = 0;
         this.Conversation = data;
         this.Conversation.forEach((e) => {
           this.CountNewMessage += e.noReadCount;
         });
-        console.log(data);
         this.Conversation.sort(
           (a, b) =>
             new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
@@ -67,7 +67,6 @@ export default class ConversationStore {
 
     this.hubConnection.on("ReceiveMessage", (data: Messages) => {
       runInAction(() => {
-        this.CountNewMessage += 1;
         const checkConversation = this.Conversation.some(
           (e) => e.username == data.fromUsername
         );
@@ -85,34 +84,46 @@ export default class ConversationStore {
             fileType: data.file?.contentType!,
           };
           this.Conversation.push(conversation);
-          console.log(conversation);
         }
-        const check = this.ProfileMessage?.messages.some(
-          (x) => x.id == data.id
-        );
-        if (!check) {
-          // if (this.ProfileMessage?.userName == data.fromUsername) {
-          //   this.ProfileMessage?.messages.push(data);
-          // }
 
-          this.Conversation.forEach((e) => {
-            if (e.username == data.fromUsername) {
-              e.message = data.body;
-              e.createdAt = data.createdAt;
-              e.isRead = false;
+        if (this.ProfileMessage?.userName == data.fromUsername) {
+          const check = this.ProfileMessage?.messages.some(
+            (x) => x.id == data.id
+          );
+          if (!check) {
+            this.ProfileMessage?.messages.push(data);
+          }
+        }
+
+        this.Conversation.forEach((e) => {
+          if (e.username == data.fromUsername) {
+            e.fromUsername = data.fromUsername;
+            e.message = data.body;
+            e.createdAt = data.createdAt;
+            e.isRead = false;
+            e.file = data.file?.name!;
+            e.fileType = data.file?.contentType!;
+            if (this.ProfileMessage?.userName != e.username) {
               e.noReadCount += 0.5;
-              (e.file = data.file?.name!),
-                (e.fileType = data.file?.contentType!);
-            }
-
-            if (this.ProfileMessage?.userName == data.fromUsername) {
-              if (e.fromUsername == this.ProfileMessage.userName) {
-                e.isRead = true;
-                this.hubConnection?.invoke("ReadMessage", data);
+              this.CountNewMessage += 0.5;
+              const checkMessage = this.newMessage.some((x) => x.id == data.id);
+              if (!checkMessage) {
+                this.newMessage.push(data);
               }
             }
-          });
-        }
+          }
+
+          if (
+            this.ProfileMessage?.userName == data.fromUsername &&
+            e.fromUsername == this.ProfileMessage.userName
+          ) {
+            e.isRead = true;
+            data.image = null;
+
+            this.hubConnection?.invoke("ReadMessage", data);
+          }
+        });
+
         this.Conversation.sort(
           (a, b) =>
             new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
@@ -123,8 +134,12 @@ export default class ConversationStore {
     this.hubConnection.on("ListMessage", (list: ProfileMessage) => {
       runInAction(() => {
         this.ProfileMessage = list;
+        this.newMessage = this.newMessage.filter(
+          (x) => x.fromUsername !== list.userName
+        );
         this.Conversation.forEach((e) => {
           if (e.fromUsername == list.userName) {
+            this.CountNewMessage -= e.noReadCount * 2;
             e.noReadCount = 0;
             e.isRead = true;
           }
@@ -135,14 +150,6 @@ export default class ConversationStore {
 
     this.hubConnection.on("ReadMessage", (conversation: Conversation) => {
       runInAction(() => {
-        console.log(conversation);
-        // this.Conversation.for
-        // this.Conversation.forEach(e => {
-        //     if(e.username == conversation.fromUsername){
-        //       e.isRead = true
-        //     }
-        // })
-
         if (this.ProfileMessage?.userName == conversation.username) {
           this.ProfileMessage.messages.forEach((e) => {
             if (e.fromUsername == conversation.fromUsername && !e.isRead) {
@@ -158,19 +165,46 @@ export default class ConversationStore {
           });
         }
 
-        if (this.ProfileMessage?.userName == conversation.fromUsername) {
+        console.log(conversation);
+
+        //Jika Pesan dikirim dan user sedang yang dituju sedang membuka daftar pesan dengan user pengirim pesan
+        if (this.ProfileMessage?.userName == conversation.username) {
+          console.log("test");
+
           this.ProfileMessage.messages.forEach((e) => {
-            if (e.fromUsername == conversation.username && !e.isRead) {
+            if (e.fromUsername == conversation.username) {
               e.isRead = true;
             }
           });
+          // console.
 
+          // Function Ketika User Yang dikirim pesan, diberitahu bahwa pesan telah di baca
           this.Conversation.forEach((e) => {
-            if (e.fromUsername == conversation.username) {
+            if (e.username == conversation.fromUsername) {
               e.isRead = true;
               e.noReadCount = 0;
             }
           });
+        }
+      });
+    });
+
+    this.hubConnection.on("DeleteMessage", (messages: ListMessage) => {
+      if (
+        this.ProfileMessage?.userName == messages.messageDelete.fromUsername
+      ) {
+        this.ProfileMessage.messages = this.ProfileMessage.messages.filter(
+          (x) => x.id !== messages.messageDelete.id
+        );
+      }
+      this.Conversation.forEach((x) => {
+        if (x.username == messages.messageDelete.fromUsername) {
+          x.file = messages.latestMessage.file?.name!;
+          x.fileType = messages.latestMessage.file?.contentType!;
+          x.fromUsername = messages.latestMessage.fromUsername;
+          x.isRead = messages.latestMessage.isRead;
+          x.createdAt = messages.latestMessage.createdAt;
+          x.message = messages.latestMessage.body;
         }
       });
     });
@@ -234,30 +268,9 @@ export default class ConversationStore {
     }
   }
 
-  connect = (id: string) => {
-    // console.log(this.peer);
-
-    const conn = this.peer?.connect(id);
-    console.log(conn);
-    conn?.send("dafa");
-
-    conn?.on("open", () => {
-      conn.send("dafa");
-    });
-    conn?.on("data", (data) => {
-      console.log(data);
-    });
+  stopHubConnection = () => {
+    this.hubConnection
+      ?.stop()
+      .catch((error) => console.log("Error stopping the connection: ", error));
   };
-
-  // newPeer = () => {
-  //   this.peer = new Peer(Store.userStore.user?.id!);
-  //   // this.peer.on("open");
-  //   console.log(this.peer);
-
-  //   this.peer.on("connection", (conn) => {
-  //     conn.on("data", (data) => {
-  //       console.log(data);
-  //     });
-  //   });
-  // };
 }

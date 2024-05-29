@@ -10,11 +10,11 @@ public static class DependencyInjection
     public static IServiceCollection AddApplicationServices(this IServiceCollection services)
     {
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
-
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-        var logger = new LoggerConfiguration().WriteTo.Console().WriteTo.File("log.txt", rollingInterval: RollingInterval.Day).CreateLogger();
+        var logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
         services.AddSerilog(logger);
-        services.AddMediatR(cfg => {
+        services.AddMediatR(cfg =>
+        {
             cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
             cfg.AddBehavior(typeof(IPipelineBehavior<,>), typeof(RetryBehavior<,>));
             cfg.AddBehavior(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehaviour<,>));

@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Reactivities_jason.Application.Common.Interfaces;
+using Reactivities_jason.Application.Common.Security;
 
 namespace Reactivities_jason.Application.Activities.Queries.GetById
 {
+    [Authorize]
     public record ActivityByIdQuery : IRequest<ListActivityDTO>
     {
         public Guid id { get; set; }
-        
-        
+
+
     }
 
     public class ActivityByIdHandler : IRequestHandler<ActivityByIdQuery, ListActivityDTO>

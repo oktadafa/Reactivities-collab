@@ -13,7 +13,7 @@ namespace Reactivities_jason.Infrastructure.Security
 {
     public class IHostRequirement : IAuthorizationRequirement
     {
-        
+
     }
 
     public class IHostRequirementHandler : AuthorizationHandler<IHostRequirement>
@@ -28,10 +28,10 @@ namespace Reactivities_jason.Infrastructure.Security
 
         protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, IHostRequirement requirement)
         {
-            var user =context.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if(user ==null) return Task.CompletedTask;
+            var user = context.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (user == null) return Task.CompletedTask;
             var activityId = Guid.Parse(_accessor.HttpContext.Request.RouteValues.SingleOrDefault(x => x.Key == "id").Value.ToString());
-            var attende = _context.ActivityAttendees.AsNoTracking().SingleOrDefaultAsync(x => x.AppUserId == user && x.ActivityId == activityId).Result;
+            var attende = _context.ActivityAttendees.SingleOrDefaultAsync(x => x.AppUserId == user && x.ActivityId == activityId).Result;
             if (attende == null)
             {
                 return Task.CompletedTask;

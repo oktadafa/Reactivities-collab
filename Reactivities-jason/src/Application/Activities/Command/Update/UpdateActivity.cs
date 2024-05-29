@@ -11,7 +11,7 @@ namespace Reactivities_jason.Application.Activities.Command.Update
     public record UpdateActivityCommand : IRequest<Result>
     {
         public ListActivityDTO ActivityDTO { get; set; }
-        
+
     }
 
     public class UpdateActivityHandler : IRequestHandler<UpdateActivityCommand, Result>
@@ -23,8 +23,8 @@ namespace Reactivities_jason.Application.Activities.Command.Update
         }
         public async Task<Result> Handle(UpdateActivityCommand request, CancellationToken cancellationToken)
         {
-            var activity =await _context.Activities.SingleOrDefaultAsync(x => x.Id == request.ActivityDTO.id);
-       
+            var activity = await _context.Activities.SingleOrDefaultAsync(x => x.Id == request.ActivityDTO.id);
+
             Guard.Against.NotFound(request.ActivityDTO.id, activity);
 
             activity.Title = request.ActivityDTO.Title;
@@ -33,8 +33,8 @@ namespace Reactivities_jason.Application.Activities.Command.Update
             activity.Date = request.ActivityDTO.Date;
             activity.Category = request.ActivityDTO.Category;
             activity.City = request.ActivityDTO.City;
-
-            var result =  await _context.SaveChangesAsync(cancellationToken) > 0;
+            // _context.Activities.ExecuteUpdate()
+            var result = await _context.SaveChangesAsync(cancellationToken) > 0;
             return Result.Success();
         }
     }
