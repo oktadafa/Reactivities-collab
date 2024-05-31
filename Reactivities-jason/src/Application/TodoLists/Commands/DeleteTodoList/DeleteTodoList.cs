@@ -1,28 +1,28 @@
-﻿// using Reactivities_jason.Application.Common.Interfaces;
+﻿using Reactivities_jason.Application.Common.Interfaces;
 
-// namespace Reactivities_jason.Application.TodoLists.Commands.DeleteTodoList;
+namespace Reactivities_jason.Application.TodoLists.Commands.DeleteTodoList;
 
-// public record DeleteTodoListCommand(int Id) : IRequest;
+public record DeleteTodoListCommand(int Id) : IRequest;
 
-// public class DeleteTodoListCommandHandler : IRequestHandler<DeleteTodoListCommand>
-// {
-//     private readonly IApplicationDbContext _context;
+public class DeleteTodoListCommandHandler : IRequestHandler<DeleteTodoListCommand>
+{
+    private readonly IApplicationDbContext _context;
 
-//     public DeleteTodoListCommandHandler(IApplicationDbContext context)
-//     {
-//         _context = context;
-//     }
+    public DeleteTodoListCommandHandler(IApplicationDbContext context)
+    {
+        _context = context;
+    }
 
-//     public async Task Handle(DeleteTodoListCommand request, CancellationToken cancellationToken)
-//     {
-//         var entity = await _context.TodoLists
-//             .Where(l => l.Id == request.Id)
-//             .SingleOrDefaultAsync(cancellationToken);
+    public async Task Handle(DeleteTodoListCommand request, CancellationToken cancellationToken)
+    {
+        var entity = await _context.TodoList
+            .Where(l => l.Id == request.Id)
+            .SingleOrDefaultAsync(cancellationToken);
 
-//         Guard.Against.NotFound(request.Id, entity);
+        Guard.Against.NotFound(request.Id, entity);
 
-//         _context.TodoLists.Remove(entity);
+        _context.TodoList.Remove(entity);
 
-//         await _context.SaveChangesAsync(cancellationToken);
-//     }
-// }
+        await _context.SaveChangesAsync(cancellationToken);
+    }
+}

@@ -89,30 +89,32 @@ export default observer(function HomePage() {
       ) : (
         <div className="w-screen h-screen bg-blue-500 flex justify-center items-center">
           <div className="text-center">
-            <p className="text-6xl font-bold text-white mb-5">Reactivities</p>
+            <p className="sm:text-6xl text-4xl font-bold text-white mb-5">
+              Reactivities
+            </p>
             {IsLoggedIn ? (
               <>
-                <p className="text-white text-2xl font-bold mb-3">
+                <p className="text-white sm:text-2xl text-xl font-bold mb-3">
                   welcome {user?.displayName}
                 </p>
                 <Link
                   to={"/activities"}
-                  className="py-2 px-4 text-xl text-white border-2 border-white hover:bg-white hover:text-blue-500 font-bold rounded-md"
+                  className="py-2 px-4 sm:text-xl text-base text-white border-2 border-white hover:bg-white hover:text-blue-500 font-bold rounded-md"
                 >
                   Go To Activities
                 </Link>
               </>
             ) : (
-              <div className="flex justify-evenly">
+              <div className="flex justify-evenly sm:text-xl text-base">
                 <button
                   onClick={() => modalStore.openModal(<LoginForm />)}
-                  className="py-2 px-4 text-xl text-white border-2 border-white hover:bg-white hover:text-blue-500 font-bold rounded-md"
+                  className="py-[3px] px-[5px]  sm:py-2 sm:px-4 text-white border-2 border-white hover:bg-white hover:text-blue-500 font-bold rounded-md"
                 >
                   Login
                 </button>
 
                 <button
-                  className="py-2 px-4 text-xl text-white border-2 border-white hover:bg-white hover:text-blue-500 font-bold rounded-md"
+                  className="py-[3px] px-[5px] text-white border-2 sm:py-2 sm:px-4 border-white hover:bg-white hover:text-blue-500 font-bold rounded-md"
                   onClick={() => modalStore.openModal(<RegisterForm />)}
                 >
                   Register

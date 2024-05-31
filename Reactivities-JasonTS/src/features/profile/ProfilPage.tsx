@@ -20,13 +20,14 @@ export default observer(function ProfilPage() {
   const [onCall, setOnCall] = useState<MediaConnection | undefined>();
   const [calling, setCalling] = useState<boolean>(false);
   const {
+    modalStore,
     profileStore,
     peerStore,
     userStore: { user },
   } = useStore();
   useEffect(() => {
     profileStore.setActiveTab(tabs[0]);
-
+    modalStore.closeModal();
     peerStore.peer?.on("connection", (conn) => {
       conn.on("data", (data) => {
         const result: UserCall = JSON.parse(data as string);
@@ -113,16 +114,16 @@ export default observer(function ProfilPage() {
           setCalling={setCalling}
         />
       ) : (
-        <div className="px-60 py-20">
+        <div className="sm:px-60 py-20 px-3 sm:text-base text-sm">
           <ProfileHeader />
           <div className="flex justify-around">
-            <div className="bg-white mt-5 w-[80%] p-4 rounded">
+            <div className="bg-white mt-5 w-[75%]  sm:w-[80%] p-4 rounded">
               {profileStore.activeTab?.page}
             </div>
-            <div className="bg-white mt-5 w-[17%] max-h-52 rounded">
+            <div className="bg-white mt-5 w-[22%]  sm:w-[17%] sm:max-h-52 max-h-40 rounded">
               {tabs.map((e) => (
                 <div
-                  className={`px-2 py-2 border-b hover:bg-gray-100 ${
+                  className={`px-2 py-2 border-b text-xs sm:text-base hover:bg-gray-100 ${
                     e.id == profileStore.activeTab?.id && "bg-gray-100"
                   }`}
                   onClick={() => profileStore.setActiveTab(e)}

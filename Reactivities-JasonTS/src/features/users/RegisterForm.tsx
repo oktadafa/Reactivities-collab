@@ -61,7 +61,7 @@ export default observer(function registerForm() {
   const error =
     "border border-red-500 ring-red-300 ring-2 focus:outline-red-100";
   return (
-    <div className="w-[30%] p-4 bg-white rounded-lg mx-auto mt-40">
+    <div className="sm:w-[30%] w-[70%] p-4 bg-white rounded-lg mx-auto mt-40">
       <Formik
         initialValues={{
           email: "",
@@ -77,7 +77,7 @@ export default observer(function registerForm() {
       >
         {({ handleSubmit, errors, isValid }) => (
           <Form onSubmit={handleSubmit}>
-            <p className="text-center text-2xl text-blue-500 font-bold mb-3">
+            <p className="text-center sm:text-2xl text-xl text-blue-500 font-bold mb-3">
               Register To Reactivities
             </p>
             <MyTextInput

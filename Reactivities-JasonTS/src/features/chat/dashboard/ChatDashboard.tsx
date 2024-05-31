@@ -235,8 +235,11 @@ export default observer(function ChatDashboard() {
           conn={conn}
         />
       ) : (
-        <div className="container grid-cols-3 grid h-screen">
-          <div className="border bg-white ">
+        <div className="container sm:grid-cols-3 sm:grid h-screen">
+          <div
+            className="border bg-white sm:inline"
+            hidden={conversationStore.ProfileMessage !== null}
+          >
             <h1 className="p-4 text-xl flex items-center font font-bold border-b-2 bg-blue-700 text-white">
               <button
                 className="mr-2"
@@ -321,7 +324,7 @@ export default observer(function ChatDashboard() {
             </div>
           </div>
           {conversationStore.laodignChat ? (
-            <div className="w-full flex justify-center items-center col-span-2">
+            <div className="w-full flex justify-center items-center sm:col-span-2">
               <div
                 className=" inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-e-transparent align-[-0.125em] text-primary motion-reduce:animate-[spin_1.5s_linear_infinite]"
                 role="status"
@@ -332,7 +335,7 @@ export default observer(function ChatDashboard() {
               </div>
             </div>
           ) : conversationStore.ProfileMessage ? (
-            <div className="border col-span-2 h-screen">
+            <div className="border sm:col-span-2 h-screen">
               <div className="bg-white flex items-center px-6 py-3 sticky justify-between w-full top-0">
                 <div className="flex items-center">
                   <img
@@ -580,7 +583,7 @@ export default observer(function ChatDashboard() {
                 </div>
               ) : (
                 <>
-                  <div className="h-[500px] mt-5">
+                  <div className="h-[500px] sm:mt-5">
                     <ScrollableFeed className="px-5">
                       {conversationStore.groupedMessages?.map(
                         ([group, messages]) => (
@@ -824,7 +827,7 @@ export default observer(function ChatDashboard() {
               )}
             </div>
           ) : (
-            <div className="flex justify-center items-center col-span-2">
+            <div className="hidden sm:flex justify-center items-center col-span-2">
               <p className="text-2xl font-semibold">
                 Welcome To Reactivities Chat
               </p>

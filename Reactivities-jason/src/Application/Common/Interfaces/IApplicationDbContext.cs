@@ -16,6 +16,8 @@ public interface IApplicationDbContext
     DbSet<ConversationsParticipants> ConversationsParticipants { get; }
     DbSet<Messages> Messages { get; }
     DbSet<ConvesationFile> ConvesationsFiles { get; }
+    DbSet<TodoList> TodoList { get; }
+    DbSet<TodoItem> TodoItem { get; }
     DbSet<Domain.Entities.AppToken> AppTokens { get; }
     Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 }

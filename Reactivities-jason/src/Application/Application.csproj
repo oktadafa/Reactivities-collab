@@ -3,6 +3,7 @@
   <PropertyGroup>
     <RootNamespace>Reactivities_jason.Application</RootNamespace>
     <AssemblyName>Reactivities_jason.Application</AssemblyName>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
+    <!-- <ProjectReference Include="Domain.csproj" /> -->
   </ItemGroup>
 
 </Project>

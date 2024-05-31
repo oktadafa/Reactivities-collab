@@ -126,9 +126,9 @@ export default function ActivityDashboard() {
           conn={conn}
         />
       ) : (
-        <div className="container px-10 py-20">
-          <div className="grid gap-4 grid-cols-5">
-            <div className="activities flex-col col-span-3">
+        <div className="container px-10 py-24">
+          <div className="sm:grid sm:gap-4 sm:grid-cols-5">
+            <div className="activities flex-col sm:col-span-3">
               <InfiniteScroll
                 hasMore={mutatate.hasNextPage}
                 pageStart={0}
@@ -137,19 +137,21 @@ export default function ActivityDashboard() {
               >
                 {activityStore.groupedActivities.map(([group, activities]) => (
                   <>
-                    <p className="text-blue-500 font-semibold mb-2">{group}</p>
+                    <p className="text-blue-500 font-semibold mb-2 text-sm sm:text-base">
+                      {group}
+                    </p>
                     {activities.map((activity: Activity) => (
-                      <div className="bg-white mb-5 w-[75%] ml-20 rounded">
+                      <div className="bg-white mb-5 w-[100%]  sm:w-[75%] sm:ml-20 rounded">
                         <div className="border-b-2 flex p-4">
                           <img
-                            src="/assets/user.png"
-                            className="w-20 rounded-full"
+                            src={activity.host?.image || "/assets/user.png"}
+                            className="sm:w-20  sm:h-20 w-14 h-14 rounded-full"
                           />
-                          <section className="ml-10">
-                            <p className="text-xl font-semibold">
+                          <section className="sm:ml-10 ml-5">
+                            <p className="sm:text-xl text-lg font-semibold">
                               {activity.title}
                             </p>
-                            <p className="text-sm">
+                            <p className="sm:text-sm text-xs">
                               Hosted By
                               <Link
                                 to={`/profile/${activity.hostUsername}`}
@@ -176,12 +178,16 @@ export default function ActivityDashboard() {
                             )}
                           </section>
                         </div>
-                        <div className="p-4 border-b-2">
+                        <div className="p-4 border-b-2 text-xs sm:text-sm">
                           <div>
-                            <FaClock className="inline text-blue-600" />{" "}
-                            {format(activity.date!, "dd MMM yyyy h:mm aa")},{" "}
-                            <FaLocationDot className="inline text-blue-600" />{" "}
-                            {activity.venue}, {activity.city}
+                            <p>
+                              <FaClock className="inline text-blue-600" />{" "}
+                              {format(activity.date!, "dd MMM yyyy h:mm aa")},{" "}
+                            </p>
+                            <p>
+                              <FaLocationDot className="inline text-blue-600" />{" "}
+                              {activity.venue}, {activity.city}
+                            </p>
                           </div>
                         </div>
                         <div className="flex p-2 justify">
@@ -196,7 +202,7 @@ export default function ActivityDashboard() {
                             </div>
                           ))}
                         </div>
-                        <div className="flex justify-between p-4 border-t-2">
+                        <div className="flex justify-between p-4 border-t-2 text-sm">
                           <p>{limitWords(activity.description)}</p>
                           {activity.isCanceled && !activity.isHost ? (
                             <button
@@ -230,7 +236,7 @@ export default function ActivityDashboard() {
                 )}
               </InfiniteScroll>
             </div>
-            <div className="filter col-span-2">
+            <div className="filter col-span-2 hidden sm:inline">
               <div className="w-80 bg-white mt-8 mb-5 rounded">
                 <div className="text-blue-500 font-semibold p-3 border-b-2 flex items-center">
                   <FaFilter />

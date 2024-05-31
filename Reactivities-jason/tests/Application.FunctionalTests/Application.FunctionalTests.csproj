@@ -4,17 +4,17 @@
         <RootNamespace>Reactivities_jason.Application.FunctionalTests</RootNamespace>
         <AssemblyName>Reactivities_jason.Application.FunctionalTests</AssemblyName>
     </PropertyGroup>
-
+<!-- 
     <ItemGroup>
       <None Remove="appsettings.json" />
-    </ItemGroup>
+    </ItemGroup> -->
 
     <ItemGroup>
-      <Content Include="appsettings.json">
+      <!-- <Content Include="appsettings.json">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
         <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      </Content>
+      </Content> -->
     </ItemGroup>
 
     <ItemGroup>
@@ -35,6 +35,7 @@
     
     <ItemGroup>
         <ProjectReference Include="..\..\src\Web\Web.csproj" />
+        <!-- <ProjectReference Include="Web.csproj" /> -->
     </ItemGroup>
 
 </Project>

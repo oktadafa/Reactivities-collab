@@ -40,7 +40,7 @@ export default observer(function LoginForm() {
     },
   });
   return (
-    <div className="w-[30%] p-4 bg-white rounded-lg mx-auto mt-60">
+    <div className="sm:w-[30%] w-[70%] p-4 bg-white rounded-lg mx-auto mt-60">
       <Formik
         initialValues={{ email: "", password: "" }}
         onSubmit={(values) => mutate.mutateAsync(values)}

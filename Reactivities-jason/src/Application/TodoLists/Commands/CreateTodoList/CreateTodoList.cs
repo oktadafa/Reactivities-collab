@@ -1,32 +1,32 @@
-﻿// using Reactivities_jason.Application.Common.Interfaces;
-// using Reactivities_jason.Domain.Entities;
+﻿using Reactivities_jason.Application.Common.Interfaces;
+using Reactivities_jason.Domain.Entities;
 
-// namespace Reactivities_jason.Application.TodoLists.Commands.CreateTodoList;
+namespace Reactivities_jason.Application.TodoLists.Commands.CreateTodoList;
 
-// public record CreateTodoListCommand : IRequest<int>
-// {
-//     public string? Title { get; init; }
-// }
+public record CreateTodoListCommand : IRequest<int>
+{
+    public string Title { get; init; }
+}
 
-// public class CreateTodoListCommandHandler : IRequestHandler<CreateTodoListCommand, int>
-// {
-//     private readonly IApplicationDbContext _context;
+public class CreateTodoListCommandHandler : IRequestHandler<CreateTodoListCommand, int>
+{
+    private readonly IApplicationDbContext _context;
 
-//     public CreateTodoListCommandHandler(IApplicationDbContext context)
-//     {
-//         _context = context;
-//     }
+    public CreateTodoListCommandHandler(IApplicationDbContext context)
+    {
+        _context = context;
+    }
 
-//     public async Task<int> Handle(CreateTodoListCommand request, CancellationToken cancellationToken)
-//     {
-//         var entity = new TodoList();
+    public async Task<int> Handle(CreateTodoListCommand request, CancellationToken cancellationToken)
+    {
+        var entity = new TodoList();
 
-//         entity.Title = request.Title;
+        entity.Title = request.Title;
 
-//         _context.TodoLists.Add(entity);
+        _context.TodoList.Add(entity);
 
-//         await _context.SaveChangesAsync(cancellationToken);
+        await _context.SaveChangesAsync(cancellationToken);
 
-//         return entity.Id;
-//     }
-// }
+        return entity.Id;
+    }
+}

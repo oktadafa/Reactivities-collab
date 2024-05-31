@@ -10,9 +10,6 @@ export default function PhotoWidgetCropper({
   imagePreview,
   setCropper,
 }: Props) {
-
-  
-  
   return (
     <Cropper
       src={imagePreview}

@@ -38,7 +38,7 @@ export const getActivities2 = async ({
   params: string;
 }) => {
   const data = await axios.get<Pagination>(
-    `/api/Activity?ListId=1&PageNumber=${pageParam}&PageSize=2&startDate=${startDate}&Param=${params}`
+    `/api/Activity?ListId=1&PageNumber=${pageParam}&PageSize=4&startDate=${startDate}&Param=${params}`
   );
   console.log(data.data);
 

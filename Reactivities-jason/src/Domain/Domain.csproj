@@ -3,6 +3,7 @@
   <PropertyGroup>
     <RootNamespace>Reactivities_jason.Domain</RootNamespace>
     <AssemblyName>Reactivities_jason.Domain</AssemblyName>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>

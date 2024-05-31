@@ -11,23 +11,18 @@ public class ApplicationDbContext : IdentityDbContext<AppUser>, IApplicationDbCo
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
-    // public DbSet<TodoList> TodoLists => Set<TodoList>();
-
-    // public DbSet<TodoItem> TodoItems => Set<TodoItem>();
     public DbSet<Activity> Activities => Set<Activity>();
     public DbSet<UserFollowing> UserFollowings => Set<UserFollowing>();
     public DbSet<Comment> Comments => Set<Comment>();
     public DbSet<ActivityAttendee> ActivityAttendees => Set<ActivityAttendee>();
     public DbSet<Photo> Photos => Set<Photo>();
     public DbSet<AppToken> AppTokens => Set<AppToken>();
-
     public DbSet<Conversations> Conversations => Set<Conversations>();
-
     public DbSet<ConversationsParticipants> ConversationsParticipants => Set<ConversationsParticipants>();
-
     public DbSet<Messages> Messages => Set<Messages>();
-
     public DbSet<ConvesationFile> ConvesationsFiles => Set<ConvesationFile>();
+    public DbSet<TodoList> TodoList => Set<TodoList>();
+    public DbSet<TodoItem> TodoItem => Set<TodoItem>();
 
     // public DbSet<ConvesationFile> ConvesationsFiles => throw new NotImplementedException();
 

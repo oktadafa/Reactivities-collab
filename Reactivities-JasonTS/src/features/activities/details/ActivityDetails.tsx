@@ -5,6 +5,7 @@ import {
   FaFileImage,
   FaLocationDot,
   FaPaperPlane,
+  FaPeopleGroup,
   FaXmark,
 } from "react-icons/fa6";
 import { Link, useParams } from "react-router-dom";
@@ -23,12 +24,14 @@ import { Field, FieldProps, Form, Formik } from "formik";
 import Swal from "sweetalert2";
 import { DataConnection, MediaConnection } from "peerjs";
 import Video from "../../../app/common/Video/Video";
+import AttendeList from "../../users/AttendeList";
 export default observer(function ActivityDetails() {
   const { id } = useParams();
   const [img, setFile] = useState("");
   const query = useQueryActivityById(id!);
   const { mutateAsync } = useMutationUpdateAttendance();
-  const { commentStore, peerStore, userStore, activityStore } = useStore();
+  const { commentStore, peerStore, userStore, activityStore, modalStore } =
+    useStore();
   const sendComment = useMutationSendComment();
   const currentUserVideo = useRef<HTMLVideoElement>();
   const userRef = useRef<HTMLVideoElement>();
@@ -183,16 +186,20 @@ export default observer(function ActivityDetails() {
           />
         ) : (
           <div className="py-20 flex justify-around">
-            <div className="activity-detail ml-5 w-[50%]">
+            <div className="activity-detail sm:ml-5 sm:w-[50%] px-5">
               <div className="header bg-white rounded ">
                 <img
                   src={`/assets/categoryImages/${query.data.category}.jpg`}
                   className="brightness-[30%] rounded-t"
                 />
-                <div className=" absolute top-[40%] left-[10%] h-auto text-white">
-                  <h1 className="text-4xl font-bold">{query.data.title}</h1>
-                  <p>{format(query.data.date!, "dd MMM yyyy h:mm aa")}</p>
-                  <p>
+                <div className=" absolute sm:top-60 sm:left-40 sm:h-auto text-white top-36 left-14">
+                  <h1 className="sm:text-4xl font-bold text-lg">
+                    {query.data.title}
+                  </h1>
+                  <p className="text-xs sm:text-base">
+                    {format(query.data.date!, "dd MMM yyyy h:mm aa")}
+                  </p>
+                  <p className="text-xs sm:text-base">
                     Hosted By
                     <Link to={`/profile/${query.data.hostUsername}`}>
                       {" "}
@@ -200,11 +207,11 @@ export default observer(function ActivityDetails() {
                     </Link>
                   </p>
                 </div>
-                <div className="flex justify-between w-full px-3">
-                  {/* {query.data.isHost ? (
+                <div className="flex justify-between w-full px-3 text-sm sm:text-base">
+                  {query.data.isHost ? (
                     <>
                       <button
-                        className={`ml-4 my-4 bg-gray-300 p-2 rounded-md hover:bg-gray-400 text-gray-700 active:shadow-lg`}
+                        className={`sm:ml-4 sm:my-4 ml-2 my-2 bg-gray-300 p-2 rounded-md hover:bg-gray-400 text-gray-700 active:shadow-lg`}
                         onClick={() => updateAttende()}
                         disabled={Store.activityStore.loadingAttendee}
                       >
@@ -215,7 +222,7 @@ export default observer(function ActivityDetails() {
                       </button>
                       <Link
                         to={`/update/${query.data.id}`}
-                        className="ml-4 my-4 bg-green-500 p-2 rounded-md hover:bg-green-400 text-white active:shadow-lg"
+                        className="sm:ml-4 sm:my-4 ml-2 my-2 bg-green-500 p-2 rounded-md hover:bg-green-400 text-white active:shadow-lg"
                       >
                         Manage Activity
                       </Link>
@@ -224,7 +231,7 @@ export default observer(function ActivityDetails() {
                     !query.data.isCanceled &&
                     (query.data.isGoing ? (
                       <button
-                        className="ml-4 my-4 bg-red-500 p-2 rounded-md hover:bg-red-400 text-white active:shadow-lg"
+                        className="sm:ml-4 sm:my-4 ml-2 my-2 bg-red-500 p-2 rounded-md hover:bg-red-400 text-white active:shadow-lg"
                         onClick={() => updateAttende()}
                         disabled={Store.activityStore.loadingAttendee}
                       >
@@ -235,7 +242,7 @@ export default observer(function ActivityDetails() {
                       </button>
                     ) : (
                       <button
-                        className="ml-4 my-4 bg-green-500 p-2 rounded-md hover:bg-green-400 text-white active:shadow-lg"
+                        className="sm:ml-4 sm:my-4 ml-2 my-2 bg-green-500 sm:p-2 p-1  rounded-md hover:bg-green-400 text-white active:shadow-lg"
                         onClick={() => updateAttende()}
                         disabled={Store.activityStore.loadingAttendee}
                       >
@@ -245,14 +252,18 @@ export default observer(function ActivityDetails() {
                         )}
                       </button>
                     ))
-                  )} */}
+                  )}
                 </div>
               </div>
 
-              <div className="bg-white mt-5 rounded">
-                <div className="p-4 border border-b-2 flex items-center rounded-t">
-                  <FaCircleInfo className="mr-2 text-blue-500" size={20} />
-                  <p>{query.data.description}</p>
+              <div className="bg-white mt-5 rounded sm:text-base text-sm">
+                <div className="p-4 border border-b-2 flex items-center rounded-t break-words">
+                  <div>
+                    <FaCircleInfo className="mr-2 text-blue-500" />
+                  </div>
+                  <div>
+                    <p>{query.data.description}</p>
+                  </div>
                 </div>
 
                 <div className="p-4 border border-b-2 flex items-center">
@@ -264,8 +275,24 @@ export default observer(function ActivityDetails() {
                   <FaLocationDot className="mr-2 text-blue-500" />
                   {query.data.venue}, {query.data.city}
                 </div>
+                <div className="p-4 border border-b-2 sm:hidden flex items-center rounded-b">
+                  <FaPeopleGroup className="mr-2 text-blue-500" />
+                  <p
+                    className="hover:text-blue-500 cursor-pointer"
+                    onClick={() =>
+                      modalStore.openModal(
+                        <AttendeList
+                          attendees={query.data.attendees}
+                          hostUsername={query.data.hostUsername}
+                        />
+                      )
+                    }
+                  >
+                    {query.data.attendees.length} Attendee
+                  </p>
+                </div>
               </div>
-              <div className="mt-5 bg-white pb-5 rounded-b">
+              <div className="mt-5 bg-white pb-5 rounded-b sm:text-base text-sm">
                 <div className="bg-blue-500 rounded-t">
                   <p className="text-white p-3 font-bold">Activity Chat</p>
                 </div>
@@ -285,7 +312,7 @@ export default observer(function ActivityDetails() {
                               <p className="font-semibold">
                                 {e.displayName || "Anonymous"}{" "}
                               </p>
-                              <p className="text-sm ml-3 text-gray-500">
+                              <p className="sm:text-sm text-xs ml-3 text-gray-500">
                                 {formatDistanceToNow(new Date(e.createdAt))}
                               </p>
                             </div>
@@ -300,7 +327,7 @@ export default observer(function ActivityDetails() {
                                   displayName: e.displayName,
                                 })
                               }
-                              className="font-semibold text-gray-400 text-sm cursor-pointer hover:text-gray-500 inline-block"
+                              className="font-semibold text-gray-400 sm:text-sm text-xs cursor-pointer hover:text-gray-500 inline-block"
                             >
                               Reply
                             </p>
@@ -369,6 +396,7 @@ export default observer(function ActivityDetails() {
                         sendComment.mutateAsync(data).then(() => {
                           setBtnLoad(false);
                         });
+                        setFile("");
                         return resetForm();
                       }}
                     >
@@ -439,7 +467,7 @@ export default observer(function ActivityDetails() {
                           )}
                           {commentParent.displayName &&
                             commentParent.commentId && (
-                              <div className=" flex items-center text-sm text-gray-500 font-semibold justify-between w-[50%] my-1">
+                              <div className=" flex items-center text-sm text-gray-500 font-semibold justify-between sm:w-[50%] w-full my-1">
                                 <p>Reply Comment {commentParent.displayName}</p>
                                 <p></p>
                                 <p
@@ -456,7 +484,7 @@ export default observer(function ActivityDetails() {
                               </div>
                             )}
                           <div className="flex items-center">
-                            <div className="px-4 py-2 w-[50%] border-2 border-blue-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 flex">
+                            <div className="px-4 py-2 w-[100%] border-2 border-blue-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 flex">
                               <label
                                 htmlFor="img"
                                 className="text-gray-500 active:text-gray-600"
@@ -511,7 +539,7 @@ export default observer(function ActivityDetails() {
               </div>
             </div>
 
-            <div className="activity-attendee w-[30%]">
+            <div className="activity-attendee w-[30%] sm:inline hidden">
               <div className="bg-blue-500 p-2 text-white text-center rounded-t">
                 <p>{query.data.attendees.length} People Is Going</p>
               </div>

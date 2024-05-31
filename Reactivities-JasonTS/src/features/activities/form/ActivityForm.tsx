@@ -84,8 +84,8 @@ export default function ActivityForm() {
     "border border-red-500 ring-red-300 ring-2 focus:outline-red-100";
 
   return (
-    <div className="py-20 px-20 flex justify-center">
-      <div className="form w-[75%] bg-white p-3 shadow-2xl rounded-md">
+    <div className="py-20 sm:px-20 px-10 flex justify-center">
+      <div className="form w-[100%] sm:w-[75%] bg-white p-3 shadow-2xl rounded-md">
         <Formik
           validationSchema={validationSchema}
           initialValues={activity}

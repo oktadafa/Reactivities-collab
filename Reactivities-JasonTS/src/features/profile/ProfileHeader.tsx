@@ -25,27 +25,27 @@ export default observer(function ProfileHeader() {
   };
 
   return (
-    <div className="header bg-white p-5 flex justify-between rounded">
-      <div className="flex text-2xl font-semibold items-center">
+    <div className="header bg-white sm:p-5 p-3 flex justify-between rounded">
+      <div className="flex sm:text-2xl text-sm font-semibold items-center">
         <img
           src={profileStore.profile?.image || "/assets/user.png"}
-          className="w-36 rounded-full"
+          className="sm:w-36 w-16 rounded-full"
         />
         <p className="ml-4">{profileStore.profile?.displayName}</p>
       </div>
       <div>
         <div className="flex">
-          <div className="px-5 py-2">
-            <p className="text-5xl text-center">
+          <div className="sm:px-5 sm:py-2 px-1">
+            <p className="sm:text-5xl text-lg text-center">
               {profileStore.profile?.followersCount}
             </p>
-            <p className="text-xl font-semibold">Followers</p>
+            <p className="sm:text-xl text-sm font-semibold">Followers</p>
           </div>
-          <div className="px-5 py-2">
-            <p className="text-5xl text-center">
+          <div className="sm:px-5 sm:py-2 px-1">
+            <p className="sm:text-5xl text-lg text-center">
               {profileStore.profile?.followingCount}
             </p>
-            <p className="text-xl font-semibold">Followings</p>
+            <p className="sm:text-xl text-sm font-semibold">Followings</p>
           </div>
         </div>
         <hr className="font-bold" />
@@ -55,7 +55,7 @@ export default observer(function ProfileHeader() {
               <>
                 {profileStore.profile?.following ? (
                   <button
-                    className="w-56 py-1 bg-green-500 text-white hover:bg-green-600 active:bg-green-700"
+                    className="sm:w-56 w-36 py-[0.25rem] bg-green-500 text-white hover:bg-green-600 active:bg-green-700 sm:text-base text-xs"
                     onClick={() =>
                       handleUpdateFollow(profileStore.profile?.username!)
                     }
@@ -65,7 +65,7 @@ export default observer(function ProfileHeader() {
                   </button>
                 ) : (
                   <button
-                    className="w-56 py-1 bg-green-500 text-white hover:bg-green-600 active:bg-green-700"
+                    className="sm:w-56 w-36 py-[0.25rem] bg-green-500 text-white hover:bg-green-600 active:bg-green-700 sm:text-base text-xs"
                     onClick={() =>
                       handleUpdateFollow(profileStore.profile?.username!)
                     }
@@ -80,7 +80,7 @@ export default observer(function ProfileHeader() {
                     );
                     router.navigate("/chat");
                   }}
-                  className="px-10 mt-2 bg-blue-500 text-white py-1 flex justify-center items-center hover:bg-blue-600 active:bg-blue-700"
+                  className="px-5 mt-2 bg-blue-500 text-white py-1 flex justify-center items-center hover:bg-blue-600 active:bg-blue-700 sm:text-base text-xs"
                 >
                   <BsFillChatFill className="mr-2" /> Chat
                 </button>
