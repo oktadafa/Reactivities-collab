@@ -16,8 +16,7 @@ public class ApplicationDbContext : IdentityDbContext<AppUser>, IApplicationDbCo
     public DbSet<Comment> Comments => Set<Comment>();
     public DbSet<ActivityAttendee> ActivityAttendees => Set<ActivityAttendee>();
     public DbSet<Photo> Photos => Set<Photo>();
-    public DbSet<AppToken> AppTokens => Set<AppToken>();
-    public DbSet<Conversations> Conversations => Set<Conversations>();
+   public DbSet<Conversations> Conversations => Set<Conversations>();
     public DbSet<ConversationsParticipants> ConversationsParticipants => Set<ConversationsParticipants>();
     public DbSet<Messages> Messages => Set<Messages>();
     public DbSet<ConvesationFile> ConvesationsFiles => Set<ConvesationFile>();

@@ -1149,37 +1149,6 @@
         ]
       }
     },
-    "/api/Token/set": {
-      "post": {
-        "tags": [
-          "Token"
-        ],
-        "operationId": "SetExpireToken",
-        "requestBody": {
-          "x-name": "command",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddTokenCommand"
-              }
-            }
-          },
-          "x-position": 1
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/UserEntity": {
       "get": {
         "tags": [
@@ -1314,7 +1283,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/LoginRequest"
+                "$ref": "#/components/schemas/LoginDTO"
               }
             }
           },
@@ -2399,20 +2368,6 @@
           }
         }
       },
-      "AddTokenCommand": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "time": {
-            "type": "string",
-            "nullable": true
-          },
-          "duration": {
-            "type": "integer",
-            "format": "int32"
-          }
-        }
-      },
       "UserDTO": {
         "type": "object",
         "additionalProperties": false,
@@ -2502,21 +2457,15 @@
           }
         }
       },
-      "LoginRequest": {
+      "LoginDTO": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "email": {
-            "type": "string"
-          },
-          "password": {
-            "type": "string"
-          },
-          "twoFactorCode": {
+          "username": {
             "type": "string",
             "nullable": true
           },
-          "twoFactorRecoveryCode": {
+          "password": {
             "type": "string",
             "nullable": true
           }

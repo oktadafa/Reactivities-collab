@@ -12,8 +12,8 @@ using Reactivities_jason.Infrastructure.Data;
 namespace Reactivities_jason.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240530041642_TodoItemAndTodoList")]
-    partial class TodoItemAndTodoList
+    [Migration("20240531073301_FixedDatabase")]
+    partial class FixedDatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -207,23 +207,6 @@ namespace Reactivities_jason.Infrastructure.Data.Migrations
                     b.ToTable("ActivityAttendees");
                 });
 
-            modelBuilder.Entity("Reactivities_jason.Domain.Entities.AppToken", b =>
-                {
-                    b.Property<Guid>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("nameSetting")
-                        .HasColumnType("text");
-
-                    b.Property<string>("values")
-                        .HasColumnType("text");
-
-                    b.HasKey("id");
-
-                    b.ToTable("AppTokens");
-                });
-
             modelBuilder.Entity("Reactivities_jason.Domain.Entities.AppUser", b =>
                 {
                     b.Property<string>("Id")
@@ -248,9 +231,6 @@ namespace Reactivities_jason.Infrastructure.Data.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("boolean");
-
-                    b.Property<int>("ExpireBearerToken")
-                        .HasColumnType("integer");
 
                     b.Property<DateTime>("ExpireVerifyCode")
                         .HasColumnType("timestamp with time zone");

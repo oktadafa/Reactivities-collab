@@ -14,7 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddKeyVaultIfConfigured(builder.Configuration);
 
 builder.Services.AddApplicationServices();
-builder.Services.AddScoped<ITokenConfiguration, TokenConfiguration>();
+// builder.Services.AddScoped<ITokenConfiguration, TokenConfiguration>();
 // builder.Services.AddScoped<IConfigureOptions<AuthenticationBuilder>, BearerToken>();
 // builder.Services.AddScoped<IConfigureOptions<BearerTokenOptions>,BearerToken>();
 builder.Services.AddInfrastructureServices(builder.Configuration);

@@ -18,6 +18,5 @@ public interface IApplicationDbContext
     DbSet<ConvesationFile> ConvesationsFiles { get; }
     DbSet<TodoList> TodoList { get; }
     DbSet<TodoItem> TodoItem { get; }
-    DbSet<Domain.Entities.AppToken> AppTokens { get; }
     Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 }

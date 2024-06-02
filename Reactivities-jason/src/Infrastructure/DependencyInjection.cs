@@ -38,10 +38,10 @@ public static class DependencyInjection
         services.AddScoped<ApplicationDbContextInitialiser>();
 
         services.AddAuthentication()
-            .AddBearerToken(IdentityConstants.BearerScheme, async options =>
+            .AddBearerToken(IdentityConstants.BearerScheme, options =>
             {
-                var token = services.BuildServiceProvider().GetService<ITokenConfiguration>();
-                var result = await token.GetExpireBearer();
+                // var token = services.BuildServiceProvider().GetService<ITokenConfiguration>();
+                // var result = await token.GetExpireBearer();
                 options.BearerTokenExpiration = TimeSpan.FromDays(365);
                 options.RefreshTokenExpiration = TimeSpan.FromMinutes(2);
                 options.Events = new BearerTokenEvents
