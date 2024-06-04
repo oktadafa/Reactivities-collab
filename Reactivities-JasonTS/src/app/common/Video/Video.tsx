@@ -24,8 +24,6 @@ export default observer(function Video({
 
   const handleAcceptCall = () => {
     call.answer(peerStore.currentMediaStream!);
-    console.log(peerStore.peerCall);
-
     call.on("stream", (remoteStream) => {
       peerStore.userMediaStream = remoteStream;
       userRef.current!.srcObject = remoteStream;

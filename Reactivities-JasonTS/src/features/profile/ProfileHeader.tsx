@@ -21,7 +21,6 @@ export default observer(function ProfileHeader() {
         );
       })
       .finally(() => setLoading(false));
-    // console.log("succesa");
   };
 
   return (

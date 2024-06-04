@@ -31,9 +31,7 @@ export default function PhotoWidgetDropzone({ setFiles }: Props) {
             icon: "error",
           })
         : contentType.some((x) => x === acceptedFiles[0].type)
-        ? // console.log(acceptedFiles[0].contentType);
-          // console.log(acceptedFiles);
-
+        ? 
           setFiles(
             acceptedFiles.map((file: any) =>
               Object.assign(file, {

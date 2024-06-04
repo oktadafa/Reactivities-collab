@@ -18,6 +18,7 @@ export default observer(function HomePage() {
     modalStore,
     userStore: { IsLoggedIn, user },
   } = useStore();
+
   useEffect(() => {
     peerStore.peer?.on("connection", (conn) => {
       conn.on("data", (data) => {
@@ -33,7 +34,6 @@ export default observer(function HomePage() {
         conn.send(JSON.stringify(data));
       });
       conn.on("close", () => {
-        // console.log("closed conn");
         setCalling(false);
         peerStore.userCall = null;
         peerStore.onCallUser = false;
@@ -42,9 +42,6 @@ export default observer(function HomePage() {
       setConn(conn);
     });
 
-    peerStore.peer?.on("error", (err) => {
-      console.log(err);
-    });
     peerStore.peer?.on("disconnected", () => {
       peerStore.userCall = null;
       peerStore.onCallUser = false;

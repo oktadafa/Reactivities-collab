@@ -5,6 +5,7 @@ import { FaCheck, FaX } from "react-icons/fa6";
 import { useMutationUpdateFollow, useMutationUploadPhoto } from "../service";
 import LoadingAddAtendee from "../LoadingAddAtendee";
 import { useStore } from "../../store/store";
+import Swal from "sweetalert2";
 
 interface Props {
   uploadPhoto: (file: Blob) => void;
@@ -46,7 +47,11 @@ export default function PhotoUploadWidget({
             }
           });
         } catch (error) {
-          console.log(error);
+          Swal.fire({
+            title: "Failde!",
+            text: "sorry there's a problem",
+            icon: "error",
+          });
         }
       });
     }
@@ -58,7 +63,7 @@ export default function PhotoUploadWidget({
       }
     };
   }, [files]);
-  
+
   return (
     <div className="flex w-full justify-center">
       <div hidden={files} className="w-full">

@@ -101,7 +101,6 @@ export default observer(function ChatDashboard() {
       });
       conn.on("close", () => {
         setCalling(false);
-        console.log("closed conn");
         peerStore.userCall = null;
         peerStore.onCallUser = false;
         peerStore.currentMediaStream?.getTracks().forEach((e) => e.stop());
@@ -109,7 +108,6 @@ export default observer(function ChatDashboard() {
       });
       conn.on("error", () => {
         setCalling(false);
-        console.log("error conn");
         peerStore.userCall = null;
         peerStore.onCallUser = false;
         peerStore.currentMediaStream?.getTracks().forEach((e) => e.stop());
@@ -120,13 +118,11 @@ export default observer(function ChatDashboard() {
 
     peerStore.peer?.on("error", (err) => {
       setCalling(false);
-      console.log("error conn", err);
       peerStore.userCall = null;
       peerStore.onCallUser = false;
       peerStore.userMediaStream = null;
       peerStore.currentMediaStream?.getTracks().forEach((e) => e.stop());
     });
-    // console.log(peerStore.peer?.call);
     //
     peerStore.peer?.on("disconnected", () => {
       setCalling(false);
@@ -143,7 +139,6 @@ export default observer(function ChatDashboard() {
           peerStore.currentMediaStream = mediaStream;
           call.on("close", () => {
             mediaStream.getTracks().forEach((e) => e.stop());
-            console.log("close");
             setCalling(false);
             peerStore.userCall = null;
             peerStore.onCallUser = false;
@@ -179,7 +174,6 @@ export default observer(function ChatDashboard() {
       peerStore.userCall = result;
     });
     conn?.on("close", () => {
-      console.log("conn close");
       peerStore.currentMediaStream?.getTracks().forEach((e) => e.stop());
       setCalling(false);
       peerStore.userCall = null;
@@ -196,7 +190,6 @@ export default observer(function ChatDashboard() {
         var call = peerStore.peer?.call(id, data);
         setOnCall(call);
         call?.on("stream", (remoteStream) => {
-          // console.log("Client", remoteStream);
           peerStore.userMediaStream = remoteStream;
           userRef.current!.srcObject = remoteStream;
         });
@@ -800,8 +793,6 @@ export default observer(function ChatDashboard() {
                                       file,
                                     ]);
                                   }
-                                  // setSelectedFile(files[0]);
-                                  // console.log(files);
                                 }}
                               />
                             </label>

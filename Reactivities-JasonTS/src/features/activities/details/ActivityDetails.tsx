@@ -109,10 +109,6 @@ export default observer(function ActivityDetails() {
     };
   }, [commentStore, id]);
 
-  if (query.isError) {
-    console.log(query.error);
-  }
-
   if (query.isSuccess) {
     if (query.data.isHost) {
       activityStore.selectedActivity = query.data;
@@ -140,7 +136,13 @@ export default observer(function ActivityDetails() {
             query.data.isCanceled = !query.data.isCanceled;
           }
         })
-        .catch((err) => console.log(err));
+        .catch((err) =>
+          Swal.fire({
+            title: "Error!",
+            text: "sorry there's a problem",
+            icon: "error",
+          })
+        );
     };
     const user = Store.userStore.user;
     if (user) {
@@ -427,11 +429,9 @@ export default observer(function ActivityDetails() {
                                         onChange={(e) =>
                                           convertImageToBase64(
                                             e.target.files?.[0]!
+                                          ).then((data) =>
+                                            setFile(data as string)
                                           )
-                                            .then((data) =>
-                                              setFile(data as string)
-                                            )
-                                            .catch((err) => console.log(err))
                                         }
                                       />
                                       <FaFileImage size={20} />

@@ -27,8 +27,6 @@ export default function ActivityForm() {
   const navigate = useNavigate();
   const mutate = useMutation({
     mutationFn: (activity: ActivityFormValues) => {
-      console.log(activity);
-
       if (!activity.id) {
         let id = uuid();
         activity.id = id;
@@ -50,7 +48,11 @@ export default function ActivityForm() {
       }
     },
     onError: (error) => {
-      console.log(error);
+      Swal.fire({
+        title: "Error!",
+        text: "sorry there's a problem",
+        icon: "error",
+      });
     },
   });
 

@@ -2,12 +2,10 @@ import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./app/layout/Navbar";
 import HomePage from "./features/home/homePage";
 import ModalContainer from "./app/common/ModalContainer";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useStore } from "./app/store/store";
 import "../src/assets/css/loader.css";
 import { observer } from "mobx-react-lite";
-import Peer from "peerjs";
-import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
   FaFileAudio,
@@ -16,9 +14,9 @@ import {
   FaFilePdf,
   FaFileVideo,
 } from "react-icons/fa6";
+import LoadingApp from "./app/common/LoadingApp";
 function App() {
   const location = useLocation();
-  // const [peer, setPeer] = useState<Peer | null>(null);
   const { userStore, commonStore, conversationStore, peerStore } = useStore();
   const isChatRoute = location.pathname.startsWith("/chat");
   const isVideoRoute = location.pathname.startsWith("/video");
@@ -63,11 +61,7 @@ function App() {
   ];
 
   if (!commonStore.appLoaded) {
-    return (
-      <div className="h-screen w-screen flex justify-center items-center">
-        <div className="loader"></div>
-      </div>
-    );
+    return <LoadingApp />;
   }
   return (
     <div className="overflow-hidden">

@@ -4,6 +4,7 @@ import { Store } from "./store";
 import { format } from "date-fns";
 import { Profile } from "../models/profile";
 import { Pagination } from "../models/pagination";
+import Swal from "sweetalert2";
 
 export default class ActivityStore {
   activities: Activity[] = [];
@@ -16,20 +17,6 @@ export default class ActivityStore {
   constructor() {
     makeAutoObservable(this);
   }
-
-  // loadActivities =  ( ) => {
-  //   try {
-  //     const {data} =  useQueryActity()
-  //     console.log(data);
-
-  //     data?.items.forEach(activiti => {
-  //       this.setActivity(activiti)
-  //     })
-  //   } catch (error) {
-  //     console.log(error);
-
-  //   }
-  // }
 
   nextPagination() {
     this.pageNumber += 1;
@@ -45,9 +32,7 @@ export default class ActivityStore {
       this.activities.forEach((e) => {
         this.setActivity(e);
       });
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   saveActivity = (activity: Activity) => {
@@ -57,9 +42,7 @@ export default class ActivityStore {
         this.selectedActivity = activity;
       });
       return activity;
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   private setActivity = (activity: Activity) => {
@@ -75,7 +58,6 @@ export default class ActivityStore {
     }
     activity.date = new Date(activity.date!);
     this.activitRegistry.set(activity.id, activity);
-    console.log(this.activitRegistry.size);
   };
 
   get activitiesByDate() {
@@ -102,7 +84,6 @@ export default class ActivityStore {
 
   updateAttende = () => {
     const user = Store.userStore.user;
-    console.log("test");
 
     try {
       runInAction(() => {
@@ -123,7 +104,11 @@ export default class ActivityStore {
         );
       });
     } catch (error) {
-      console.log(error);
+      Swal.fire({
+        title: "Error!",
+        text: "sorry there's a problem",
+        icon: "error",
+      });
     }
   };
 }

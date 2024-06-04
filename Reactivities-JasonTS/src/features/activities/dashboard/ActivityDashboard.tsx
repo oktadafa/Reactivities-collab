@@ -49,7 +49,6 @@ export default function ActivityDashboard() {
         conn.send(JSON.stringify(data));
       });
       conn.on("close", () => {
-        // console.log("closed conn");
         setCalling(false);
         peerStore.userCall = null;
         peerStore.onCallUser = false;
@@ -98,7 +97,6 @@ export default function ActivityDashboard() {
   }
 
   if (mutatate.isSuccess) {
-    console.log(mutatate.data);
 
     activityStore.saveActivities(
       mutatate.data.pages[mutatate.data.pages.length - 1]

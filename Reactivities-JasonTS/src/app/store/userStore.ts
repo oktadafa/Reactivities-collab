@@ -3,6 +3,7 @@ import { User } from "../models/user";
 import { getCurrentUser } from "../api/api";
 import { Store } from "./store";
 import { router } from "../router/router";
+import Swal from "sweetalert2";
 
 export default class UserStore {
   user: User | null = null;
@@ -18,9 +19,8 @@ export default class UserStore {
       const user = await getCurrentUser();
       Store.conversationStore.createHubConnection();
       this.user = user;
-      console.log(user);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 

@@ -31,9 +31,6 @@ export const useMutationDeleteMessage = () => {
     mutationFn: (id: string) => {
       return deleteMessage(id);
     },
-    onSuccess: (data) => {
-      console.log(data);
-    },
   });
 };
 
@@ -48,13 +45,6 @@ export const useMutationUpdateAttendance = () => {
   return useMutation({
     mutationFn: (id: any) => {
       return updateAttendance(id);
-    },
-    onSuccess: (data) => {
-      console.log(data);
-    },
-
-    onError: (error) => {
-      console.log(error);
     },
   });
 };
@@ -79,12 +69,7 @@ export const useMutationUpdateFollow = () => {
   return useMutation({
     mutationFn: (username: string) => updateFollow(username),
     mutationKey: ["updateFollow"],
-    onSuccess: (data) => {
-      console.log(data);
-    },
-    onError: (error) => {
-      console.log(error);
-    },
+    
   });
 };
 
@@ -93,7 +78,6 @@ export const useMutationUploadPhoto = () => {
     mutationFn: (base64: string) => uploadPhoto(base64),
     mutationKey: ["uploadPhoto"],
     onSuccess: (data) => {
-      console.log(data);
       Swal.fire({
         title: "Success",
         text: "Success Upload Photo",
@@ -101,7 +85,6 @@ export const useMutationUploadPhoto = () => {
       });
     },
     onError: (error) => {
-      console.log(error);
       Swal.fire({
         title: "Failed",
         text: "Failed To Upload Photo",
@@ -115,11 +98,7 @@ export const useMutationSetMainPhoto = () => {
   return useMutation({
     mutationFn: (id: string) => setMain(id),
     mutationKey: ["setMain"],
-    onSuccess: (data) => {
-      console.log(data);
-    },
     onError: (data) => {
-      console.log(data);
       Swal.fire({
         title: "Failed",
         text: "Failed To Set Main Photo",
@@ -133,11 +112,8 @@ export const useMutationDeletePhoto = () => {
   return useMutation({
     mutationFn: (id: string) => deletePhoto(id),
     mutationKey: ["deletePhoto"],
-    onSuccess: (data) => {
-      console.log(data);
-    },
+    
     onError: (data) => {
-      console.log(data);
       Swal.fire({
         title: "Failed",
         text: "Failed To Delete Photo",
@@ -150,12 +126,7 @@ export const useMutationUpdateProfile = () => {
   return useMutation({
     mutationFn: (profile: Partial<Profile>) => updateProfile(profile),
     mutationKey: ["updateProfil"],
-    onSuccess: (data) => {
-      console.log(data);
-    },
-    onError: (error) => {
-      console.log(error);
-    },
+    
   });
 };
 
@@ -163,12 +134,7 @@ export const useMutationSendComment = () => {
   return useMutation({
     mutationFn: (values: any) => SendComment(values),
     mutationKey: ["sendComment"],
-    onSuccess: (data) => {
-      console.log(data);
-    },
-    onError: (error) => {
-      console.log(error);
-    },
+    
   });
 };
 
@@ -189,11 +155,6 @@ export const useQueryListMessages = (username: string) => {
 export const useMutationSendMessage = () => {
   return useMutation({
     mutationFn: (message: any) => sendMessage(message),
-    onSuccess: (data) => {
-      console.log(data);
-    },
-    onError: (error) => {
-      console.error(error);
-    },
+    
   });
 };

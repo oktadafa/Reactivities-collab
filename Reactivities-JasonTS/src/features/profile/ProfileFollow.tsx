@@ -8,7 +8,6 @@ export default observer(function ProfileFollow() {
   const { profileStore } = useStore();
   const follow =
     profileStore.activeTab?.name == "Followings" ? "following" : "followers";
-  console.log(profileStore.profile?.username);
 
   const query = useQueryGetFollow(profileStore.profile?.username!, follow);
   if (query.isSuccess) {

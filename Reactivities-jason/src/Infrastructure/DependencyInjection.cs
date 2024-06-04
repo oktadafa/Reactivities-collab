@@ -18,13 +18,14 @@ public static class DependencyInjection
     public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
     {
         var connectionString = configuration.GetConnectionString("DefaultConnection");
-
+        // var connectionString = Environment.GetEnvironmentVariable("DefaultConnection");
         Guard.Against.Null(connectionString, message: "Connection string 'DefaultConnection' not found.");
         services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();
         services.AddScoped<ISaveChangesInterceptor, DispatchDomainEventsInterceptor>();
         services.AddStackExchangeRedisCache(options =>
         {
-            options.Configuration = configuration.GetConnectionString("RedisConnection");
+            options.Configuration = configuration.GetConnectionString("DefaultConnection");
+            // options.Configuration = Environment.GetEnvironmentVariable("RedisConnection");
             options.InstanceName = "Reactivities";
         });
         services.AddDbContext<ApplicationDbContext>((sp, options) =>

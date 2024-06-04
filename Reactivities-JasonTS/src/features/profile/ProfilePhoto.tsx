@@ -14,7 +14,7 @@ import LoadingAddAtendee from "../../app/common/LoadingAddAtendee";
 export default observer(function ProfilePhoto() {
   const [addPhotoMode, setAddPhotoMode] = useState(false);
   const {
-    profileStore: { profile, isCurrentUser, handleSetMain },
+    profileStore: { profile, isCurrentUser },
   } = useStore();
   const [target, setTarget] = useState("");
   const [loading, setLoading] = useState(false);
@@ -130,31 +130,6 @@ export default observer(function ProfilePhoto() {
             </p>
           </div>
         )}
-        {/* {profile?.photos?.length! > 0 ? (
-          profile?.photos?.map((e) => (
-            <div className="border-2 p-2">
-              <img src={e.fileBase64} className="w-60" />
-              <div className="flex justify-between mt-2">
-                <button
-                  className="px-4 rounded-md py-2 border-2 border-green-600 text-green-600 hover:shadow-green-600 hover:shadow active:shadow-none disabled:shadow-none disabled:border-green-200 disabled:text-green-200"
-                  disabled={e.isMain}
-                >
-                  Set Main
-                </button>
-                <button
-                  className="px-4 rounded-md py-2 border-2 border-red-600 text-red-600  hover:shadow-red-600 hover:shadow active:shadow-none disabled:border-red-200 disabled:text-red-200"
-                  disabled={!e.isMain}
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
-          ))
-        ) : (
-          <div className="w-full py-10">
-            <p className="text-2xl text-gray-400 text-center">No Any Photo</p>
-          </div>
-        )} */}
       </div>
     </div>
   );

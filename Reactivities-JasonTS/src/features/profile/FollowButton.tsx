@@ -19,7 +19,6 @@ export default observer(function FollowButton({ profile }: Props) {
       profile.following = !profile.following;
       setLoad(false);
     });
-    // console.log("succesa");
   };
 
   return (

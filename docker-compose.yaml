@@ -1,7 +1,50 @@
 version: "3"
 services:
   postgres:
+    container_name: postgres
     image: postgres:latest
     restart: always
     environment:
-      - POSTGRES_USER= okt
+      POSTGRES_USER: okta
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: okta
+    ports:
+      - "5432:5432"
+
+  redis-server:
+    container_name: redis-server
+    build:
+      context: Redis
+      dockerfile: Dockerfile
+    ports:
+      - "6379:6379"
+    restart: always
+
+  peerjs:
+    container_name: peerjs
+    image: peerjs/peerjs-server:latest
+    ports:
+      - "9000:9000"
+
+  backend:
+    container_name: backend
+    image: oktadr/backend:latest
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+  frontend:
+    container_name: frontend
+    build:
+      context: Reactivities-jasonTS
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    depends_on:
+      - peerjs
+      - backend
+    environment:
+      - VITE_API_URL=http://localhost:8080/api/
+      - VITE_COMMENT_URL=http://localhost:8080/chat/
+      - VITE_CHAT_URL=http://localhost:8080/conversation/
+      - VITE_PEER_HOST=localhost

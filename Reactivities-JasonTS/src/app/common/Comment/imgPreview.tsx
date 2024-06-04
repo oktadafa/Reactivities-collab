@@ -20,7 +20,6 @@ export default observer(function ImgPreview({img, id, setFile}:Props) {
           <Formik initialValues={{body:"", commentImage:img, activityId:""}} onSubmit={(values,{resetForm}) => {
             values.activityId = id;
             mutateAsync(values).then(data => {
-              console.log(data)
               setFile("")
             }
             )

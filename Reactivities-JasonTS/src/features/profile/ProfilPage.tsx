@@ -42,7 +42,6 @@ export default observer(function ProfilPage() {
         conn.send(JSON.stringify(data));
       });
       conn.on("close", () => {
-        // console.log("closed conn");
         setCalling(false);
         peerStore.userCall = null;
         peerStore.onCallUser = false;
@@ -50,12 +49,6 @@ export default observer(function ProfilPage() {
       });
       setConn(conn);
     });
-
-    peerStore.peer?.on("error", (err) => {
-      console.log(err);
-    });
-    // console.log(peerStore.peer?.call);
-    //
     peerStore.peer?.on("disconnected", () => {
       peerStore.userCall = null;
       peerStore.onCallUser = false;

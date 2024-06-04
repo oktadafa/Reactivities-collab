@@ -6,7 +6,7 @@ import { User } from "../models/user";
 import { values } from "mobx";
 import { Profile, userActivity } from "../models/profile";
 
-axios.defaults.baseURL = "https://localhost:5001";
+axios.defaults.baseURL = import.meta.env.VITE_API_URL;
 axios.defaults.withCredentials = true;
 
 axios.interceptors.request.use((config) => {
@@ -23,7 +23,7 @@ export const getActivities = async (
   PageNumber: number
 ) => {
   const data = await axios.get<Pagination>(
-    `/api/Activity?ListId=1&PageNumber=${PageNumber}&PageSize=2&startDate=${startDate}&params=${params}`
+    `Activity?ListId=1&PageNumber=${PageNumber}&PageSize=2&startDate=${startDate}&params=${params}`
   );
   return data.data;
 };
@@ -38,45 +38,44 @@ export const getActivities2 = async ({
   params: string;
 }) => {
   const data = await axios.get<Pagination>(
-    `/api/Activity?ListId=1&PageNumber=${pageParam}&PageSize=4&startDate=${startDate}&Param=${params}`
+    `Activity?ListId=1&PageNumber=${pageParam}&PageSize=4&startDate=${startDate}&Param=${params}`
   );
-  console.log(data.data);
 
   return data.data;
 };
 
 export const loginApi = (user: any) => {
-  return axios.post("/api/Users/login", user);
+  return axios.post("/Users/login", user);
 };
 
 export const RegisterApi = async (register: any) => {
-  return await axios.post("/api/Users/register", register);
+  return await axios.post("/Users/register", register);
 };
 
 export const getCurrentUser = async (): Promise<User> => {
-  const data = await axios.get("/api/Users");
+  const data = await axios.get("/Users");
   return data.data;
 };
 
 export const getActivityById = async (id: string): Promise<Activity> => {
-  const result = await axios.get(`/api/Activity/get/${id}`);
+  const result = await axios.get(`Activity/get/${id}`);
   return result.data;
 };
 
 export const creacteActivity = async (values: ActivityFormValues) => {
-  return axios.post("/api/activity/tambah", values);
+  return axios.post("activity/tambah", values);
 };
 
 export const updateActivity = async (values: ActivityFormValues) => {
-  return axios.put(`/api/activity/update/${values.id}`, values);
+  return axios.put(`activity/update/${values.id}`, values);
 };
 
 export const updateAttendance = (id: any) => {
-  return axios.put("/api/activity/attendee", id);
+  return axios.put("activity/attendee", id);
 };
 
 export const getProfile = async (username: string): Promise<Profile> => {
-  const data = await axios.get(`/api/profiles/${username}`);
+  const data = await axios.get(`profiles/${username}`);
   return data.data;
 };
 
@@ -85,59 +84,57 @@ export const getActivityByPredicate = async (
   predicate: string
 ): Promise<userActivity[]> => {
   const data = await axios.get(
-    `/api/profiles/${username}/activities?predicate=${predicate}`
+    `profiles/${username}/activities?predicate=${predicate}`
   );
   return data.data;
 };
 
 export const updateFollow = (username: string) => {
-  return axios.put(`/api/follow/${username}`);
+  return axios.put(`follow/${username}`);
 };
 
 export const listFollowing = async (
   username: string,
   predicate: string
 ): Promise<Profile[]> => {
-  const data = await axios.get(
-    `/api/follow/${username}?predicate=${predicate}`
-  );
+  const data = await axios.get(`follow/${username}?predicate=${predicate}`);
   return data.data;
 };
 
 export const uploadPhoto = (base64: string) => {
-  return axios.post("/api/photo", { filename: "test.png", fileBase64: base64 });
+  return axios.post("photo", { filename: "test.png", fileBase64: base64 });
 };
 
 export const setMain = (id: string) => {
-  return axios.put(`/api/photo/${id}`);
+  return axios.put(`photo/${id}`);
 };
 
 export const deletePhoto = (id: string) => {
-  return axios.delete(`/api/photo/${id}`);
+  return axios.delete(`photo/${id}`);
 };
 
 export const updateProfile = (profile: Partial<Profile>) => {
-  return axios.put("/api/profiles/update", profile);
+  return axios.put("profiles/update", profile);
 };
 
 export const SendComment = (comment: any) => {
-  return axios.post("/api/chat/send", comment);
+  return axios.post("chat/send", comment);
 };
 
 export const listConversations = async (): Promise<Conversation[]> => {
-  const data = await axios.get("/api/conversations");
+  const data = await axios.get("conversations");
   return data.data;
 };
 
 export const listMessage = async (username: string): Promise<Messages[]> => {
-  const data = await axios.get("/api/conversations/messages/" + username);
+  const data = await axios.get("conversations/messages/" + username);
   return data.data;
 };
 
 export const sendMessage = async (message: any) => {
-  return axios.post("/api/conversations/send/message", message);
+  return axios.post("conversations/send/message", message);
 };
 
 export const deleteMessage = (id: string) => {
-  return axios.delete("/api/conversations/message/" + id);
+  return axios.delete("conversations/message/" + id);
 };

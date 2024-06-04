@@ -19,10 +19,6 @@ export default function ProfileActivity() {
     { id: 2, name: "past", value: "Past Events" },
     { id: 2, name: "hosting", value: "Hosting" },
   ];
-  if (query.isSuccess) {
-    console.log(query.data);
-  }
-
   return (
     <div>
       <div className="flex sm:text-xl text-sm items-center">

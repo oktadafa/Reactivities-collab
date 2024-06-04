@@ -127,7 +127,7 @@ export default observer(function registerForm() {
               <button
                 disabled={!isValid}
                 type="submit"
-                className="disabled:bg-green-400 p-2 bg-green-600 text-white rounded-lg disabled:active:ring-0 active:ring-2 active:ring-green-400 hover:ring-1 hover:ring-green-300 disabled:hover:ring"
+                className="disabled:bg-green-400 p-2 bg-green-600 text-white rounded-lg disabled:active:ring-none active:ring-2 disabled:ring-white  active:ring-green-400 hover:ring-1  hover:ring-green-300 disabled:hover:ring-none"
               >
                 Submit
               </button>

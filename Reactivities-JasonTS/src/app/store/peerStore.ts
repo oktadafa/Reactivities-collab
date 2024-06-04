@@ -20,22 +20,9 @@ export default class PeerStore {
 
   newPeer = () => {
     this.peer = new Peer(Store.userStore.user?.id!, {
-      host: "localhost",
+      host: import.meta.env.VITE_PEER_HOST,
       port: 9000,
       path: "/",
     });
   };
-
-  // callUser = (id: string) => {
-  //   console.log(this.peer);
-
-  //   const conn = this.peer?.connect(id);
-  //   conn?.on("open", () => {
-  //     conn.send("Succces Connection");
-  //   });
-  //   conn?.on("error", () => {
-  //     console.log("error");
-  //   });
-  //   console.log(conn);
-  // };
 }

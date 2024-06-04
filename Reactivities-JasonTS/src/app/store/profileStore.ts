@@ -25,7 +25,6 @@ export default class ProfileStore {
   }
 
   setActiveTab(tab: Tab) {
-    console.log(tab);
 
     this.activeTab = tab;
   }
@@ -60,8 +59,4 @@ export default class ProfileStore {
     });
   }
 
-  handleSetMain() {
-    console.log(this.profile);
-    
-  }
 }

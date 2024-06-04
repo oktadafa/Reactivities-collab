@@ -7,6 +7,7 @@ import { makeAutoObservable, runInAction } from "mobx";
 import { Store } from "./store";
 import { format } from "date-fns";
 import Peer from "peerjs";
+import Swal from "sweetalert2";
 export default class ConversationStore {
   selectedParticipants: Participant | null = null;
   hubConnection: HubConnection | null = null;
@@ -36,7 +37,7 @@ export default class ConversationStore {
   };
   createHubConnection = () => {
     this.hubConnection = new HubConnectionBuilder()
-      .withUrl("https://localhost:5001/conversation", {
+      .withUrl(import.meta.env.VITE_CHAT_URL, {
         accessTokenFactory: () =>
           Store.commonStore.bearer?.accessToken as string,
       })
@@ -44,11 +45,7 @@ export default class ConversationStore {
       .configureLogging(LogLevel.Information)
       .build();
 
-    this.hubConnection
-      .start()
-      .then((data) => console.log(data))
-      .catch((err) => console.error(err))
-      .finally(() => (this.loadingConversation = true));
+    this.hubConnection.start().finally(() => (this.loadingConversation = true));
 
     this.hubConnection.on("LoadConversation", (data: Conversation[]) => {
       runInAction(() => {
@@ -165,12 +162,8 @@ export default class ConversationStore {
           });
         }
 
-        console.log(conversation);
-
         //Jika Pesan dikirim dan user sedang yang dituju sedang membuka daftar pesan dengan user pengirim pesan
         if (this.ProfileMessage?.userName == conversation.username) {
-          console.log("test");
-
           this.ProfileMessage.messages.forEach((e) => {
             if (e.fromUsername == conversation.username) {
               e.isRead = true;
@@ -218,13 +211,16 @@ export default class ConversationStore {
     const data = {
       Username: username,
     };
-    console.log(username);
 
     this.laodignChat = true;
     try {
       await this.hubConnection?.invoke("listMessages", data);
     } catch (error) {
-      console.log(error);
+      Swal.fire({
+        title: "Error!",
+        text: "sorry there's a problem",
+        icon: "error",
+      });
     }
   };
 
