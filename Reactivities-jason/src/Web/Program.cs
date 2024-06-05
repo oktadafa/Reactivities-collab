@@ -60,7 +60,7 @@ app.UseExceptionHandler(options =>
         context.Response.StatusCode = 500;
         context.Response.ContentType = "text/plain";
 
-        await context.Response.WriteAsync("Internal Server ERror");
+        await context.Response.WriteAsync("Internal Server Error");
     });
 });
 

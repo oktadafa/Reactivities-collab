@@ -1,9 +1,8 @@
 import { observer } from "mobx-react-lite";
-import React, { SyntheticEvent, useState } from "react";
+import { SyntheticEvent, useState } from "react";
 import { FaFileImage } from "react-icons/fa6";
 import { useStore } from "../../app/store/store";
 import PhotoUploadWidget from "../../app/common/imageUpload/PhotoUploadWidget";
-import ProfileStore from "../../app/store/profileStore";
 import { Photo } from "../../app/models/profile";
 import {
   useMutationDeletePhoto,
@@ -20,9 +19,7 @@ export default observer(function ProfilePhoto() {
   const [loading, setLoading] = useState(false);
   const { mutateAsync } = useMutationSetMainPhoto();
   const deletePhoto = useMutationDeletePhoto();
-  const uploadPhoto = (file: Blob) => {
-    console.log(file);
-  };
+
   const handleMain = (
     photo: Photo,
     click: SyntheticEvent<HTMLButtonElement>
@@ -86,10 +83,7 @@ export default observer(function ProfilePhoto() {
       </div>
       <div className="flex flex-wrap mt-4 w-full max-h-68 overflow-y-auto">
         {addPhotoMode ? (
-          <PhotoUploadWidget
-            uploadPhoto={uploadPhoto}
-            setPhotoMode={setAddPhotoMode}
-          />
+          <PhotoUploadWidget setPhotoMode={setAddPhotoMode} />
         ) : profile?.photos?.length! > 0 ? (
           profile?.photos?.map((e) => (
             <div className="sm:border-2 sm:p-2 border p-1 rounded ml-2 hover:shadow-lg mt-3">

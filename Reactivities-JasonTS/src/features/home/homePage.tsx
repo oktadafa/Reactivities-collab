@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useStore } from "../../app/store/store";
 import LoginForm from "../users/LoginForm";
 import { observer } from "mobx-react-lite";

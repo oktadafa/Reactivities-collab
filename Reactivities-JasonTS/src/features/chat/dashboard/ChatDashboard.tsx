@@ -24,7 +24,7 @@ import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import ScrollableFeed from "react-scrollable-feed";
 import { observer } from "mobx-react-lite";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { HiMiniCheckCircle } from "react-icons/hi2";
 import UploadFile from "../../../app/common/UploadFile/UploadFile";
 import LoadingAddAtendee from "../../../app/common/LoadingAddAtendee";
@@ -116,7 +116,7 @@ export default observer(function ChatDashboard() {
       setConn(conn);
     });
 
-    peerStore.peer?.on("error", (err) => {
+    peerStore.peer?.on("error", () => {
       setCalling(false);
       peerStore.userCall = null;
       peerStore.onCallUser = false;
@@ -193,7 +193,7 @@ export default observer(function ChatDashboard() {
           peerStore.userMediaStream = remoteStream;
           userRef.current!.srcObject = remoteStream;
         });
-        call?.on("error", (err) => {
+        call?.on("error", () => {
           data.getTracks().forEach((e) => e.stop());
           peerStore.userCall = null;
           peerStore.onCallUser = false;
@@ -713,7 +713,7 @@ export default observer(function ChatDashboard() {
                       };
                       sendMessage
                         .mutateAsync(data)
-                        .then((e) => {
+                        .then(() => {
                           const check = conversationStore.Conversation.some(
                             (e) =>
                               e.username === conversationStore.selectedUsername

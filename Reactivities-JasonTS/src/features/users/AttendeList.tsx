@@ -1,4 +1,3 @@
-import React from "react";
 import { Profile } from "../../app/models/profile";
 import { Link } from "react-router-dom";
 import { FaCircleCheck, FaXmark } from "react-icons/fa6";

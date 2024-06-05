@@ -77,14 +77,14 @@ export const useMutationUploadPhoto = () => {
   return useMutation({
     mutationFn: (base64: string) => uploadPhoto(base64),
     mutationKey: ["uploadPhoto"],
-    onSuccess: (data) => {
+    onSuccess: () => {
       Swal.fire({
         title: "Success",
         text: "Success Upload Photo",
         icon: "success",
       });
     },
-    onError: (error) => {
+    onError: () => {
       Swal.fire({
         title: "Failed",
         text: "Failed To Upload Photo",
@@ -98,7 +98,7 @@ export const useMutationSetMainPhoto = () => {
   return useMutation({
     mutationFn: (id: string) => setMain(id),
     mutationKey: ["setMain"],
-    onError: (data) => {
+    onError: () => {
       Swal.fire({
         title: "Failed",
         text: "Failed To Set Main Photo",
@@ -113,7 +113,7 @@ export const useMutationDeletePhoto = () => {
     mutationFn: (id: string) => deletePhoto(id),
     mutationKey: ["deletePhoto"],
     
-    onError: (data) => {
+    onError: () => {
       Swal.fire({
         title: "Failed",
         text: "Failed To Delete Photo",

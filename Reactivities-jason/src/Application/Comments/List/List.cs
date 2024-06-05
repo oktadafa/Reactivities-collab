@@ -34,7 +34,7 @@ namespace Reactivities_jason.Application.Comments.List
             if (comments == null)
             {
                 _logger.Warning($"No Activity With ID Equal {request.ActivityId}");
-                return null;
+                throw new NotFoundException(nameof(comments), request.ActivityId.ToString());
             }
 
             foreach (var comment in comments)

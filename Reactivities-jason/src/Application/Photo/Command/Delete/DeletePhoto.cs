@@ -36,7 +36,7 @@ namespace Reactivities_jason.Application.Photo.Command.Delete
             if (photo is null)
             {
                 _logger.Error($"No Photo With ID {request.id}");
-                return null;
+                throw new NotFoundException(nameof(photo), request.id.ToString());
             }
             user.Photos.Remove(photo);
             await _context.SaveChangesAsync(cancellationToken);

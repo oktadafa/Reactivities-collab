@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Reactivities_jason.Application.Common.Interfaces;
 using Reactivities_jason.Application.Common.Security;
 
@@ -20,6 +16,7 @@ namespace Reactivities_jason.Application.Activities.Queries.GetById
         private readonly IApplicationDbContext _context;
         private readonly IMapper _mapper;
 
+
         public ActivityByIdHandler(IApplicationDbContext context, IMapper mapper)
         {
             _context = context;
@@ -30,7 +27,7 @@ namespace Reactivities_jason.Application.Activities.Queries.GetById
             var activity = await _context.Activities.ProjectTo<ListActivityDTO>(_mapper.ConfigurationProvider).FirstOrDefaultAsync(x => x.id == request.id);
             if (activity is null)
             {
-                return null;
+                throw new NotFoundException(nameof(activity), request.id.ToString());
             }
             return activity;
         }

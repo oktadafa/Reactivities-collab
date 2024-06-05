@@ -9,5 +9,4 @@ public class Users : EndpointGroupBase
         app.MapGroup(this)
             .MapCustomApi<AppUser>();
     }
-
 }

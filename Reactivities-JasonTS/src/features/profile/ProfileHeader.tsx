@@ -3,7 +3,6 @@ import { useStore } from "../../app/store/store";
 import LoadingAddAtendee from "../../app/common/LoadingAddAtendee";
 import { useMutationUpdateFollow } from "../../app/common/service";
 import { observer } from "mobx-react-lite";
-import { Link } from "react-router-dom";
 import { BsFillChatFill } from "react-icons/bs";
 import { router } from "../../app/router/router";
 

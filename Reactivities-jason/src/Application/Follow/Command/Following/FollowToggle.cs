@@ -38,7 +38,7 @@ namespace Reactivities_jason.Application.Follow.Command.Following
             if (target is null)
             {
                 _logger.Error($"Error Because Does Not User With Username With Username {request.TargetUsername}");
-                return null;
+                throw new NotFoundException(nameof(target), request.TargetUsername);
             }
 
             var following = await _context.UserFollowings.FindAsync(observer.Id, target.Id);

@@ -1,9 +1,8 @@
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import { Store } from "../store/store";
 import { Activity, ActivityFormValues } from "../models/activity";
 import { Pagination } from "../models/pagination";
 import { User } from "../models/user";
-import { values } from "mobx";
 import { Profile, userActivity } from "../models/profile";
 
 axios.defaults.baseURL = import.meta.env.VITE_API_URL;

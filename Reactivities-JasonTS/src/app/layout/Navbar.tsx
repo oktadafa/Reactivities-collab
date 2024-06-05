@@ -1,6 +1,5 @@
 import { useState } from "react";
 import {
-  FaBell,
   FaChevronDown,
   FaChevronUp,
   FaPeopleGroup,
@@ -11,7 +10,6 @@ import { Link, NavLink } from "react-router-dom";
 import { useStore } from "../store/store";
 import { observer } from "mobx-react-lite";
 import { BsFillChatFill } from "react-icons/bs";
-// import { getUser } from '../api/api';
 
 export default observer(function Navbar() {
   const [dropHidden, setDropHidden] = useState(true);

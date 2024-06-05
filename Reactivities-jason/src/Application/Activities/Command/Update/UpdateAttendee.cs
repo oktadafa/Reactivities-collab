@@ -35,9 +35,9 @@ namespace Reactivities_jason.Application.Activities.Command.Update
         public async Task<Result> Handle(UpdateAttendeeCommand request, CancellationToken cancellationToken)
         {
             var user = await _manager.Users.SingleOrDefaultAsync(x => x.UserName == _user.GetUsername());
-            if (user is null) return null;
+            if (user is null) throw new UnauthorizedAccessException();
             var activity = await _context.Activities.Include(x => x.Attendees).ThenInclude(x => x.AppUser).SingleOrDefaultAsync(x => x.Id == request.id);
-            if (activity is null) return null;
+            if (activity is null) throw new NotFoundException(nameof(activity), request.id.ToString());
 
             var hostUsername = activity.Attendees.FirstOrDefault(x => x.isHost)?.AppUser?.UserName;
             var attendance = activity.Attendees.FirstOrDefault(x => x.AppUser.UserName == user.UserName);

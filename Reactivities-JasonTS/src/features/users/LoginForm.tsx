@@ -22,7 +22,7 @@ export default observer(function LoginForm() {
     mutationFn: (user: user) => {
       return loginApi(user);
     },
-    onError: (error: Error) => {
+    onError: () => {
       Swal.fire({
         text: "Email Or Password Wrong!",
         title: "Failed",

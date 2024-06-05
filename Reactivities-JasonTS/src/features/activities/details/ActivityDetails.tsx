@@ -136,7 +136,7 @@ export default observer(function ActivityDetails() {
             query.data.isCanceled = !query.data.isCanceled;
           }
         })
-        .catch((err) =>
+        .catch(() =>
           Swal.fire({
             title: "Error!",
             text: "sorry there's a problem",

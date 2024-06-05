@@ -31,7 +31,7 @@ namespace Reactivities_jason.Application.Profiles.Queries.Detail
             var user = await _userManager.Users.ProjectTo<Profiles>(_mapper.ConfigurationProvider, new { currentUsername = _user.GetUsername() }).SingleOrDefaultAsync(x => x.Username == request.Username);
             if (user is null)
             {
-                return null;
+                throw new NotFoundException(nameof(user), request.Username);
             }
             _logger.Information($"Success Get Profile User {user.Username}");
             return user;

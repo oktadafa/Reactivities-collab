@@ -7,7 +7,6 @@ import RequireAuth from "./RequireAuth";
 import HomePage from "../../features/home/homePage";
 import ProfilPage from "../../features/profile/ProfilPage";
 import ChatDashboard from "../../features/chat/dashboard/ChatDashboard";
-import Video from "../common/Video/Video";
 
 export const routes: RouteObject[] = [
   {
@@ -23,7 +22,6 @@ export const routes: RouteObject[] = [
           { path: "activities/:id", element: <ActivityDetails /> },
           { path: "profile/:username", element: <ProfilPage /> },
           { path: "chat", element: <ChatDashboard /> },
-          { path: "video", element: <Video /> },
         ],
       },
       { path: "", element: <HomePage /> },

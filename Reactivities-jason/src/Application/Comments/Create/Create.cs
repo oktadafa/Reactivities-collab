@@ -44,7 +44,7 @@ namespace Reactivities_jason.Application.Comments.Create
                 if (Activity is null)
                 {
                     _logger.Error($"No Activity With Activity Id Equal {request.ActivityId}");
-                    return null;
+                    throw new NotFoundException(nameof(Activity), request.ActivityId.ToString());
                 }
 
                 var paretnComment = Activity.Comments.FirstOrDefault(x => x.Id.ToString() == request.ParentCommentId);

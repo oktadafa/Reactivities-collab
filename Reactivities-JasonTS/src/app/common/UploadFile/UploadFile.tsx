@@ -1,5 +1,4 @@
-import React from "react";
-import { FaFile, FaFileAudio, FaFileLines, FaFilePdf } from "react-icons/fa6";
+import { FaFileLines, FaFilePdf } from "react-icons/fa6";
 
 interface Props {
   File: FileBase64;

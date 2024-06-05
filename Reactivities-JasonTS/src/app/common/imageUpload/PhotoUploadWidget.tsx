@@ -2,20 +2,16 @@ import React, { useEffect, useState } from "react";
 import PhotoWidgetDropzone from "./PhotoWidgetDropzone";
 import PhotoWidgetCropper from "./PhotoWIdgetCropper";
 import { FaCheck, FaX } from "react-icons/fa6";
-import { useMutationUpdateFollow, useMutationUploadPhoto } from "../service";
+import { useMutationUploadPhoto } from "../service";
 import LoadingAddAtendee from "../LoadingAddAtendee";
 import { useStore } from "../../store/store";
 import Swal from "sweetalert2";
 
 interface Props {
-  uploadPhoto: (file: Blob) => void;
   setPhotoMode: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function PhotoUploadWidget({
-  uploadPhoto,
-  setPhotoMode,
-}: Props) {
+export default function PhotoUploadWidget({ setPhotoMode }: Props) {
   const [files, setFiles] = useState<any | undefined>(undefined);
   const [cropper, setCropper] = useState<Cropper>();
   const { mutateAsync } = useMutationUploadPhoto();

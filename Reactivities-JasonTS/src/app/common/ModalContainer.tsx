@@ -1,4 +1,3 @@
-import React from "react";
 import { useStore } from "../store/store";
 import { observer } from "mobx-react-lite";
 

@@ -1,7 +1,6 @@
-import Peer, { DataConnection, MediaConnection } from "peerjs";
-import React, { LegacyRef, useEffect, useRef, useState } from "react";
-import UserStore from "../../store/userStore";
-import { Store, useStore } from "../../store/store";
+import { DataConnection, MediaConnection } from "peerjs";
+import React, { LegacyRef } from "react";
+import { useStore } from "../../store/store";
 import { FaPhoneFlip, FaPhoneSlash } from "react-icons/fa6";
 import { observer } from "mobx-react-lite";
 interface Props {

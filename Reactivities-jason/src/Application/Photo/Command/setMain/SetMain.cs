@@ -36,7 +36,7 @@ namespace Reactivities_jason.Application.Photo.Command.setMain
             if (photo is null)
             {
                 _logger.Error($"Error Because Does Not Photo With ID Equal {request.id} ");
-                return null;
+                throw new NotFoundException(nameof(photo), request.id.ToString());
             }
 
             var currentMain = user.Photos.FirstOrDefault(x => x.isMain);

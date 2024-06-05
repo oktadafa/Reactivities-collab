@@ -47,7 +47,7 @@ export default function ActivityForm() {
         navigate(`/activities/${activity.id}`);
       }
     },
-    onError: (error) => {
+    onError: () => {
       Swal.fire({
         title: "Error!",
         text: "sorry there's a problem",

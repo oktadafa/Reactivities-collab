@@ -1,5 +1,5 @@
-import { makeAutoObservable, runInAction } from "mobx";
-import { Photo, Profile, Tab } from "../models/profile";
+import { makeAutoObservable } from "mobx";
+import { Profile, Tab } from "../models/profile";
 import { Store } from "./store";
 
 export default class ProfileStore {
@@ -25,7 +25,6 @@ export default class ProfileStore {
   }
 
   setActiveTab(tab: Tab) {
-
     this.activeTab = tab;
   }
   handleUpdateFollow(profil: Profile, following: boolean) {
@@ -58,5 +57,4 @@ export default class ProfileStore {
       }
     });
   }
-
 }

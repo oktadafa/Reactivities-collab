@@ -3,7 +3,7 @@ import { useStore } from "../../app/store/store";
 import { observer } from "mobx-react-lite";
 import { RegisterApi } from "../../app/api/api";
 import { AxiosError, AxiosResponse } from "axios";
-import { ErrorMessage, Field, Form, Formik } from "formik";
+import { ErrorMessage, Form, Formik } from "formik";
 import ValidationErrors from "../errors/ValidationErrors";
 import Swal from "sweetalert2";
 import * as Yup from "yup";
@@ -32,7 +32,7 @@ export default observer(function registerForm() {
       throw modalStateErrors.flat();
     },
 
-    onSuccess: (data: AxiosResponse) => {
+    onSuccess: () => {
       Swal.fire({
         text: "Created Account Success",
         title: "Success",

@@ -1,4 +1,4 @@
-import { makeAutoObservable, reaction, runInAction } from "mobx";
+import { makeAutoObservable, runInAction } from "mobx";
 import { Activity } from "../models/activity";
 import { Store } from "./store";
 import { format } from "date-fns";

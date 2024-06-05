@@ -1,4 +1,3 @@
-import React from 'react'
 import { useStore } from '../store/store'
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
 
