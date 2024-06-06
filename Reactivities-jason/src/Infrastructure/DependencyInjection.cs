@@ -24,7 +24,7 @@ public static class DependencyInjection
         services.AddScoped<ISaveChangesInterceptor, DispatchDomainEventsInterceptor>();
         services.AddStackExchangeRedisCache(options =>
         {
-            options.Configuration = configuration.GetConnectionString("DefaultConnection");
+            options.Configuration = configuration.GetConnectionString("RedisConnection");
             // options.Configuration = Environment.GetEnvironmentVariable("RedisConnection");
             options.InstanceName = "Reactivities";
         });

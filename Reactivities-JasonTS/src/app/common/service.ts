@@ -69,7 +69,6 @@ export const useMutationUpdateFollow = () => {
   return useMutation({
     mutationFn: (username: string) => updateFollow(username),
     mutationKey: ["updateFollow"],
-    
   });
 };
 
@@ -112,7 +111,7 @@ export const useMutationDeletePhoto = () => {
   return useMutation({
     mutationFn: (id: string) => deletePhoto(id),
     mutationKey: ["deletePhoto"],
-    
+
     onError: () => {
       Swal.fire({
         title: "Failed",
@@ -126,7 +125,6 @@ export const useMutationUpdateProfile = () => {
   return useMutation({
     mutationFn: (profile: Partial<Profile>) => updateProfile(profile),
     mutationKey: ["updateProfil"],
-    
   });
 };
 
@@ -134,7 +132,6 @@ export const useMutationSendComment = () => {
   return useMutation({
     mutationFn: (values: any) => SendComment(values),
     mutationKey: ["sendComment"],
-    
   });
 };
 
@@ -155,6 +152,5 @@ export const useQueryListMessages = (username: string) => {
 export const useMutationSendMessage = () => {
   return useMutation({
     mutationFn: (message: any) => sendMessage(message),
-    
   });
 };

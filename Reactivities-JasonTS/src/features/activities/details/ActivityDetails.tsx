@@ -44,9 +44,6 @@ export default observer(function ActivityDetails() {
     displayName: "",
   });
   useEffect(() => {
-    if (id) {
-      commentStore.createHubConnection(id);
-    }
     peerStore.peer?.on("connection", (conn) => {
       conn.on("data", (data) => {
         const result: UserCall = JSON.parse(data as string);
@@ -61,53 +58,71 @@ export default observer(function ActivityDetails() {
         conn.send(JSON.stringify(data));
       });
       conn.on("close", () => {
+        setCalling(false);
         peerStore.userCall = null;
         peerStore.onCallUser = false;
+        peerStore.currentMediaStream?.getTracks().forEach((e) => e.stop());
+        peerStore.userMediaStream = null;
+      });
+      conn.on("error", () => {
+        setCalling(false);
+        peerStore.userCall = null;
+        peerStore.onCallUser = false;
+        peerStore.currentMediaStream?.getTracks().forEach((e) => e.stop());
         peerStore.userMediaStream = null;
       });
       setConn(conn);
     });
 
     peerStore.peer?.on("error", () => {
-      peerStore.userMediaStream?.getTracks().forEach((e) => e.stop());
-    });
-    peerStore.peer?.on("disconnected", () => {
-      peerStore.userMediaStream?.getTracks().forEach((e) => e.stop());
-
+      setCalling(false);
       peerStore.userCall = null;
       peerStore.onCallUser = false;
       peerStore.userMediaStream = null;
+      peerStore.currentMediaStream?.getTracks().forEach((e) => e.stop());
+    });
+    //
+    peerStore.peer?.on("disconnected", () => {
+      setCalling(false);
+      peerStore.userCall = null;
+      peerStore.onCallUser = false;
+      peerStore.currentMediaStream?.getTracks().forEach((e) => e.stop());
+      peerStore.userMediaStream = null;
     });
     peerStore.peer?.on("call", (call) => {
+      setCalling(true);
       navigator.mediaDevices
         .getUserMedia({ audio: true, video: true })
         .then((mediaStream) => {
-          setOnCall(call);
+          peerStore.currentMediaStream = mediaStream;
           call.on("close", () => {
-            mediaStream.getTracks().forEach((e) => e.stop);
-            call.close();
-            currentUserVideo.current = undefined;
-            peerStore.userMediaStream?.getTracks().forEach((e) => e.stop());
+            mediaStream.getTracks().forEach((e) => e.stop());
+            setCalling(false);
             peerStore.userCall = null;
             peerStore.onCallUser = false;
+            peerStore.currentMediaStream?.getTracks().forEach((e) => e.stop());
             peerStore.userMediaStream = null;
           });
           call.on("error", () => {
-            // mediaStream.getTracks().forEach((e) => e.stop());
-            peerStore.userMediaStream?.getTracks().forEach((e) => e.stop());
             peerStore.userCall = null;
             peerStore.onCallUser = false;
+            peerStore.currentMediaStream?.getTracks().forEach((e) => e.stop());
             peerStore.userMediaStream = null;
           });
+          setOnCall(call);
           currentUserVideo.current!.srcObject = mediaStream;
-          setCalling(true);
         });
     });
+  }, []);
+  useEffect(() => {
+    if (id) {
+      commentStore.createHubConnection(id);
+    }
     return () => {
       commentStore.clearComments();
       // peerStore.peer?.destroy()
     };
-  }, [commentStore, id]);
+  }, [commentStore, id, peerStore]);
 
   if (query.isSuccess) {
     if (query.data.isHost) {

@@ -58,7 +58,6 @@ namespace Reactivities_jason.Application.Activities.Queries
             }
 
             var paginatedList = await PaginatedList<ListActivityDTO>.CreateAsync(query, request.PageNumber, request.PageSize);
-            _logger.Information("Successfully Save List Activity To Cache");
             return paginatedList;
         }
     }

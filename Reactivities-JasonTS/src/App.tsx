@@ -92,7 +92,7 @@ function App() {
             <div className="flex">
               <div className="flex items-center">
                 <img
-                  src={"/assets/user.png" || e.image}
+                  src={e.image || "/assets/user.png"}
                   width={40}
                   className="rounded-full mr-5"
                 />

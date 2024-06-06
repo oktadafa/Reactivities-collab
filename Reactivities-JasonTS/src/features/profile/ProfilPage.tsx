@@ -26,8 +26,6 @@ export default observer(function ProfilPage() {
     userStore: { user },
   } = useStore();
   useEffect(() => {
-    profileStore.setActiveTab(tabs[0]);
-    modalStore.closeModal();
     peerStore.peer?.on("connection", (conn) => {
       conn.on("data", (data) => {
         const result: UserCall = JSON.parse(data as string);
@@ -79,6 +77,10 @@ export default observer(function ProfilPage() {
           currentUserVideo.current!.srcObject = mediaStream;
         });
     });
+  }, []);
+  useEffect(() => {
+    profileStore.setActiveTab(tabs[0]);
+    modalStore.closeModal();
   }, [profileStore, username]);
   const query = useQueryProfile(username!);
   if (query.isSuccess) {

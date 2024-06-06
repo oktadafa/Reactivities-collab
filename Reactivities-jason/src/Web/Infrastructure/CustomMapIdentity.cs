@@ -107,7 +107,7 @@ public static class IdentityApiEndpointRouteBuilderExtensions
             var userName = httpContext.HttpContext.User.FindFirstValue(ClaimTypes.Name);
             var userManager = serviceProvider.GetRequiredService<UserManager<AppUser>>();
             var mapper = serviceProvider.GetRequiredService<IMapper>();
-            var user = await userManager.Users.FirstOrDefaultAsync(x => x.UserName == userName);
+            var user = await userManager.Users.Include(x => x.Photos).FirstOrDefaultAsync(x => x.UserName == userName);
             if (user == null)
             {
                 return null;

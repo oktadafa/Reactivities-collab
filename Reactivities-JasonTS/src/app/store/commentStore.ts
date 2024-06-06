@@ -24,7 +24,7 @@ export default class CommentStore {
 
   createHubConnection = (activityId: string) => {
     this.hubConnection = new HubConnectionBuilder()
-      .withUrl(import.meta.env.VITE_CHAT_URL + "?activityId=" + activityId, {
+    .withUrl(import.meta.env.VITE_COMMENT_URL + "?activityId=" + activityId, {
         accessTokenFactory: () =>
           Store.commonStore.bearer?.accessToken as string,
       })
@@ -32,7 +32,7 @@ export default class CommentStore {
       .configureLogging(LogLevel.Information)
       .build();
 
-    this.hubConnection.start();
+    this.hubConnection.start().then((ee) => console.log(ee));
     this.hubConnection.on("LoadComments", (comments: ChatComment[]) => {
       this.comments = comments;
     });
@@ -52,6 +52,7 @@ export default class CommentStore {
   stopHubConnection = () => {
     this.hubConnection
       ?.stop()
+      .then((e) => console.log(e))
       .catch((error) => console.log("Error stopping the connection: ", error));
   };
 

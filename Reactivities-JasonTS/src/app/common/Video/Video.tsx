@@ -29,10 +29,7 @@ export default observer(function Video({
     });
     peerStore.AcceptCall = true;
   };
-
   const handleRejectCall = () => {
-    // call.off("willCloseOnRemote")
-    // call.close();
     conn?.close();
     currentRef.current = undefined;
     peerStore.userCall = null;
@@ -83,7 +80,6 @@ export default observer(function Video({
                 {peerStore.userCall?.DisplayName ||
                   conversationStore.ProfileMessage?.displayName}
               </p>
-              {/* <p>{peerStore.userCall.status == "call" && "Calling..."}</p> */}
               {peerStore.userCall?.status == "called" ? (
                 <div className="  flex justify-between mt-10">
                   <button
