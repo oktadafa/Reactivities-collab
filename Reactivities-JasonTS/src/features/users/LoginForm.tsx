@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import { router } from "../../app/router/router";
 import { AxiosResponse } from "axios";
 import * as Yup from "yup";
+import LoadingAddAtendee from "../../app/common/LoadingAddAtendee";
 interface user {
   username: string;
   password: string;
@@ -48,10 +49,11 @@ export default observer(function LoginForm() {
     <div className="sm:w-[30%] w-[70%] p-4 bg-white rounded-lg mx-auto mt-60">
       <Formik
         validationSchema={validation}
+        enableReinitialize
         initialValues={{ username: "", password: "" }}
         onSubmit={(values) => mutate.mutateAsync(values)}
       >
-        {({ handleSubmit, isSubmitting, isValid }) => (
+        {({ handleSubmit, isSubmitting, isValid, dirty }) => (
           <Form onSubmit={handleSubmit}>
             <p className="text-center text-2xl text-blue-500 font-bold mb-3">
               Login To Reactivities
@@ -77,10 +79,11 @@ export default observer(function LoginForm() {
               </button>
               <button
                 className="p-2 bg-green-600 text-white rounded-lg active:ring-2 active:ring-green-400 hover:ring-1 hover:ring-green-300 disabled:bg-green-200 disabled:ring-0 disabled:hover:ring-0"
-                disabled={!isValid || isSubmitting}
+                disabled={!isValid || isSubmitting || !dirty}
                 type="submit"
               >
-                Submit
+                {isSubmitting && <LoadingAddAtendee />}
+                <span className="ml-1">Submit</span>
               </button>
             </div>
           </Form>

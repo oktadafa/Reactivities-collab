@@ -8,6 +8,7 @@ import ValidationErrors from "../errors/ValidationErrors";
 import Swal from "sweetalert2";
 import * as Yup from "yup";
 import MyTextInput from "../../app/common/form/MyTextInput";
+import LoadingAddAtendee from "../../app/common/LoadingAddAtendee";
 interface UserRegistrasi {
   username: string;
   displayName: string;
@@ -54,7 +55,6 @@ export default observer(function registerForm() {
       .matches(/[A-Z]/, "Password Muts Contain At Least One Uppercase Letter")
       .matches(/\d/, "Password Must Contain At Least One Number")
       .matches(/\W/, "Password Must Contain At Least One Symbol"),
-    // .matches(/^(?=.*[a-zA-Z])()().*$/, "Password Invalid"),
     email: Yup.string().required("Email Required").email("Email Invalid"),
     displayName: Yup.string().required("Display Name Required"),
   });
@@ -75,7 +75,7 @@ export default observer(function registerForm() {
         }
         validationSchema={validationSchema}
       >
-        {({ handleSubmit, errors, isValid }) => (
+        {({ handleSubmit, errors, isValid, isSubmitting, dirty }) => (
           <Form onSubmit={handleSubmit}>
             <p className="text-center sm:text-2xl text-xl text-blue-500 font-bold mb-3">
               Register To Reactivities
@@ -125,11 +125,12 @@ export default observer(function registerForm() {
                 Cancel
               </button>
               <button
-                disabled={!isValid}
+                disabled={!isValid || isSubmitting || !dirty}
                 type="submit"
                 className="disabled:bg-green-400 p-2 bg-green-600 text-white rounded-lg disabled:active:ring-none active:ring-2 disabled:ring-white  active:ring-green-400 hover:ring-1  hover:ring-green-300 disabled:hover:ring-none"
               >
-                Submit
+                {isSubmitting && <LoadingAddAtendee />}
+                <span className="ml-1">Submit</span>
               </button>
             </div>
           </Form>
