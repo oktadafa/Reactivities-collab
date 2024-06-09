@@ -125,9 +125,9 @@ export default observer(function registerForm() {
                 Cancel
               </button>
               <button
+                className="p-2 bg-green-600 text-white rounded-lg active:ring-2 active:ring-green-400 hover:ring-1 hover:ring-green-300 disabled:bg-green-200 disabled:ring-0 disabled:hover:ring-0"
                 disabled={!isValid || isSubmitting || !dirty}
                 type="submit"
-                className="disabled:bg-green-400 p-2 bg-green-600 text-white rounded-lg disabled:active:ring-none active:ring-2 disabled:ring-white  active:ring-green-400 hover:ring-1  hover:ring-green-300 disabled:hover:ring-none"
               >
                 {isSubmitting && <LoadingAddAtendee />}
                 <span className="ml-1">Submit</span>

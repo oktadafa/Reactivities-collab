@@ -65,7 +65,7 @@ public static class DependencyInjection
         {
             opt.AddPolicy("Cookie", policy =>
             {
-                policy.AllowAnyHeader().AllowAnyMethod().AllowCredentials().WithOrigins("http://localhost:5173");
+                policy.AllowAnyHeader().AllowAnyMethod().AllowCredentials().WithOrigins(["http://localhost:5173", "https://reactivities-jason-ts.vercel.app/"]);
             });
         });
         services.AddAuthorizationBuilder();

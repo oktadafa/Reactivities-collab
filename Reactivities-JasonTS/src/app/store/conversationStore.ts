@@ -130,11 +130,15 @@ export default class ConversationStore {
 
     this.hubConnection.on("ListMessage", (list: ProfileMessage) => {
       runInAction(() => {
+        console.log(list);
+
         this.ProfileMessage = list;
         this.newMessage = this.newMessage.filter(
           (x) => x.fromUsername !== list.userName
         );
         this.Conversation.forEach((e) => {
+          console.log(e.fromUsername, e.isRead, e.noReadCount);
+
           if (e.fromUsername == list.userName) {
             this.CountNewMessage -= e.noReadCount * 2;
             e.noReadCount = 0;

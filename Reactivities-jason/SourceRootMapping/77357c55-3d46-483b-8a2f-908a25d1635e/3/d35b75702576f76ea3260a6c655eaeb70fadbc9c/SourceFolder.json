@@ -1,0 +1,26 @@
+﻿{
+  "build_artifactstagingdirectory": "1\\a",
+  "agent_builddirectory": "1",
+  "collectionUrl": "https://dev.azure.com/oktadr/",
+  "definitionName": "TestCoding-CI",
+  "repositoryTrackingInfo": [
+    {
+      "identifier": "__designer_repo",
+      "repositoryType": "Git",
+      "repositoryUrl": "https://oktadr@dev.azure.com/oktadr/TestCoding/_git/Reactivities-jason",
+      "sourcesDirectory": "1\\s\\Reactivities-jason"
+    }
+  ],
+  "fileFormatVersion": 3,
+  "lastRunOn": "06/06/2024 13:23:51 +07:00",
+  "repositoryType": "Git",
+  "lastMaintenanceAttemptedOn": "",
+  "lastMaintenanceCompletedOn": "",
+  "build_sourcesdirectory": "1\\s",
+  "common_testresultsdirectory": "1\\TestResults",
+  "collectionId": "77357c55-3d46-483b-8a2f-908a25d1635e",
+  "definitionId": "3",
+  "hashKey": "d35b75702576f76ea3260a6c655eaeb70fadbc9c",
+  "repositoryUrl": "https://oktadr@dev.azure.com/oktadr/TestCoding/_git/Reactivities-jason",
+  "system": "build"
+}
