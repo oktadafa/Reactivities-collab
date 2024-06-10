@@ -31,6 +31,7 @@ import LoadingAddAtendee from "../../../app/common/LoadingAddAtendee";
 import { DataConnection, MediaConnection } from "peerjs";
 import Video from "../../../app/common/Video/Video";
 import { router } from "../../../app/router/router";
+import Swal from "sweetalert2";
 export default observer(function ChatDashboard() {
   const { userStore, conversationStore, peerStore } = useStore();
   const sendMessage = useMutationSendMessage();
@@ -389,6 +390,7 @@ export default observer(function ChatDashboard() {
                       )}
                       <div className="w-[400px] border rounded-full bg-white mt-3 flex items-center p-2">
                         <input
+                          disabled={buttonLoad}
                           type="text"
                           className="outline-none h-6 w-full text-lg"
                           placeholder="Entry Message"
@@ -536,12 +538,22 @@ export default observer(function ChatDashboard() {
                           )}
                         </div>
                       ))}
-                      <label className="ml-2 inline-block rounded border-2 p-2 border-gray-500 active:bg-white">
+                      <label
+                        className={`ml-2 inline-block ${
+                          files.length == 2 && "hidden"
+                        } rounded border-2 p-2 border-gray-500 active:bg-white`}
+                      >
                         <input
                           type="file"
                           multiple
                           hidden
                           onChange={async (e) => {
+                            if (e.target.files!.length > 2) {
+                              return Swal.fire({
+                                text: "You can't upload more than 2 files at a time",
+                                title: "Failed",
+                              });
+                            }
                             for (
                               let index = 0;
                               index < e.target.files!.length;
@@ -770,6 +782,13 @@ export default observer(function ChatDashboard() {
                                 multiple
                                 hidden
                                 onChange={async (e) => {
+                                  if (e.target.files!.length > 2) {
+                                    return Swal.fire({
+                                      text: "You can't upload more than 2 files at a time",
+                                      title: "Failed",
+                                    });
+                                  }
+
                                   for (
                                     let index = 0;
                                     index < e.target.files!.length;
